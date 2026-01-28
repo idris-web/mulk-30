@@ -1,17 +1,115 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import { SURAH_INFO } from '../data/mulk-verses';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Sfida 30-Ditore">
+  <div class="min-h-screen flex flex-col">
+    <!-- Hero Section -->
+    <main class="flex-1 flex flex-col items-center justify-center px-4 py-12">
+      <div class="text-center max-w-md mx-auto">
+        <!-- Logo/Icon -->
+        <div class="w-24 h-24 mx-auto mb-8 rounded-full bg-[var(--color-primary)] bg-opacity-10 flex items-center justify-center">
+          <span class="arabic text-4xl text-[var(--color-primary)]">الملك</span>
+        </div>
+        
+        <!-- Title -->
+        <h1 class="text-3xl font-bold mb-2 text-[var(--color-text)]">
+          Mulk 30
+        </h1>
+        <p class="text-lg text-[var(--color-text-secondary)] mb-2">
+          Sfida 30-Ditore e Ramazanit
+        </p>
+        <p class="text-sm text-[var(--color-text-secondary)] mb-8">
+          Sureja {SURAH_INFO.nameAlbanian} • {SURAH_INFO.totalVerses} ajete
+        </p>
+        
+        <!-- Description -->
+        <p class="text-[var(--color-text-secondary)] mb-8 leading-relaxed">
+          Mëso një ajet çdo ditë të Ramazanit. Dëgjo, lexo dhe përparo 
+          në rrugën tënde për ta përfunduar Suren El-Mulk.
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="space-y-3">
+          <a 
+            href="/auth/signup" 
+            class="btn btn-primary w-full text-lg py-4"
+          >
+            Fillo Sfidën
+          </a>
+          <a 
+            href="/auth/login" 
+            class="btn btn-secondary w-full"
+          >
+            Kam llogari
+          </a>
+        </div>
+      </div>
+    </main>
+    
+    <!-- Features Section -->
+    <section class="px-4 py-12 bg-[var(--color-surface)]">
+      <div class="max-w-md mx-auto">
+        <h2 class="text-xl font-semibold text-center mb-8 text-[var(--color-text)]">
+          Çfarë përfshin sfida?
+        </h2>
+        
+        <div class="space-y-4">
+          <div class="card flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] bg-opacity-10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[var(--color-text)]">Një ajet në ditë</h3>
+              <p class="text-sm text-[var(--color-text-secondary)]">30 ajete për 30 ditë - ritmi perfekt për Ramazan</p>
+            </div>
+          </div>
+          
+          <div class="card flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] bg-opacity-10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 0112.728 0"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[var(--color-text)]">Audio me lexues të njohur</h3>
+              <p class="text-sm text-[var(--color-text-secondary)]">Dëgjo dhe mëso shqiptimin e saktë</p>
+            </div>
+          </div>
+          
+          <div class="card flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] bg-opacity-10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[var(--color-text)]">Fjalë për fjalë</h3>
+              <p class="text-sm text-[var(--color-text-secondary)]">Kuptoje çdo fjalë arabisht me përkthimin shqip</p>
+            </div>
+          </div>
+          
+          <div class="card flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] bg-opacity-10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[var(--color-text)]">Ndiq progresin</h3>
+              <p class="text-sm text-[var(--color-text-secondary)]">Shëno ditët e përfunduara dhe mbaj streakun</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="px-4 py-6 text-center text-sm text-[var(--color-text-secondary)]">
+      <p>© 2026 Lensa Labs</p>
+    </footer>
+  </div>
+</Layout>
