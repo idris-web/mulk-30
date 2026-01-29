@@ -139,7 +139,7 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
         </div>
 
         <!-- Navigation -->
-        <div class="flex gap-4 pt-2">
+        <div id="day-nav" class="flex gap-4 pt-2">
           {prevDay ? (
             <a href={`/app/day/${prevDay}`} class="btn btn-secondary flex-1 py-3.5">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -224,63 +224,6 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
   .action-btn { position: relative; }
 
   /* Locked state */
-  /* Focus Mode */
-  .focus-mode header,
-  .focus-mode nav,
-  .focus-mode #translation-toggle,
-  .focus-mode #translation-content,
-  .focus-mode .flex.gap-4.pt-2,
-  .focus-mode #transliteration,
-  .focus-mode #audio-bar-container {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    position: absolute !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    transition: opacity 0.3s ease;
-  }
-  .focus-mode main {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1rem;
-  }
-  .focus-mode main > .max-w-lg {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    width: 100%;
-    gap: 2rem;
-  }
-  .focus-mode #arabic-card {
-    border: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    transform: scale(1.05);
-    transition: transform 0.4s ease, box-shadow 0.3s ease, border 0.3s ease;
-  }
-  .focus-mode #arabic-card .flex.items-center.justify-center.gap-2 {
-    display: none !important;
-  }
-  .focus-mode #arabic-hidden {
-    border: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-  }
-  .focus-mode .flex.items-center.justify-center.gap-8 .action-btn {
-    width: 4rem !important;
-    height: 4rem !important;
-  }
-  .focus-mode .flex.items-center.justify-center.gap-8 .action-btn svg {
-    width: 2rem !important;
-    height: 2rem !important;
-  }
-  .focus-mode #panel-done {
-    order: -1;
-  }
   #page-root {
     transition: all 0.3s ease;
   }
@@ -319,6 +262,57 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
   }
   .step-pulse {
     animation: step-pulse 0.6s ease-out;
+  }
+</style>
+
+<style is:global>
+  /* Focus Mode — must be global to target unscoped elements */
+  .focus-mode header,
+  .focus-mode nav.sticky,
+  .focus-mode #translation-toggle,
+  .focus-mode #translation-content,
+  .focus-mode #transliteration,
+  .focus-mode #audio-bar-container,
+  .focus-mode #day-nav {
+    display: none !important;
+  }
+  .focus-mode main {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem !important;
+  }
+  .focus-mode main > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 85vh;
+    width: 100%;
+    gap: 2rem;
+  }
+  .focus-mode #arabic-card {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    transform: scale(1.05);
+  }
+  .focus-mode #arabic-card .flex {
+    display: none !important;
+  }
+  .focus-mode #arabic-hidden {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .focus-mode .action-btn {
+    width: 4rem !important;
+    height: 4rem !important;
+  }
+  .focus-mode .action-btn svg {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
   }
 </style>
 
