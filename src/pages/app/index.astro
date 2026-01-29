@@ -1,114 +1,89 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { SURAH_INFO, getVerseByDay } from '../../data/mulk-verses';
-
-// For demo, we'll use day 1. In real app, calculate from ramadan_start_date
-const currentDay = 1;
-const verse = getVerseByDay(currentDay);
+import { SURAH_INFO, MULK_VERSES } from '../../data/mulk-verses';
 ---
 
 <Layout title="Paneli">
   <div class="min-h-screen flex flex-col bg-[var(--color-background)]">
     <!-- Header -->
-    <header class="sticky top-0 z-10 bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 py-3">
+    <header class="sticky top-0 z-10 bg-[var(--color-surface)]/80 backdrop-blur-lg border-b border-[var(--color-border)] px-4 py-3 safe-top">
       <div class="max-w-lg mx-auto flex items-center justify-between">
         <div>
           <h1 class="text-lg font-semibold text-[var(--color-text)]">Mulk 30</h1>
           <p class="text-xs text-[var(--color-text-secondary)]">Sfida e Ramazanit</p>
         </div>
-        <button id="theme-toggle" class="w-10 h-10 rounded-full bg-[var(--color-background)] flex items-center justify-center">
-          <svg class="w-5 h-5 text-[var(--color-text)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="theme-toggle" class="w-10 h-10 rounded-full bg-[var(--color-background)] flex items-center justify-center" aria-label="Ndrysho temën">
+          <svg id="icon-moon" class="w-5 h-5 text-[var(--color-text)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg id="icon-sun" class="w-5 h-5 text-[var(--color-text)] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
           </svg>
         </button>
       </div>
     </header>
-    
+
     <!-- Main Content -->
     <main class="flex-1 px-4 py-6">
       <div class="max-w-lg mx-auto space-y-6">
-        
-        <!-- Progress Overview -->
+
+        <!-- Progress Card -->
         <div class="card">
           <div class="flex items-center justify-between mb-4">
             <h2 class="font-semibold text-[var(--color-text)]">Progresi yt</h2>
             <span class="text-sm text-[var(--color-text-secondary)]" id="progress-text">0/30</span>
           </div>
           <div class="progress-bar">
-            <div class="progress-bar-fill" style="width: 0%" id="progress-fill"></div>
+            <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
           </div>
           <div class="flex justify-between mt-3 text-sm">
             <div class="flex items-center gap-1 text-[var(--color-text-secondary)]">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+              <svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 23c-3.6 0-7-2.4-7-7 0-3.1 2.7-6.4 5-9.1V2l2.5 2L15 2v4.9c2.3 2.7 5 6 5 9.1 0 4.6-3.4 7-8 7z"/>
               </svg>
-              <span id="streak-count">0 ditë</span>
+              <span id="streak-count">0 ditë radhazi</span>
             </div>
-            <div class="text-[var(--color-primary)] font-medium">
-              Dita {currentDay}
+            <div class="text-[var(--color-primary)] font-medium" id="current-day-label">
+              Dita 1
             </div>
           </div>
         </div>
-        
+
         <!-- Today's Verse Card -->
-        <div class="card border-2 border-[var(--color-primary)] border-opacity-30">
+        <div class="card border-2 border-[var(--color-primary)]/30" id="today-card">
           <div class="flex items-center gap-2 mb-4">
             <div class="w-8 h-8 rounded-full bg-[var(--color-primary)] flex items-center justify-center">
-              <span class="text-white text-sm font-bold">{currentDay}</span>
+              <span class="text-white text-sm font-bold" id="today-day-num">1</span>
             </div>
             <div>
               <h3 class="font-semibold text-[var(--color-text)]">Ajeti i sotëm</h3>
-              <p class="text-xs text-[var(--color-text-secondary)]">{SURAH_INFO.name} • Ajeti {verse?.ayahNumber}</p>
+              <p class="text-xs text-[var(--color-text-secondary)]" id="today-meta">Al-Mulk • Ajeti 1</p>
             </div>
           </div>
-          
-          {verse && (
-            <>
-              <!-- Arabic Text -->
-              <div class="bg-[var(--color-background)] rounded-xl p-4 mb-4">
-                <p class="arabic arabic-large text-center text-[var(--color-text)] leading-loose">
-                  {verse.arabic}
-                </p>
-              </div>
-              
-              <!-- Audio Player Placeholder -->
-              <button id="play-audio" class="w-full btn btn-secondary mb-4">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                Dëgjo ajetin
-              </button>
-              
-              <!-- Transliteration -->
-              <p class="text-sm text-[var(--color-text-secondary)] italic mb-3">
-                {verse.transliteration}
-              </p>
-              
-              <!-- Albanian Translation -->
-              <p class="text-[var(--color-text)] leading-relaxed">
-                {verse.albanian}
-              </p>
-            </>
-          )}
-          
-          <!-- Action Buttons -->
+
+          <div class="bg-[var(--color-background)] rounded-xl p-4 mb-4">
+            <p class="arabic arabic-large text-center text-[var(--color-text)] leading-loose" id="today-arabic"></p>
+          </div>
+
+          <p class="text-sm text-[var(--color-text-secondary)] italic mb-3" id="today-translit"></p>
+          <p class="text-[var(--color-text)] leading-relaxed" id="today-albanian"></p>
+
           <div class="flex gap-3 mt-6">
-            <a href={`/app/day/${currentDay}`} class="btn btn-primary flex-1">
+            <a id="today-detail-link" href="/app/day/1" class="btn btn-primary flex-1">
               Shiko detajet
             </a>
-            <button id="mark-complete" class="btn btn-secondary">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button id="mark-complete" class="btn btn-secondary" aria-label="Shëno si të përfunduar">
+              <svg id="check-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </button>
           </div>
         </div>
-        
+
         <!-- Timeline Link -->
-        <a href="/app/timeline" class="card flex items-center justify-between">
+        <a href="/app/timeline" class="card flex items-center justify-between hover:bg-[var(--color-background)] transition-colors">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] bg-opacity-10 flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center">
               <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
@@ -122,30 +97,23 @@ const verse = getVerseByDay(currentDay);
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
           </svg>
         </a>
-        
       </div>
     </main>
-    
-    <!-- Bottom Navigation -->
-    <nav class="sticky bottom-0 bg-[var(--color-surface)] border-t border-[var(--color-border)] px-4 py-2">
+
+    <!-- Bottom Nav -->
+    <nav class="sticky bottom-0 bg-[var(--color-surface)]/80 backdrop-blur-lg border-t border-[var(--color-border)] px-4 py-2 safe-bottom">
       <div class="max-w-lg mx-auto flex justify-around">
-        <a href="/app" class="flex flex-col items-center gap-1 py-2 px-4 text-[var(--color-primary)]">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-          </svg>
+        <a href="/app" class="nav-item active">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
           <span class="text-xs font-medium">Kryefaqja</span>
         </a>
-        <a href="/app/timeline" class="flex flex-col items-center gap-1 py-2 px-4 text-[var(--color-text-secondary)]">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
+        <a href="/app/timeline" class="nav-item">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
           <span class="text-xs">Kalendari</span>
         </a>
-        <a href="/app/settings" class="flex flex-col items-center gap-1 py-2 px-4 text-[var(--color-text-secondary)]">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-          </svg>
-          <span class="text-xs">Profili</span>
+        <a href="/app/settings" class="nav-item">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          <span class="text-xs">Cilësimet</span>
         </a>
       </div>
     </nav>
@@ -153,10 +121,61 @@ const verse = getVerseByDay(currentDay);
 </Layout>
 
 <script>
+  import { getState, getCurrentDay, getStreak, getProgress, toggleDay, isDayCompleted } from '../../lib/challenge';
+  import { getVerseByDay, SURAH_INFO } from '../../data/mulk-verses';
+
+  function updateUI() {
+    const state = getState();
+    const day = getCurrentDay(state);
+    const verse = getVerseByDay(day);
+    const streak = getStreak(state);
+    const progress = getProgress(state);
+    const completed = isDayCompleted(day);
+
+    // Progress
+    document.getElementById('progress-text')!.textContent = `${state.completedDays.length}/30`;
+    (document.getElementById('progress-fill') as HTMLElement).style.width = `${progress}%`;
+    document.getElementById('streak-count')!.textContent = `${streak} ditë radhazi`;
+    document.getElementById('current-day-label')!.textContent = `Dita ${day}`;
+
+    // Today card
+    document.getElementById('today-day-num')!.textContent = String(day);
+    document.getElementById('today-meta')!.textContent = `${SURAH_INFO.name} • Ajeti ${verse?.ayahNumber}`;
+    document.getElementById('today-arabic')!.textContent = verse?.arabic || '';
+    document.getElementById('today-translit')!.textContent = verse?.transliteration || '';
+    document.getElementById('today-albanian')!.textContent = verse?.albanian || '';
+    (document.getElementById('today-detail-link') as HTMLAnchorElement).href = `/app/day/${day}`;
+
+    // Mark complete button
+    const btn = document.getElementById('mark-complete') as HTMLButtonElement;
+    if (completed) {
+      btn.classList.add('!bg-[var(--color-primary)]', '!text-white', '!border-[var(--color-primary)]');
+    } else {
+      btn.classList.remove('!bg-[var(--color-primary)]', '!text-white', '!border-[var(--color-primary)]');
+    }
+  }
+
+  // Mark complete
+  document.getElementById('mark-complete')?.addEventListener('click', () => {
+    const state = getState();
+    const day = getCurrentDay(state);
+    toggleDay(day);
+    updateUI();
+  });
+
   // Theme toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  themeToggle?.addEventListener('click', () => {
+  const toggle = document.getElementById('theme-toggle');
+  function updateThemeIcons() {
+    const dark = document.documentElement.classList.contains('dark');
+    document.getElementById('icon-moon')!.classList.toggle('hidden', dark);
+    document.getElementById('icon-sun')!.classList.toggle('hidden', !dark);
+  }
+  toggle?.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    updateThemeIcons();
   });
+
+  updateUI();
+  updateThemeIcons();
 </script>

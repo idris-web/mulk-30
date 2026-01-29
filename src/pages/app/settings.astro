@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SURAH_INFO } from '../../data/mulk-verses';
+---
+
+<Layout title="Cilësimet">
+  <div class="min-h-screen flex flex-col bg-[var(--color-background)]">
+    <header class="sticky top-0 z-10 bg-[var(--color-surface)]/80 backdrop-blur-lg border-b border-[var(--color-border)] px-4 py-3 safe-top">
+      <div class="max-w-lg mx-auto flex items-center gap-3">
+        <a href="/app" class="w-10 h-10 rounded-full bg-[var(--color-background)] flex items-center justify-center">
+          <svg class="w-5 h-5 text-[var(--color-text)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </a>
+        <h1 class="text-lg font-semibold text-[var(--color-text)]">Cilësimet</h1>
+      </div>
+    </header>
+
+    <main class="flex-1 px-4 py-6">
+      <div class="max-w-lg mx-auto space-y-6">
+
+        <!-- Theme -->
+        <div class="card">
+          <h2 class="font-semibold text-[var(--color-text)] mb-4">Pamja</h2>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+              <span class="text-[var(--color-text)]">Modaliteti i errët</span>
+            </div>
+            <button id="dark-toggle" class="relative w-12 h-7 rounded-full bg-[var(--color-border)] transition-colors" aria-label="Ndrysho temën">
+              <div id="dark-toggle-dot" class="absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow transition-transform"></div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Challenge Settings -->
+        <div class="card">
+          <h2 class="font-semibold text-[var(--color-text)] mb-4">Sfida</h2>
+          <div class="space-y-4">
+            <div>
+              <label class="text-sm text-[var(--color-text-secondary)] mb-1 block">Data e fillimit</label>
+              <input type="date" id="start-date" class="input" />
+            </div>
+            <button id="reset-btn" class="btn btn-secondary w-full text-red-500">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+              Fshij progresin
+            </button>
+          </div>
+        </div>
+
+        <!-- About -->
+        <div class="card">
+          <h2 class="font-semibold text-[var(--color-text)] mb-4">Rreth</h2>
+          <div class="space-y-2 text-sm text-[var(--color-text-secondary)]">
+            <p>{SURAH_INFO.description}</p>
+            <p class="pt-2">Mulk 30 v1.0 • Lensa Labs</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bottom Nav -->
+    <nav class="sticky bottom-0 bg-[var(--color-surface)]/80 backdrop-blur-lg border-t border-[var(--color-border)] px-4 py-2 safe-bottom">
+      <div class="max-w-lg mx-auto flex justify-around">
+        <a href="/app" class="nav-item">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          <span class="text-xs">Kryefaqja</span>
+        </a>
+        <a href="/app/timeline" class="nav-item">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          <span class="text-xs">Kalendari</span>
+        </a>
+        <a href="/app/settings" class="nav-item active">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          <span class="text-xs font-medium">Cilësimet</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</Layout>
+
+<script>
+  import { getState, saveState, setStartDate } from '../../lib/challenge';
+
+  // Dark mode toggle
+  const darkToggle = document.getElementById('dark-toggle') as HTMLButtonElement;
+  const dot = document.getElementById('dark-toggle-dot') as HTMLElement;
+
+  function updateToggle() {
+    const dark = document.documentElement.classList.contains('dark');
+    if (dark) {
+      darkToggle.classList.add('!bg-[var(--color-primary)]');
+      dot.style.transform = 'translateX(1.25rem)';
+    } else {
+      darkToggle.classList.remove('!bg-[var(--color-primary)]');
+      dot.style.transform = 'translateX(0)';
+    }
+  }
+
+  darkToggle?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    updateToggle();
+  });
+
+  // Start date
+  const dateInput = document.getElementById('start-date') as HTMLInputElement;
+  const state = getState();
+  dateInput.value = state.startDate;
+  dateInput.addEventListener('change', () => {
+    setStartDate(dateInput.value);
+  });
+
+  // Reset
+  document.getElementById('reset-btn')?.addEventListener('click', () => {
+    if (confirm('Je i sigurt? Kjo do të fshijë të gjithë progresin tënd.')) {
+      const s = getState();
+      s.completedDays = [];
+      saveState(s);
+      window.location.reload();
+    }
+  });
+
+  updateToggle();
+</script>

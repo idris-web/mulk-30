@@ -1,0 +1,22 @@
+{
+  "name": "Mulk 30 - Sfida e Ramazanit",
+  "short_name": "Mulk 30",
+  "description": "Sfida 30-ditore e Ramazanit - Mëso Suren El-Mulk",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#1B5E20",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
