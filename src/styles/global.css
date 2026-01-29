@@ -44,11 +44,21 @@ body {
   line-height: 1.6;
 }
 
+/* Uthmanic Mushaf Font (Madinah) */
+@font-face {
+  font-family: 'UthmanicHafs';
+  src: url('/fonts/UthmanicHafs.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Arabic text styling */
 .arabic {
-  font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
+  font-family: 'UthmanicHafs', 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
   direction: rtl;
-  line-height: 2;
+  line-height: 2.2;
+  word-spacing: 0.1em;
 }
 
 .arabic-large {
@@ -58,7 +68,13 @@ body {
 
 .arabic-xl {
   font-size: 2.5rem;
-  line-height: 2.5;
+  line-height: 2.8;
+}
+
+/* Pinch-to-zoom for Arabic text */
+.arabic-zoomable {
+  touch-action: manipulation;
+  transition: font-size 0.15s ease;
 }
 
 /* Smooth transitions */
@@ -82,9 +98,13 @@ body {
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   font-weight: 500;
-  border-radius: var(--radius-lg);
+  border-radius: 1rem;
   cursor: pointer;
   transition: all 150ms ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 .btn-primary {
@@ -109,9 +129,11 @@ body {
 /* Card component */
 .card {
   background-color: var(--color-surface);
-  border-radius: var(--radius-xl);
+  border-radius: 1.5rem;
   border: 1px solid var(--color-border);
   padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+  transition: all 150ms ease;
 }
 
 /* Input styles */
@@ -153,6 +175,11 @@ body {
   gap: 0.25rem;
   padding: 0.5rem 1rem;
   color: var(--color-text-secondary);
+  transition: all 150ms ease;
+}
+
+.nav-item:active {
+  transform: scale(0.95);
 }
 
 .nav-item.active {

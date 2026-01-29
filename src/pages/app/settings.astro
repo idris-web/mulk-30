@@ -7,7 +7,7 @@ import { SURAH_INFO } from '../../data/mulk-verses';
   <div class="min-h-screen flex flex-col bg-[var(--color-background)]">
     <header class="sticky top-0 z-10 bg-[var(--color-surface)]/80 backdrop-blur-lg border-b border-[var(--color-border)] px-4 py-3 safe-top">
       <div class="max-w-lg mx-auto flex items-center gap-3">
-        <a href="/app" class="w-10 h-10 rounded-full bg-[var(--color-background)] flex items-center justify-center">
+        <a href="/app" class="w-10 h-10 rounded-full bg-[var(--color-background)] flex items-center justify-center active:scale-95 transition-transform">
           <svg class="w-5 h-5 text-[var(--color-text)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
         </a>
         <h1 class="text-lg font-semibold text-[var(--color-text)]">Cilësimet</h1>
@@ -25,7 +25,7 @@ import { SURAH_INFO } from '../../data/mulk-verses';
               <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
               <span class="text-[var(--color-text)]">Modaliteti i errët</span>
             </div>
-            <button id="dark-toggle" class="relative w-12 h-7 rounded-full bg-[var(--color-border)] transition-colors" aria-label="Ndrysho temën">
+            <button id="dark-toggle" class="relative w-12 h-7 rounded-full bg-[var(--color-border)] transition-colors active:scale-95" aria-label="Ndrysho temën">
               <div id="dark-toggle-dot" class="absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow transition-transform"></div>
             </button>
           </div>

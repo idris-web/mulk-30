@@ -32,188 +32,107 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
     <main class="flex-1 px-4 py-6">
       <div class="max-w-lg mx-auto space-y-6">
 
-        <!-- Stepper Progress -->
-        <div class="flex items-center justify-center gap-0" id="stepper">
-          <!-- Step 1 -->
-          <div class="flex flex-col items-center" id="step-indicator-1">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-500" id="step-dot-1">
-              <span id="step-icon-1">1</span>
-            </div>
-            <span class="text-[10px] mt-1 font-medium" id="step-label-1">Dëgjo</span>
+        <!-- Arabic Text Card with Zoom -->
+        <div id="arabic-card" class="bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)] shadow-lg overflow-hidden relative">
+          <div id="arabic-zoom-wrapper" class="arabic-zoomable overflow-y-auto" style="max-height: 280px;">
+            <p class="arabic arabic-xl text-center text-[var(--color-text)]" id="arabic-text">{verse.arabic}</p>
           </div>
-          <!-- Line -->
-          <div class="w-12 h-0.5 mx-1 rounded transition-all duration-500" id="step-line-1"></div>
-          <!-- Step 2 -->
-          <div class="flex flex-col items-center" id="step-indicator-2">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-500" id="step-dot-2">
-              <span id="step-icon-2">2</span>
-            </div>
-            <span class="text-[10px] mt-1 font-medium" id="step-label-2">Lexo</span>
-          </div>
-          <!-- Line -->
-          <div class="w-12 h-0.5 mx-1 rounded transition-all duration-500" id="step-line-2"></div>
-          <!-- Step 3 -->
-          <div class="flex flex-col items-center" id="step-indicator-3">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-500" id="step-dot-3">
-              <span id="step-icon-3">3</span>
-            </div>
-            <span class="text-[10px] mt-1 font-medium" id="step-label-3">Mëso</span>
+          <!-- Zoom controls -->
+          <div class="flex items-center justify-center gap-2 mt-3 pt-2 border-t border-[var(--color-border)] opacity-60">
+            <button id="zoom-out" class="w-6 h-6 rounded-full bg-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] active:scale-90 transition-transform">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
+            </button>
+            <span id="zoom-level" class="text-[10px] text-[var(--color-text-secondary)] tabular-nums w-8 text-center">100%</span>
+            <button id="zoom-in" class="w-6 h-6 rounded-full bg-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] active:scale-90 transition-transform">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            </button>
           </div>
         </div>
 
-        <!-- Step Content Area -->
-        <div id="step-content" class="transition-all duration-300">
+        <!-- Hidden text card (for memorize mode) -->
+        <div id="arabic-hidden" class="hidden bg-[var(--color-surface)] rounded-3xl p-8 border border-purple-500/30 shadow-lg text-center">
+          <div id="memorize-hidden" class="space-y-3">
+            <svg class="w-12 h-12 mx-auto text-purple-500/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
+            <p class="text-[var(--color-text-secondary)] text-sm">Thuaje nga memoria!</p>
+          </div>
+          <div id="memorize-peek" class="hidden">
+            <p class="arabic text-[var(--color-text)] leading-[2.2] opacity-40" style="font-size:1.5rem">{verse.arabic}</p>
+          </div>
+        </div>
 
-          <!-- STEP 1: Listen -->
-          <div id="panel-1" class="space-y-5 hidden">
-            <div class="text-center space-y-2">
-              <div class="inline-flex items-center gap-2 bg-blue-500/10 text-blue-500 px-4 py-1.5 rounded-full text-sm font-semibold">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h2.5l4-4v14l-4-4z"></path></svg>
-                Hapi 1: Dëgjo
-              </div>
-              <p class="text-sm text-[var(--color-text-secondary)]">Dëgjo ajetin së paku 10 herë</p>
-            </div>
+        <!-- Transliteration (shown in read/listen mode) -->
+        <p id="transliteration" class="text-center text-sm text-[var(--color-text-secondary)] italic leading-relaxed">{verse.transliteration}</p>
 
-            <!-- Arabic text visible while listening -->
-            <div class="bg-[var(--color-surface)] rounded-2xl p-6 border border-[var(--color-border)]">
-              <p class="arabic arabic-xl text-center text-[var(--color-text)] leading-loose">{verse.arabic}</p>
-            </div>
+        <!-- Audio Progress Bar (only visible during listen) -->
+        <div id="audio-bar-container" class="hidden px-2">
+          <div class="w-full h-1.5 bg-[var(--color-border)] rounded-full overflow-hidden">
+            <div id="audio-progress" class="h-full bg-blue-500 rounded-full transition-all duration-100" style="width:0%"></div>
+          </div>
+        </div>
 
-            <!-- Audio Player Mock -->
-            <div class="bg-[var(--color-surface)] rounded-2xl p-5 border border-[var(--color-border)] space-y-4">
-              <div class="flex items-center justify-center gap-4">
-                <button id="play-btn" class="w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg shadow-blue-500/30 active:scale-95 transition-all hover:bg-blue-600">
-                  <svg id="play-icon" class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                  <svg id="pause-icon" class="w-7 h-7 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                </button>
-              </div>
-              <!-- Progress bar for audio -->
-              <div class="w-full h-1 bg-[var(--color-border)] rounded-full overflow-hidden">
-                <div id="audio-progress" class="h-full bg-blue-500 rounded-full transition-all duration-100" style="width:0%"></div>
-              </div>
-            </div>
-
-            <!-- Counter -->
-            <div class="text-center">
-              <div class="inline-flex items-center gap-3 bg-[var(--color-surface)] rounded-full px-5 py-3 border border-[var(--color-border)]">
-                <span class="text-2xl font-bold text-blue-500" id="listen-count">0</span>
-                <span class="text-[var(--color-text-secondary)]">/10 herë dëgjuar</span>
-              </div>
+        <!-- Done Panel (above buttons) -->
+        <div id="panel-done" class="hidden text-center space-y-6 py-4">
+          <div id="confetti-container" class="relative">
+            <div class="w-20 h-20 mx-auto rounded-full bg-green-500 flex items-center justify-center animate-bounce-in">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
             </div>
           </div>
+          <div>
+            <h2 class="text-xl font-bold text-[var(--color-text)]">Masha'Allah! 🎉</h2>
+            <p class="text-sm text-[var(--color-text-secondary)] mt-1">E ke përfunduar Ditën {dayIndex}!</p>
+          </div>
+        </div>
 
-          <!-- STEP 2: Read -->
-          <div id="panel-2" class="space-y-5 hidden">
-            <div class="text-center space-y-2">
-              <div class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-500 px-4 py-1.5 rounded-full text-sm font-semibold">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                Hapi 2: Lexo
-              </div>
-              <p class="text-sm text-[var(--color-text-secondary)]">Lexo ajetin nga teksti 10 herë</p>
-            </div>
-
-            <!-- Arabic text prominent -->
-            <div class="bg-[var(--color-surface)] rounded-2xl p-8 border-2 border-emerald-500/20">
-              <p class="arabic text-center text-[var(--color-text)] leading-[2.2]" style="font-size:2rem">{verse.arabic}</p>
-            </div>
-
-            <!-- Transliteration helper -->
-            <div class="text-center">
-              <p class="text-sm text-[var(--color-text-secondary)] italic leading-relaxed">{verse.transliteration}</p>
-            </div>
-
-            <!-- Read button + Counter -->
-            <div class="text-center space-y-4">
-              <button id="read-btn" class="w-full py-4 rounded-2xl bg-emerald-500 text-white text-lg font-semibold shadow-lg shadow-emerald-500/30 active:scale-[0.98] transition-all hover:bg-emerald-600">
-                📖 Kam lexuar
-              </button>
-              <div class="inline-flex items-center gap-3 bg-[var(--color-surface)] rounded-full px-5 py-3 border border-[var(--color-border)]">
-                <span class="text-2xl font-bold text-emerald-500" id="read-count">0</span>
-                <span class="text-[var(--color-text-secondary)]">/10 herë lexuar</span>
-              </div>
-            </div>
+        <!-- 3 Action Buttons Row -->
+        <div class="flex items-center justify-center gap-8">
+          <!-- Listen -->
+          <div class="flex flex-col items-center gap-2">
+            <button id="listen-btn" class="action-btn w-16 h-16 rounded-full flex items-center justify-center transition-all active:scale-90 bg-blue-500/10 border-2 border-blue-500/30 text-blue-500 hover:bg-blue-500/20" title="Dëgjo">
+              <svg id="listen-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h2.5l4-4v14l-4-4z"></path></svg>
+              <svg id="pause-icon" class="w-7 h-7 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+            <span class="text-xs font-medium tabular-nums" id="listen-counter">
+              <span id="listen-count" class="text-blue-500 font-bold">0</span><span class="text-[var(--color-text-secondary)]">/10</span>
+            </span>
           </div>
 
-          <!-- STEP 3: Memorize -->
-          <div id="panel-3" class="space-y-5 hidden">
-            <div class="text-center space-y-2">
-              <div class="inline-flex items-center gap-2 bg-purple-500/10 text-purple-500 px-4 py-1.5 rounded-full text-sm font-semibold">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                Hapi 3: Mëso përmendësh
-              </div>
-              <p class="text-sm text-[var(--color-text-secondary)]">Thuaje nga memoria 10 herë</p>
-            </div>
-
-            <!-- Hidden Arabic (test yourself) -->
-            <div class="bg-[var(--color-surface)] rounded-2xl p-8 border-2 border-purple-500/20 text-center">
-              <div id="memorize-hidden" class="space-y-3">
-                <svg class="w-12 h-12 mx-auto text-purple-500/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
-                <p class="text-[var(--color-text-secondary)] text-sm">Teksti është i fshehur — thuaje nga memoria!</p>
-              </div>
-              <div id="memorize-peek" class="hidden">
-                <p class="arabic text-[var(--color-text)] leading-[2.2] opacity-40" style="font-size:1.5rem">{verse.arabic}</p>
-                <button id="hide-peek" class="mt-3 text-xs text-purple-500 underline">Fshihe përsëri</button>
-              </div>
-            </div>
-
-            <!-- Peek button -->
-            <div class="text-center">
-              <button id="peek-btn" class="text-sm text-[var(--color-text-secondary)] underline underline-offset-4 hover:text-purple-500 transition-colors">
-                👁 Shiko tekstin (ndihmë)
-              </button>
-            </div>
-
-            <!-- Recite button + Counter -->
-            <div class="text-center space-y-4">
-              <button id="recite-btn" class="w-full py-4 rounded-2xl bg-purple-500 text-white text-lg font-semibold shadow-lg shadow-purple-500/30 active:scale-[0.98] transition-all hover:bg-purple-600">
-                🎙 E kam thënë
-              </button>
-              <div class="inline-flex items-center gap-3 bg-[var(--color-surface)] rounded-full px-5 py-3 border border-[var(--color-border)]">
-                <span class="text-2xl font-bold text-purple-500" id="recite-count">0</span>
-                <span class="text-[var(--color-text-secondary)]">/10 herë thënë</span>
-              </div>
-            </div>
+          <!-- Read -->
+          <div id="read-wrapper" class="flex flex-col items-center gap-2">
+            <button id="read-btn" class="action-btn w-16 h-16 rounded-full flex items-center justify-center transition-all active:scale-90 bg-emerald-500/10 border-2 border-emerald-500/30 text-emerald-500 hover:bg-emerald-500/20" title="Lexo">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            </button>
+            <span class="text-xs font-medium tabular-nums" id="read-counter">
+              <span id="read-count" class="text-emerald-500 font-bold">0</span><span class="text-[var(--color-text-secondary)]">/10</span>
+            </span>
           </div>
 
-          <!-- DONE panel -->
-          <div id="panel-done" class="hidden text-center space-y-6 py-8">
-            <div id="confetti-container" class="relative">
-              <div class="w-24 h-24 mx-auto rounded-full bg-green-500 flex items-center justify-center animate-bounce-in">
-                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-              </div>
-            </div>
-            <div>
-              <h2 class="text-2xl font-bold text-[var(--color-text)]">Masha'Allah! 🎉</h2>
-              <p class="text-[var(--color-text-secondary)] mt-2">E ke përfunduar Ditën {dayIndex}!</p>
-            </div>
-            <div class="bg-[var(--color-surface)] rounded-2xl p-5 border border-[var(--color-border)]">
-              <p class="arabic arabic-large text-center text-[var(--color-text)] leading-loose">{verse.arabic}</p>
-            </div>
-          </div>
-
-          <!-- Locked overlay -->
-          <div id="panel-locked" class="hidden text-center space-y-4 py-12">
-            <svg class="w-16 h-16 mx-auto text-[var(--color-text-secondary)] opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-            <p class="text-[var(--color-text-secondary)]">Përfundo hapin e mëparshëm për të vazhduar</p>
+          <!-- Recite / Memorize -->
+          <div id="recite-wrapper" class="flex flex-col items-center gap-2">
+            <button id="recite-btn" class="action-btn w-16 h-16 rounded-full flex items-center justify-center transition-all active:scale-90 bg-purple-500/10 border-2 border-purple-500/30 text-purple-500 hover:bg-purple-500/20" title="Mëso përmendësh">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+            </button>
+            <span class="text-xs font-medium tabular-nums" id="recite-counter">
+              <span id="recite-count" class="text-purple-500 font-bold">0</span><span class="text-[var(--color-text-secondary)]">/10</span>
+            </span>
           </div>
         </div>
 
         <!-- Translation Toggle -->
-        <div class="border-t border-[var(--color-border)] pt-4">
-          <button id="translation-toggle" class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-sm text-[var(--color-text-secondary)] hover:bg-[var(--color-background)] transition-colors active:scale-[0.99]">
+        <div class="pt-2">
+          <button id="translation-toggle" class="w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm text-sm text-[var(--color-text-secondary)] hover:bg-[var(--color-background)] transition-colors active:scale-[0.99]">
             <span class="flex items-center gap-2">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
               Shiko përkthimin
             </span>
             <svg id="translation-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          <div id="translation-content" class="hidden mt-3 px-4 py-4 bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] animate-slide-down">
+          <div id="translation-content" class="hidden mt-3 px-5 py-4 bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] shadow-sm animate-slide-down">
             <p class="text-[var(--color-text)] leading-relaxed">{verse.albanian}</p>
           </div>
         </div>
 
         <!-- Navigation -->
-        <div class="flex gap-3 pt-2">
+        <div class="flex gap-4 pt-2">
           {prevDay ? (
             <a href={`/app/day/${prevDay}`} class="btn btn-secondary flex-1">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -250,7 +169,6 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
     0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
     100% { transform: translateY(100px) rotate(720deg); opacity: 0; }
   }
-
   .confetti-piece {
     position: absolute;
     width: 8px;
@@ -259,18 +177,59 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
     animation: confetti-fall 1.5s ease-out forwards;
   }
 
-  @keyframes pulse-ring {
-    0% { transform: scale(1); opacity: 0.5; }
-    100% { transform: scale(1.5); opacity: 0; }
+  .action-btn.completed {
+    opacity: 1;
+  }
+  .action-btn.completed::after {
+    content: '✓';
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 18px;
+    height: 18px;
+    background: #10b981;
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  .action-btn { position: relative; }
+
+  /* Locked state */
+  .action-btn.locked {
+    opacity: 0.35 !important;
+    pointer-events: none !important;
+    border-color: #9CA3AF !important;
+    color: #9CA3AF !important;
+    background-color: transparent !important;
+    background: transparent !important;
   }
 
-  .step-complete-pulse {
-    animation: pulse-ring 0.6s ease-out;
+  /* Counter bounce */
+  @keyframes count-bump {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+  }
+  .count-bump {
+    animation: count-bump 0.3s ease-out;
+  }
+
+  /* Step complete pulse */
+  @keyframes step-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+  .step-pulse {
+    animation: step-pulse 0.6s ease-out;
   }
 </style>
 
 <script define:vars={{ dayIndex }}>
-  // Make dayIndex available to the module script
   window.__dayIndex = dayIndex;
 </script>
 
@@ -282,6 +241,7 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
   let audioPlaying = false;
   let audioTimer: ReturnType<typeof setInterval> | null = null;
   let audioProgressVal = 0;
+  let memorizeMode = false;
 
   function showConfetti() {
     const container = document.getElementById('confetti-container');
@@ -300,90 +260,118 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
     }
   }
 
-  function updateStepper() {
-    const active = getActiveStep(progress);
-    [1, 2, 3].forEach(step => {
-      const dot = document.getElementById(`step-dot-${step}`)!;
-      const icon = document.getElementById(`step-icon-${step}`)!;
-      const label = document.getElementById(`step-label-${step}`)!;
-      const line = step < 3 ? document.getElementById(`step-line-${step}`)! : null;
-
-      // Determine step state
-      let state: 'done' | 'active' | 'locked';
-      if (active === 'done' || (typeof active === 'number' && step < active)) state = 'done';
-      else if (step === active) state = 'active';
-      else state = 'locked';
-
-      // Reset classes
-      dot.className = 'w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-500';
-
-      if (state === 'done') {
-        dot.classList.add('bg-green-500', 'border-green-500', 'text-white');
-        icon.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>';
-        label.classList.remove('text-[var(--color-text-secondary)]');
-        label.classList.add('text-green-500');
-      } else if (state === 'active') {
-        const colors: Record<number, string[]> = {
-          1: ['border-blue-500', 'text-blue-500', 'bg-blue-500/10'],
-          2: ['border-emerald-500', 'text-emerald-500', 'bg-emerald-500/10'],
-          3: ['border-purple-500', 'text-purple-500', 'bg-purple-500/10'],
-        };
-        dot.classList.add(...colors[step]);
-        icon.textContent = String(step);
-        label.className = `text-[10px] mt-1 font-medium ${colors[step][1]}`;
-      } else {
-        dot.classList.add('border-[var(--color-border)]', 'text-[var(--color-text-secondary)]', 'opacity-40');
-        icon.textContent = String(step);
-        label.className = 'text-[10px] mt-1 font-medium text-[var(--color-text-secondary)] opacity-40';
-      }
-
-      if (line) {
-        line.className = 'w-12 h-0.5 mx-1 rounded transition-all duration-500';
-        if (state === 'done') line.classList.add('bg-green-500');
-        else line.classList.add('bg-[var(--color-border)]');
-      }
-    });
+  function bumpCount(el: HTMLElement | null) {
+    if (!el) return;
+    el.classList.remove('count-bump');
+    void el.offsetWidth; // reflow
+    el.classList.add('count-bump');
   }
 
-  function updateCounters() {
+  function updateCounters(changed?: 'listen' | 'read' | 'recite') {
     const lc = document.getElementById('listen-count');
     const rc = document.getElementById('read-count');
     const rcc = document.getElementById('recite-count');
     if (lc) lc.textContent = String(Math.min(progress.listenCount, REQUIRED_COUNT));
     if (rc) rc.textContent = String(Math.min(progress.readCount, REQUIRED_COUNT));
     if (rcc) rcc.textContent = String(Math.min(progress.reciteCount, REQUIRED_COUNT));
+    if (changed === 'listen') bumpCount(lc);
+    if (changed === 'read') bumpCount(rc);
+    if (changed === 'recite') bumpCount(rcc);
   }
 
-  function showPanel() {
-    const active = getActiveStep(progress);
-    ['panel-1', 'panel-2', 'panel-3', 'panel-done', 'panel-locked'].forEach(id => {
-      document.getElementById(id)!.classList.add('hidden');
-    });
+  function updateButtons() {
+    const listenBtn = document.getElementById('listen-btn')!;
+    const readBtn = document.getElementById('read-btn')!;
+    const reciteBtn = document.getElementById('recite-btn')!;
 
-    if (active === 'done') {
-      document.getElementById('panel-done')!.classList.remove('hidden');
-    } else {
-      document.getElementById(`panel-${active}`)!.classList.remove('hidden');
+    // Sequential locking
+    const listenDone = progress.listenCount >= REQUIRED_COUNT;
+    const readDone = progress.readCount >= REQUIRED_COUNT;
+    const reciteDone = progress.reciteCount >= REQUIRED_COUNT;
+
+    // Read: locked until listen done
+    const readWrap = document.getElementById('read-wrapper')!;
+    const reciteWrap = document.getElementById('recite-wrapper')!;
+
+    if (!listenDone) {
+      readWrap.style.opacity = '0.3';
+      readBtn.style.pointerEvents = 'none';
+      readBtn.style.cssText = 'opacity:1;pointer-events:none;border-color:#9CA3AF!important;color:#9CA3AF!important;background:transparent!important;';
+    } else if (!readDone) {
+      readWrap.style.opacity = '';
+      readBtn.style.cssText = '';
+    }
+
+    // Recite: locked until read done
+    if (!readDone) {
+      reciteWrap.style.opacity = '0.3';
+      reciteBtn.style.pointerEvents = 'none';
+      reciteBtn.style.cssText = 'opacity:1;pointer-events:none;border-color:#9CA3AF!important;color:#9CA3AF!important;background:transparent!important;';
+    } else if (!reciteDone) {
+      reciteWrap.style.opacity = '';
+      reciteBtn.style.cssText = '';
+    }
+
+    // Mark completed buttons with filled style + pulse
+    if (listenDone) {
+      if (!listenBtn.classList.contains('completed')) {
+        listenBtn.classList.add('step-pulse');
+        setTimeout(() => listenBtn.classList.remove('step-pulse'), 600);
+      }
+      listenBtn.classList.add('completed', 'bg-blue-500', 'text-white', 'border-blue-500');
+      listenBtn.classList.remove('bg-blue-500/10', 'text-blue-500', 'border-blue-500/30');
+    }
+    if (readDone) {
+      if (!readBtn.classList.contains('completed')) {
+        readBtn.classList.add('step-pulse');
+        setTimeout(() => readBtn.classList.remove('step-pulse'), 600);
+      }
+      readBtn.classList.add('completed', 'bg-emerald-500', 'text-white', 'border-emerald-500');
+      readBtn.classList.remove('bg-emerald-500/10', 'text-emerald-500', 'border-emerald-500/30');
+    }
+    if (reciteDone) {
+      if (!reciteBtn.classList.contains('completed')) {
+        reciteBtn.classList.add('step-pulse');
+        setTimeout(() => reciteBtn.classList.remove('step-pulse'), 600);
+      }
+      reciteBtn.classList.add('completed', 'bg-purple-500', 'text-white', 'border-purple-500');
+      reciteBtn.classList.remove('bg-purple-500/10', 'text-purple-500', 'border-purple-500/30');
     }
   }
 
-  function animateStepComplete(callback: () => void) {
-    // Brief pulse animation then switch
-    setTimeout(callback, 300);
+  function checkDone() {
+    const done = progress.listenCount >= REQUIRED_COUNT &&
+                 progress.readCount >= REQUIRED_COUNT &&
+                 progress.reciteCount >= REQUIRED_COUNT;
+    const panel = document.getElementById('panel-done')!;
+    if (done) {
+      panel.classList.remove('hidden');
+      showConfetti();
+    }
+    return done;
   }
 
-  function render() {
-    updateStepper();
-    updateCounters();
-    showPanel();
+  function render(changed?: 'listen' | 'read' | 'recite') {
+    updateCounters(changed);
+    updateButtons();
+    checkDone();
   }
 
-  // Audio mock (simulates listening)
+  // Listen — mock audio playback
   function startAudio() {
     if (audioPlaying) return stopAudio();
+
+    // Exit memorize mode if active
+    if (memorizeMode) exitMemorizeMode();
+
     audioPlaying = true;
-    document.getElementById('play-icon')!.classList.add('hidden');
-    document.getElementById('pause-icon')!.classList.remove('hidden');
+    const listenIcon = document.getElementById('listen-icon')!;
+    const pauseIcon = document.getElementById('pause-icon')!;
+    listenIcon.classList.add('hidden');
+    pauseIcon.classList.remove('hidden');
+
+    const barContainer = document.getElementById('audio-bar-container')!;
+    barContainer.classList.remove('hidden');
     audioProgressVal = 0;
     const bar = document.getElementById('audio-progress')!;
 
@@ -393,59 +381,69 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
       if (audioProgressVal >= 100) {
         stopAudio();
         progress = incrementStep(dayIndex, 'listen');
-        const prevActive = getActiveStep({ ...progress, listenCount: progress.listenCount - 1, readCount: progress.readCount, reciteCount: progress.reciteCount });
-        const newActive = getActiveStep(progress);
-        if (prevActive !== newActive) {
-          animateStepComplete(() => render());
-          if (newActive === 'done') showConfetti();
-        } else {
-          render();
-        }
+        render('listen');
       }
-    }, 50); // ~2.5 seconds per listen
+    }, 50);
   }
 
   function stopAudio() {
     audioPlaying = false;
     if (audioTimer) clearInterval(audioTimer);
     audioTimer = null;
-    document.getElementById('play-icon')!.classList.remove('hidden');
-    document.getElementById('pause-icon')!.classList.add('hidden');
-    document.getElementById('audio-progress')!.style.width = '0%';
+    const listenIcon = document.getElementById('listen-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    if (listenIcon) listenIcon.classList.remove('hidden');
+    if (pauseIcon) pauseIcon.classList.add('hidden');
+    const bar = document.getElementById('audio-progress');
+    if (bar) bar.style.width = '0%';
+    const barContainer = document.getElementById('audio-bar-container');
+    if (barContainer) barContainer.classList.add('hidden');
+  }
+
+  // Memorize mode — hide text
+  function enterMemorizeMode() {
+    memorizeMode = true;
+    document.getElementById('arabic-card')!.classList.add('hidden');
+    document.getElementById('arabic-hidden')!.classList.remove('hidden');
+    document.getElementById('transliteration')!.classList.add('hidden');
+  }
+
+  function exitMemorizeMode() {
+    memorizeMode = false;
+    document.getElementById('arabic-card')!.classList.remove('hidden');
+    document.getElementById('arabic-hidden')!.classList.add('hidden');
+    document.getElementById('transliteration')!.classList.remove('hidden');
+    // Reset peek
+    document.getElementById('memorize-hidden')!.classList.remove('hidden');
+    document.getElementById('memorize-peek')!.classList.add('hidden');
   }
 
   // Event listeners
-  document.getElementById('play-btn')?.addEventListener('click', startAudio);
+  document.getElementById('listen-btn')?.addEventListener('click', startAudio);
 
   document.getElementById('read-btn')?.addEventListener('click', () => {
+    if (memorizeMode) exitMemorizeMode();
     progress = incrementStep(dayIndex, 'read');
-    const newActive = getActiveStep(progress);
-    if (newActive !== 2) {
-      animateStepComplete(() => render());
-      if (newActive === 'done') setTimeout(showConfetti, 300);
-    } else {
-      render();
-    }
+    render('read');
   });
 
   document.getElementById('recite-btn')?.addEventListener('click', () => {
+    if (!memorizeMode) enterMemorizeMode();
     progress = incrementStep(dayIndex, 'recite');
-    const newActive = getActiveStep(progress);
-    if (newActive === 'done') {
-      animateStepComplete(() => { render(); showConfetti(); });
-    } else {
-      render();
-    }
+    render('recite');
   });
 
-  // Peek (memorize step)
-  document.getElementById('peek-btn')?.addEventListener('click', () => {
-    document.getElementById('memorize-hidden')!.classList.add('hidden');
-    document.getElementById('memorize-peek')!.classList.remove('hidden');
-  });
-  document.getElementById('hide-peek')?.addEventListener('click', () => {
-    document.getElementById('memorize-hidden')!.classList.remove('hidden');
-    document.getElementById('memorize-peek')!.classList.add('hidden');
+  // Peek in memorize mode
+  document.getElementById('arabic-hidden')?.addEventListener('click', () => {
+    const hidden = document.getElementById('memorize-hidden')!;
+    const peek = document.getElementById('memorize-peek')!;
+    if (hidden.classList.contains('hidden')) {
+      hidden.classList.remove('hidden');
+      peek.classList.add('hidden');
+    } else {
+      hidden.classList.add('hidden');
+      peek.classList.remove('hidden');
+    }
   });
 
   // Translation toggle
@@ -458,19 +456,66 @@ const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
     chevron.style.transform = translationOpen ? 'rotate(180deg)' : '';
   });
 
-  // Stepper click navigation (only to completed or active steps)
-  [1, 2, 3].forEach(step => {
-    document.getElementById(`step-indicator-${step}`)?.addEventListener('click', () => {
-      const active = getActiveStep(progress);
-      if (active === 'done' || step <= (active as number)) {
-        // Show that panel
-        ['panel-1', 'panel-2', 'panel-3', 'panel-done', 'panel-locked'].forEach(id => {
-          document.getElementById(id)!.classList.add('hidden');
-        });
-        document.getElementById(`panel-${step}`)!.classList.remove('hidden');
-      }
-    });
+  // Zoom controls
+  let zoomLevel = 100;
+  const zoomWrapper = document.getElementById('arabic-zoom-wrapper');
+  const zoomLabel = document.getElementById('zoom-level');
+  const ZOOM_STEP = 15;
+  const ZOOM_MIN = 70;
+  const ZOOM_MAX = 200;
+
+  // Load saved zoom
+  const savedZoom = localStorage.getItem('mulk30_zoom');
+  if (savedZoom) {
+    zoomLevel = parseInt(savedZoom);
+    applyZoom();
+  }
+
+  function applyZoom() {
+    const text = document.getElementById('arabic-text');
+    if (text) {
+      const baseSizePx = 2.5 * 16; // 2.5rem base (arabic-xl)
+      text.style.fontSize = `${baseSizePx * zoomLevel / 100}px`;
+    }
+    if (zoomLabel) zoomLabel.textContent = `${zoomLevel}%`;
+    localStorage.setItem('mulk30_zoom', String(zoomLevel));
+  }
+
+  document.getElementById('zoom-in')?.addEventListener('click', () => {
+    zoomLevel = Math.min(zoomLevel + ZOOM_STEP, ZOOM_MAX);
+    applyZoom();
   });
+
+  document.getElementById('zoom-out')?.addEventListener('click', () => {
+    zoomLevel = Math.max(zoomLevel - ZOOM_STEP, ZOOM_MIN);
+    applyZoom();
+  });
+
+  // Pinch-to-zoom on touch devices
+  let initialDistance = 0;
+  let initialZoom = 100;
+  const card = document.getElementById('arabic-card');
+  card?.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      initialDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      initialZoom = zoomLevel;
+    }
+  }, { passive: true });
+
+  card?.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2) {
+      const dist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const scale = dist / initialDistance;
+      zoomLevel = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, Math.round(initialZoom * scale)));
+      applyZoom();
+    }
+  }, { passive: true });
 
   render();
 </script>
