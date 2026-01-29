@@ -1,0 +1,284 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Dhurata">
+  <div class="min-h-screen flex flex-col bg-[var(--color-background)]">
+    <!-- Header -->
+    <header class="sticky top-0 z-10 bg-[var(--color-surface)]/80 backdrop-blur-lg border-b border-[var(--color-border)] px-4 py-3 safe-top">
+      <div class="max-w-lg mx-auto flex items-center gap-3">
+        <a href="/app" class="w-10 h-10 rounded-full bg-[var(--color-background)] flex items-center justify-center active:scale-95 transition-transform">
+          <svg class="w-5 h-5 text-[var(--color-text)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </a>
+        <h1 class="text-lg font-semibold text-[var(--color-text)]">Dhurata e sfidës</h1>
+      </div>
+    </header>
+
+    <main class="flex-1 px-4 py-6">
+      <div class="max-w-lg mx-auto space-y-6">
+
+        <!-- Hero -->
+        <div class="card bg-gradient-to-br from-[var(--color-primary)]/5 to-[var(--color-accent)]/10 border-[var(--color-primary)]/20 text-center py-8">
+          <div class="w-16 h-16 mx-auto rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>
+          </div>
+          <h2 class="text-xl font-bold text-[var(--color-text)]">Fito një Kuran falas!</h2>
+          <p class="text-sm text-[var(--color-text-secondary)] mt-2 leading-relaxed max-w-xs mx-auto">Përfundo 30 ditët e sfidës dhe merr dhuratë një ekzemplar të Kuranit Famëlartë me dërgim falas.</p>
+        </div>
+
+        <!-- What you get -->
+        <div class="card">
+          <h2 class="font-semibold text-[var(--color-text)] mb-4">Çfarë fiton?</h2>
+          <div class="flex items-center gap-4 bg-[var(--color-background)] rounded-2xl p-4 border border-[var(--color-border)]">
+            <div class="w-12 h-12 rounded-full bg-teal-600/10 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--color-text)]">Një ekzemplar i Kuranit Famëlartë</p>
+              <p class="text-xs text-[var(--color-text-secondary)] mt-0.5">Dërgim falas pas përfundimit të sfidës</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How it works -->
+        <div class="card">
+          <h2 class="font-semibold text-[var(--color-text)] mb-4">Si funksionon sfida?</h2>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-sky-600/10 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-sky-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h2.5l4-4v14l-4-4z"></path></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-[var(--color-text)]">1. Dëgjo — 10 herë</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Dëgjo ajetin me kujdes për ta mësuar shqiptimin</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-teal-600/10 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-[var(--color-text)]">2. Lexo — 10 herë</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Lexo ajetin nga teksti për ta forcuar në mendje</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-violet-500/10 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-[var(--color-text)]">3. Mëso përmendësh — 10 herë</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Thuaje pa tekst nga memoria — kjo e fikson përgjithmonë</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card">
+          <h2 class="font-semibold text-[var(--color-text)] mb-4">Pyetje të shpeshta</h2>
+          <div class="space-y-2" id="faq-list">
+            <div class="faq-item">
+              <button class="faq-toggle w-full flex items-center justify-between py-3 text-left">
+                <span class="text-sm font-medium text-[var(--color-text)]">Kur fillon sfida?</span>
+                <svg class="w-4 h-4 text-[var(--color-text-secondary)] transition-transform duration-200 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="faq-answer hidden pb-3">
+                <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">Sfida fillon me Ramazan (28 Shkurt 2026).</p>
+              </div>
+            </div>
+            <div class="faq-item border-t border-[var(--color-border)]">
+              <button class="faq-toggle w-full flex items-center justify-between py-3 text-left">
+                <span class="text-sm font-medium text-[var(--color-text)]">Sa zgjat sfida?</span>
+                <svg class="w-4 h-4 text-[var(--color-text-secondary)] transition-transform duration-200 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="faq-answer hidden pb-3">
+                <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">30 ditë, një ajet çdo ditë nga Surja Al-Mulk.</p>
+              </div>
+            </div>
+            <div class="faq-item border-t border-[var(--color-border)]">
+              <button class="faq-toggle w-full flex items-center justify-between py-3 text-left">
+                <span class="text-sm font-medium text-[var(--color-text)]">Çfarë duhet të bëj çdo ditë?</span>
+                <svg class="w-4 h-4 text-[var(--color-text-secondary)] transition-transform duration-200 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="faq-answer hidden pb-3">
+                <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">Dëgjo 10 herë, Lexo 10 herë, Mëso përmendësh 10 herë.</p>
+              </div>
+            </div>
+            <div class="faq-item border-t border-[var(--color-border)]">
+              <button class="faq-toggle w-full flex items-center justify-between py-3 text-left">
+                <span class="text-sm font-medium text-[var(--color-text)]">Kur e marr Kuranin?</span>
+                <svg class="w-4 h-4 text-[var(--color-text-secondary)] transition-transform duration-200 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="faq-answer hidden pb-3">
+                <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">Pas përfundimit të sfidës, plotëso formularin e dërgesës më poshtë dhe do ta marrësh me postë.</p>
+              </div>
+            </div>
+            <div class="faq-item border-t border-[var(--color-border)]">
+              <button class="faq-toggle w-full flex items-center justify-between py-3 text-left">
+                <span class="text-sm font-medium text-[var(--color-text)]">A mund të filloj më vonë?</span>
+                <svg class="w-4 h-4 text-[var(--color-text-secondary)] transition-transform duration-200 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="faq-answer hidden pb-3">
+                <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">Po, mund ta nisësh kur të duash. Sfida është personale dhe çdo ditë llogaritet sipas fillimit tënd.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery Form Section -->
+        <div class="card" id="delivery-section">
+          <!-- Locked state -->
+          <div id="delivery-locked" class="text-center py-6">
+            <div class="w-14 h-14 mx-auto rounded-full bg-[var(--color-border)]/30 flex items-center justify-center mb-4">
+              <svg class="w-7 h-7 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            </div>
+            <h3 class="font-semibold text-[var(--color-text)]">Përfundo sfidën për të hapur formularin</h3>
+            <p class="text-sm text-[var(--color-text-secondary)] mt-2">Plotëso të 30 ditët për të kërkuar Kuranin tënd.</p>
+            <div class="mt-4">
+              <div class="flex items-center justify-between text-xs text-[var(--color-text-secondary)] mb-1">
+                <span>Progresi</span>
+                <span id="locked-progress-text">0/30</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" id="locked-progress-fill" style="width:0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unlocked form -->
+          <div id="delivery-form-container" class="hidden">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-[var(--color-text)]">Formulari i dërgesës</h3>
+                <p class="text-xs text-[var(--color-text-secondary)]">Plotëso të dhënat për ta marrë Kuranin</p>
+              </div>
+            </div>
+            <form id="delivery-form" class="space-y-4">
+              <div>
+                <label class="text-sm text-[var(--color-text-secondary)] mb-1 block">Emri i plotë *</label>
+                <input type="text" name="fullName" required class="input" placeholder="Emri dhe mbiemri" />
+              </div>
+              <div>
+                <label class="text-sm text-[var(--color-text-secondary)] mb-1 block">Adresa *</label>
+                <input type="text" name="address" required class="input" placeholder="Rruga, numri" />
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="text-sm text-[var(--color-text-secondary)] mb-1 block">Qyteti *</label>
+                  <input type="text" name="city" required class="input" placeholder="Qyteti" />
+                </div>
+                <div>
+                  <label class="text-sm text-[var(--color-text-secondary)] mb-1 block">Kodi postar *</label>
+                  <input type="text" name="postalCode" required class="input" placeholder="12345" />
+                </div>
+              </div>
+              <div>
+                <label class="text-sm text-[var(--color-text-secondary)] mb-1 block">Numri i telefonit *</label>
+                <input type="tel" name="phone" required class="input" placeholder="+49 123 456789" />
+              </div>
+              <div>
+                <label class="text-sm text-[var(--color-text-secondary)] mb-1 block">Shënim (opsional)</label>
+                <textarea name="note" class="input" rows="2" placeholder="Ndonjë shënim shtesë..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-full">
+                Dërgo kërkesën
+              </button>
+            </form>
+          </div>
+
+          <!-- Success state -->
+          <div id="delivery-success" class="hidden text-center py-6">
+            <div class="w-14 h-14 mx-auto rounded-full bg-[var(--color-primary)] flex items-center justify-center mb-4">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h3 class="font-semibold text-[var(--color-text)]">Kërkesa u dërgua!</h3>
+            <p class="text-sm text-[var(--color-text-secondary)] mt-2">Do të kontaktohesh kur Kurani të jetë gati për dërgim.</p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Bottom Nav -->
+    <nav class="sticky bottom-0 bg-[var(--color-surface)]/80 backdrop-blur-lg border-t border-[var(--color-border)] px-4 py-2 safe-bottom">
+      <div class="max-w-lg mx-auto flex justify-around">
+        <a href="/app" class="nav-item">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          <span class="text-xs">Kryefaqja</span>
+        </a>
+        <a href="/app/gift" class="nav-item active">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>
+          <span class="text-xs font-medium">Dhurata</span>
+        </a>
+        <a href="/app/settings" class="nav-item">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          <span class="text-xs">Cilësimet</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</Layout>
+
+<script>
+  import { getState, getProgress } from '../../lib/challenge';
+
+  const DELIVERY_KEY = 'mulk30_delivery';
+
+  function init() {
+    const state = getState();
+    const completedCount = state.completedDays.length;
+    const isComplete = completedCount >= 30;
+    const alreadySubmitted = localStorage.getItem(DELIVERY_KEY);
+
+    const locked = document.getElementById('delivery-locked')!;
+    const formContainer = document.getElementById('delivery-form-container')!;
+    const success = document.getElementById('delivery-success')!;
+
+    if (alreadySubmitted) {
+      locked.classList.add('hidden');
+      formContainer.classList.add('hidden');
+      success.classList.remove('hidden');
+    } else if (isComplete) {
+      locked.classList.add('hidden');
+      formContainer.classList.remove('hidden');
+      success.classList.add('hidden');
+    } else {
+      locked.classList.remove('hidden');
+      formContainer.classList.add('hidden');
+      success.classList.add('hidden');
+      // Update progress
+      document.getElementById('locked-progress-text')!.textContent = `${completedCount}/30`;
+      const pct = Math.round((completedCount / 30) * 100);
+      (document.getElementById('locked-progress-fill') as HTMLElement).style.width = `${pct}%`;
+    }
+
+    // Form submit
+    document.getElementById('delivery-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const data = Object.fromEntries(new FormData(form));
+      data.submittedAt = new Date().toISOString();
+      localStorage.setItem(DELIVERY_KEY, JSON.stringify(data));
+      formContainer.classList.add('hidden');
+      success.classList.remove('hidden');
+    });
+
+    // FAQ toggles
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item')!;
+        const answer = item.querySelector('.faq-answer')!;
+        const chevron = item.querySelector('.faq-chevron') as HTMLElement;
+        const isOpen = !answer.classList.contains('hidden');
+        answer.classList.toggle('hidden', isOpen);
+        chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+      });
+    });
+  }
+
+  init();
+</script>
