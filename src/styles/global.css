@@ -31,17 +31,51 @@
   --color-border: #2C2C2E;
 }
 
-/* Base styles */
+/* Base styles — iOS webapp-konform */
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
   scroll-behavior: smooth;
+  /* Prevent overscroll bounce on iOS */
+  overscroll-behavior: none;
+  /* Prevent pull-to-refresh */
+  overflow: hidden;
+  height: 100%;
 }
 
 body {
   background-color: var(--color-background);
   color: var(--color-text);
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for iOS */
   line-height: 1.6;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Prevent overscroll bounce */
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+  /* Prevent text size adjust on orientation change */
+  -webkit-text-size-adjust: 100%;
+  /* Prevent tap highlight */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS safe areas */
+.safe-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+/* Standalone mode (Add to Home Screen) adjustments */
+@media (display-mode: standalone) {
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 2.75rem);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 1.5rem);
+  }
 }
 
 /* Uthmanic Mushaf Font (Madinah) */
@@ -77,11 +111,29 @@ body {
   transition: font-size 0.15s ease;
 }
 
-/* Smooth transitions */
-* {
+/* Smooth transitions — exclude transforms to not interfere with animations */
+*:not(.arabic-zoomable):not(.confetti-piece):not(.animate-bounce-in) {
   transition-property: color, background-color, border-color, opacity;
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
+}
+
+/* iOS input fixes */
+input, textarea, select {
+  font-size: 16px !important; /* Prevent iOS zoom on focus */
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: var(--radius-md);
+}
+
+/* Prevent iOS callout on long press */
+img, a, button {
+  -webkit-touch-callout: none;
+}
+
+/* Touch targets — minimum 44px per Apple HIG */
+button, a, .nav-item, .btn, input, select, textarea {
+  min-height: 44px;
 }
 
 /* Focus styles */
@@ -185,15 +237,6 @@ body {
 
 .nav-item.active {
   color: var(--color-primary);
-}
-
-/* Safe areas for PWA */
-.safe-top {
-  padding-top: env(safe-area-inset-top, 0);
-}
-
-.safe-bottom {
-  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 /* Selection */
