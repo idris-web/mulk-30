@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import BottomNav from '../../../components/BottomNav.astro';
 import { MULK_VERSES, SURAH_INFO, getVerseByDay } from '../../../data/mulk-verses';
+import wordByWordData from '../../../data/word-by-word.json';
 
 export function getStaticPaths() {
   return MULK_VERSES.map((v) => ({ params: { id: String(v.dayIndex) } }));
@@ -14,13 +15,15 @@ const prevDay = dayIndex > 1 ? dayIndex - 1 : null;
 const nextDay = dayIndex < 30 ? dayIndex + 1 : null;
 
 const arabicWords = verse.arabic.split(/\s+/);
+// Get word-by-word translations for this verse (ayah number = dayIndex for Surah Al-Mulk)
+const verseWordByWord = (wordByWordData as Record<string, {word: number, albanian: string, arabic: string}[]>)[String(dayIndex)] || [];
 ---
 
 <Layout title={`Dita ${dayIndex}`}>
   <div id="page-root" class="min-h-screen flex flex-col bg-[var(--color-background)]">
     
-    <!-- Header with gradient -->
-    <header class="bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7] text-white px-4 pt-3 pb-6 safe-top">
+    <!-- Header with gradient - extends down -->
+    <header class="bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7] text-white px-4 pt-3 pb-24 safe-top">
       <div class="max-w-lg mx-auto flex items-center justify-between">
         <a href="/app" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center active:scale-95 transition-transform" aria-label="Kthehu">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
@@ -35,8 +38,8 @@ const arabicWords = verse.arabic.split(/\s+/);
       </div>
     </header>
 
-    <!-- Step Progress Indicator -->
-    <div class="bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 py-3 shadow-sm">
+    <!-- Step Progress Indicator - pulls up into gradient -->
+    <div class="bg-white/95 backdrop-blur-sm rounded-2xl mx-4 -mt-16 px-4 py-4 shadow-lg border border-[var(--color-border)]/50">
       <div class="max-w-lg mx-auto">
         <div class="flex items-center">
           <!-- Step 1: Listen -->
@@ -82,24 +85,34 @@ const arabicWords = verse.arabic.split(/\s+/);
     </div>
 
     <!-- Main Content Area - Hero Arabic Text -->
-    <main class="flex-1 flex flex-col px-4 py-6 pb-48">
+    <main class="flex-1 flex flex-col px-4 py-4 pb-48">
       <div class="max-w-lg mx-auto w-full flex-1 flex flex-col">
         
         <!-- Arabic Text Card - THE HERO -->
-        <div id="arabic-card" class="flex-1 flex flex-col bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] overflow-hidden">
+        <div id="arabic-card" class="flex-1 flex flex-col bg-white rounded-2xl shadow-lg shadow-[#005086]/10 border border-[var(--color-border)]/50 overflow-hidden">
           
           <!-- Card Header -->
-          <div class="flex items-center justify-center px-4 py-3 border-b border-[var(--color-border)]/50">
-            <span class="text-xs text-[var(--color-text-secondary)]">{SURAH_INFO.name}</span>
+          <div class="flex items-center justify-center px-4 py-3 bg-gradient-to-r from-[#005086]/5 to-[#318fb5]/5 border-b border-[var(--color-border)]/30">
+            <span class="text-xs font-medium text-[#005086]">{SURAH_INFO.name}</span>
           </div>
           
-          <!-- Arabic Text - Maximum prominence -->
-          <div id="arabic-content" class="flex-1 flex items-center justify-center p-6">
+          <!-- Arabic Text - Maximum prominence with word-by-word tooltips -->
+          <div id="arabic-content" class="flex-1 flex items-center justify-center p-6 relative">
             <p class="arabic text-3xl text-center text-[var(--color-text)] leading-[2.2]" id="arabic-text" dir="rtl">
-              {arabicWords.map((word, i) => (
-                <span class="arabic-word" data-word-index={i}>{word} </span>
+              {verseWordByWord.map((wordData, i) => (
+                <span 
+                  class="arabic-word cursor-pointer hover:text-[var(--color-primary)] transition-colors relative inline-block" 
+                  data-word-index={i}
+                  data-albanian={wordData.albanian}
+                  data-arabic={wordData.arabic}
+                >{wordData.arabic} </span>
               ))}
             </p>
+            <!-- Tooltip container -->
+            <div id="word-tooltip" class="fixed z-50 px-3 py-2 bg-[#005086] text-white text-sm rounded-xl shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 max-w-[200px] text-center" style="transform: translateX(-50%);">
+              <span id="tooltip-text"></span>
+              <div class="absolute left-1/2 -translate-x-1/2 -bottom-1.5 w-3 h-3 bg-[#005086] rotate-45"></div>
+            </div>
           </div>
           
           <!-- Hidden State for Recite Mode -->
@@ -175,14 +188,17 @@ const arabicWords = verse.arabic.split(/\s+/);
     </main>
 
     <!-- FIXED ACTION BAR - Thumb Zone, Progressive Disclosure -->
-    <div id="action-bar" class="fixed bottom-16 left-0 right-0 z-40 bg-[var(--color-surface)] border-t border-[var(--color-border)] safe-bottom">
+    <div id="action-bar" class="fixed bottom-16 left-0 right-0 z-40 safe-bottom">
       
-      <!-- Audio Progress Bar -->
-      <div class="h-1 bg-[var(--color-border)]">
-        <div id="audio-progress" class="h-full bg-[var(--color-primary)] transition-all duration-100" style="width:0%"></div>
-      </div>
-      
-      <div class="max-w-lg mx-auto px-4 py-3">
+      <!-- Glass card effect -->
+      <div class="mx-4 mb-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg shadow-[#005086]/15 border border-[var(--color-border)]/50 overflow-hidden">
+        
+        <!-- Audio Progress Bar -->
+        <div class="h-1 bg-[var(--color-border)]/50">
+          <div id="audio-progress" class="h-full bg-gradient-to-r from-[#005086] to-[#318fb5] transition-all duration-100" style="width:0%"></div>
+        </div>
+        
+        <div class="max-w-lg mx-auto px-4 py-3">
         
         <!-- LISTEN MODE (Step 1) -->
         <div id="mode-listen" class="action-mode">
@@ -281,6 +297,7 @@ const arabicWords = verse.arabic.split(/\s+/);
           </div>
         </div>
         
+      </div>
       </div>
     </div>
 
@@ -387,10 +404,114 @@ const arabicWords = verse.arabic.split(/\s+/);
   #hidden-content.peeking {
     display: none !important;
   }
+
+  /* Word tooltip animation */
+  #word-tooltip.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Active word highlight */
+  .arabic-word.active {
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    border-radius: 4px;
+    padding: 0 2px;
+  }
 </style>
 
 <script define:vars={{ dayIndex }}>
   window.__dayIndex = dayIndex;
+</script>
+
+<script>
+  // Word-by-Word Tooltip functionality
+  const tooltip = document.getElementById('word-tooltip');
+  const tooltipText = document.getElementById('tooltip-text');
+  const arabicWordsElements = document.querySelectorAll('.arabic-word[data-albanian]');
+  let activeWord: Element | null = null;
+  let tooltipTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  function showTooltip(word: Element) {
+    if (!tooltip || !tooltipText) return;
+    
+    const albanian = word.getAttribute('data-albanian');
+    if (!albanian) return;
+    
+    // Clear any pending hide
+    if (tooltipTimeout) {
+      clearTimeout(tooltipTimeout);
+      tooltipTimeout = null;
+    }
+    
+    // Remove active from previous word
+    if (activeWord) activeWord.classList.remove('active');
+    
+    // Set new active word
+    activeWord = word;
+    word.classList.add('active');
+    
+    // Set tooltip text
+    tooltipText.textContent = albanian;
+    
+    // Position tooltip above the word
+    const rect = word.getBoundingClientRect();
+    const tooltipRect = tooltip.getBoundingClientRect();
+    
+    // Calculate position
+    let left = rect.left + rect.width / 2;
+    let top = rect.top - 10;
+    
+    // Ensure tooltip stays within viewport
+    const minLeft = tooltipRect.width / 2 + 8;
+    const maxLeft = window.innerWidth - tooltipRect.width / 2 - 8;
+    left = Math.max(minLeft, Math.min(maxLeft, left));
+    
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${top}px`;
+    tooltip.style.transform = 'translateX(-50%) translateY(-100%)';
+    
+    // Show tooltip
+    tooltip.classList.add('visible');
+  }
+
+  function hideTooltip() {
+    tooltipTimeout = setTimeout(() => {
+      if (tooltip) tooltip.classList.remove('visible');
+      if (activeWord) {
+        activeWord.classList.remove('active');
+        activeWord = null;
+      }
+    }, 150);
+  }
+
+  // Add event listeners
+  arabicWordsElements.forEach(word => {
+    // Touch/click for mobile
+    word.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (activeWord === word) {
+        hideTooltip();
+      } else {
+        showTooltip(word);
+      }
+    });
+    
+    // Hover for desktop
+    word.addEventListener('mouseenter', () => showTooltip(word));
+    word.addEventListener('mouseleave', hideTooltip);
+  });
+
+  // Hide tooltip when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!tooltip?.contains(e.target as Node) && !(e.target as Element)?.classList.contains('arabic-word')) {
+      if (tooltip) tooltip.classList.remove('visible');
+      if (activeWord) {
+        activeWord.classList.remove('active');
+        activeWord = null;
+      }
+    }
+  });
 </script>
 
 <script>

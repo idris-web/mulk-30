@@ -1,0 +1,1727 @@
+{
+  "1": [
+    {
+      "word": 1,
+      "albanian": "I Madhëruar (është)",
+      "arabic": "تَبَٰرَكَ"
+    },
+    {
+      "word": 2,
+      "albanian": "Ai i Cili",
+      "arabic": "ٱلَّذِى"
+    },
+    {
+      "word": 3,
+      "albanian": "në Dorën e Tij (është)",
+      "arabic": "بِيَدِهِ"
+    },
+    {
+      "word": 4,
+      "albanian": "sundimi",
+      "arabic": "ٱلْمُلْكُ"
+    },
+    {
+      "word": 5,
+      "albanian": "dhe Ai (është)",
+      "arabic": "وَهُوَ"
+    },
+    {
+      "word": 6,
+      "albanian": "mbi",
+      "arabic": "عَلَىٰ"
+    },
+    {
+      "word": 7,
+      "albanian": "çdo",
+      "arabic": "كُلِّ"
+    },
+    {
+      "word": 8,
+      "albanian": "gjë",
+      "arabic": "شَىْءٍ"
+    },
+    {
+      "word": 9,
+      "albanian": "i Plotfuqishëm",
+      "arabic": "قَدِيرٌ"
+    }
+  ],
+  "2": [
+    {
+      "word": 1,
+      "albanian": "Ai i Cili",
+      "arabic": "ٱلَّذِى"
+    },
+    {
+      "word": 2,
+      "albanian": "krijoi",
+      "arabic": "خَلَقَ"
+    },
+    {
+      "word": 3,
+      "albanian": "vdekjen",
+      "arabic": "ٱلْمَوْتَ"
+    },
+    {
+      "word": 4,
+      "albanian": "dhe jetën",
+      "arabic": "وَٱلْحَيَوٰةَ"
+    },
+    {
+      "word": 5,
+      "albanian": "për t'ju sprovuar",
+      "arabic": "لِيَبْلُوَكُمْ"
+    },
+    {
+      "word": 6,
+      "albanian": "cili prej jush",
+      "arabic": "أَيُّكُمْ"
+    },
+    {
+      "word": 7,
+      "albanian": "(bën) më të bukurën",
+      "arabic": "أَحْسَنُ"
+    },
+    {
+      "word": 8,
+      "albanian": "vepër",
+      "arabic": "عَمَلًا"
+    },
+    {
+      "word": 9,
+      "albanian": "dhe Ai (është)",
+      "arabic": "وَهُوَ"
+    },
+    {
+      "word": 10,
+      "albanian": "i Pamposhturi",
+      "arabic": "ٱلْعَزِيزُ"
+    },
+    {
+      "word": 11,
+      "albanian": "Falësi",
+      "arabic": "ٱلْغَفُورُ"
+    }
+  ],
+  "3": [
+    {
+      "word": 1,
+      "albanian": "Ai i Cili",
+      "arabic": "ٱلَّذِى"
+    },
+    {
+      "word": 2,
+      "albanian": "krijoi",
+      "arabic": "خَلَقَ"
+    },
+    {
+      "word": 3,
+      "albanian": "shtatë",
+      "arabic": "سَبْعَ"
+    },
+    {
+      "word": 4,
+      "albanian": "qiej",
+      "arabic": "سَمَٰوَٰتٍ"
+    },
+    {
+      "word": 5,
+      "albanian": "palë-palë",
+      "arabic": "طِبَاقًا"
+    },
+    {
+      "word": 6,
+      "albanian": "nuk",
+      "arabic": "مَّا"
+    },
+    {
+      "word": 7,
+      "albanian": "ti sheh",
+      "arabic": "تَرَىٰ"
+    },
+    {
+      "word": 8,
+      "albanian": "në",
+      "arabic": "فِى"
+    },
+    {
+      "word": 9,
+      "albanian": "krijimin",
+      "arabic": "خَلْقِ"
+    },
+    {
+      "word": 10,
+      "albanian": "e të Gjithëmëshirshmit",
+      "arabic": "ٱلرَّحْمَٰنِ"
+    },
+    {
+      "word": 11,
+      "albanian": "asnjë",
+      "arabic": "مِن"
+    },
+    {
+      "word": 12,
+      "albanian": "kontrast",
+      "arabic": "تَفَٰوُتٍ"
+    },
+    {
+      "word": 13,
+      "albanian": "prandaj ktheje",
+      "arabic": "فَٱرْجِعِ"
+    },
+    {
+      "word": 14,
+      "albanian": "shikimin",
+      "arabic": "ٱلْبَصَرَ"
+    },
+    {
+      "word": 15,
+      "albanian": "a",
+      "arabic": "هَلْ"
+    },
+    {
+      "word": 16,
+      "albanian": "po sheh",
+      "arabic": "تَرَىٰ"
+    },
+    {
+      "word": 17,
+      "albanian": "ndonjë",
+      "arabic": "مِن"
+    },
+    {
+      "word": 18,
+      "albanian": "çarje?",
+      "arabic": "فُطُورٍ"
+    }
+  ],
+  "4": [
+    {
+      "word": 1,
+      "albanian": "Pastaj",
+      "arabic": "ثُمَّ"
+    },
+    {
+      "word": 2,
+      "albanian": "ktheje",
+      "arabic": "ٱرْجِعِ"
+    },
+    {
+      "word": 3,
+      "albanian": "shikimin",
+      "arabic": "ٱلْبَصَرَ"
+    },
+    {
+      "word": 4,
+      "albanian": "herë pas here",
+      "arabic": "كَرَّتَيْنِ"
+    },
+    {
+      "word": 5,
+      "albanian": "(do të) kthehet",
+      "arabic": "يَنقَلِبْ"
+    },
+    {
+      "word": 6,
+      "albanian": "tek ti",
+      "arabic": "إِلَيْكَ"
+    },
+    {
+      "word": 7,
+      "albanian": "shikimi",
+      "arabic": "ٱلْبَصَرُ"
+    },
+    {
+      "word": 8,
+      "albanian": "i përulur",
+      "arabic": "خَاسِئًا"
+    },
+    {
+      "word": 9,
+      "albanian": "duke qenë ai",
+      "arabic": "وَهُوَ"
+    },
+    {
+      "word": 10,
+      "albanian": "i molisur",
+      "arabic": "حَسِيرٌ"
+    }
+  ],
+  "5": [
+    {
+      "word": 1,
+      "albanian": "Dhe sigurisht",
+      "arabic": "وَلَقَدْ"
+    },
+    {
+      "word": 2,
+      "albanian": "Ne e stolisëm",
+      "arabic": "زَيَّنَّا"
+    },
+    {
+      "word": 3,
+      "albanian": "qiellin",
+      "arabic": "ٱلسَّمَآءَ"
+    },
+    {
+      "word": 4,
+      "albanian": "e kësaj bote",
+      "arabic": "ٱلدُّنْيَا"
+    },
+    {
+      "word": 5,
+      "albanian": "me fenerë",
+      "arabic": "بِمَصَٰبِيحَ"
+    },
+    {
+      "word": 6,
+      "albanian": "dhe i bëmë ata",
+      "arabic": "وَجَعَلْنَٰهَا"
+    },
+    {
+      "word": 7,
+      "albanian": "gjuajtës",
+      "arabic": "رُجُومًا"
+    },
+    {
+      "word": 8,
+      "albanian": "kundër djajve",
+      "arabic": "لِّلشَّيَٰطِينِ"
+    },
+    {
+      "word": 9,
+      "albanian": "dhe përgatitëm",
+      "arabic": "وَأَعْتَدْنَا"
+    },
+    {
+      "word": 10,
+      "albanian": "për ta",
+      "arabic": "لَهُمْ"
+    },
+    {
+      "word": 11,
+      "albanian": "dënimin",
+      "arabic": "عَذَابَ"
+    },
+    {
+      "word": 12,
+      "albanian": "e zjarrit ndezës",
+      "arabic": "ٱلسَّعِيرِ"
+    }
+  ],
+  "6": [
+    {
+      "word": 1,
+      "albanian": "E për ata të cilët",
+      "arabic": "وَلِلَّذِينَ"
+    },
+    {
+      "word": 2,
+      "albanian": "mohuan",
+      "arabic": "كَفَرُوا۟"
+    },
+    {
+      "word": 3,
+      "albanian": "Zotin e tyre",
+      "arabic": "بِرَبِّهِمْ"
+    },
+    {
+      "word": 4,
+      "albanian": "(është) dënimi",
+      "arabic": "عَذَابُ"
+    },
+    {
+      "word": 5,
+      "albanian": "i xhehenemit",
+      "arabic": "جَهَنَّمَ"
+    },
+    {
+      "word": 6,
+      "albanian": "e sa i keq (është)",
+      "arabic": "وَبِئْسَ"
+    },
+    {
+      "word": 7,
+      "albanian": "destinimi!",
+      "arabic": "ٱلْمَصِيرُ"
+    }
+  ],
+  "7": [
+    {
+      "word": 1,
+      "albanian": "Kur",
+      "arabic": "إِذَآ"
+    },
+    {
+      "word": 2,
+      "albanian": "(të) hidhen",
+      "arabic": "أُلْقُوا۟"
+    },
+    {
+      "word": 3,
+      "albanian": "në të",
+      "arabic": "فِيهَا"
+    },
+    {
+      "word": 4,
+      "albanian": "(do t'ia) dëgjojnë",
+      "arabic": "سَمِعُوا۟"
+    },
+    {
+      "word": 5,
+      "albanian": "atij",
+      "arabic": "لَهَا"
+    },
+    {
+      "word": 6,
+      "albanian": "një ushtimë",
+      "arabic": "شَهِيقًا"
+    },
+    {
+      "word": 7,
+      "albanian": "ndërkohë që ai",
+      "arabic": "وَهِىَ"
+    },
+    {
+      "word": 8,
+      "albanian": "vlon",
+      "arabic": "تَفُورُ"
+    }
+  ],
+  "8": [
+    {
+      "word": 1,
+      "albanian": "(Është) gati",
+      "arabic": "تَكَادُ"
+    },
+    {
+      "word": 2,
+      "albanian": "(të) copëtohet",
+      "arabic": "تَمَيَّزُ"
+    },
+    {
+      "word": 3,
+      "albanian": "nga",
+      "arabic": "مِنَ"
+    },
+    {
+      "word": 4,
+      "albanian": "mllefi",
+      "arabic": "ٱلْغَيْظِ"
+    },
+    {
+      "word": 5,
+      "albanian": "saherë që",
+      "arabic": "كُلَّمَآ"
+    },
+    {
+      "word": 6,
+      "albanian": "hidhet",
+      "arabic": "أُلْقِىَ"
+    },
+    {
+      "word": 7,
+      "albanian": "në të",
+      "arabic": "فِيهَا"
+    },
+    {
+      "word": 8,
+      "albanian": "një turmë",
+      "arabic": "فَوْجٌ"
+    },
+    {
+      "word": 9,
+      "albanian": "i pyesin ata",
+      "arabic": "سَأَلَهُمْ"
+    },
+    {
+      "word": 10,
+      "albanian": "rojet e tij",
+      "arabic": "خَزَنَتُهَآ"
+    },
+    {
+      "word": 11,
+      "albanian": "\"\"\"A nuk\"",
+      "arabic": "أَلَمْ"
+    },
+    {
+      "word": 12,
+      "albanian": "erdhi tek ju",
+      "arabic": "يَأْتِكُمْ"
+    },
+    {
+      "word": 13,
+      "albanian": "\"ndonjë paralajmërues?\"\"\"",
+      "arabic": "نَذِيرٌ"
+    }
+  ],
+  "9": [
+    {
+      "word": 1,
+      "albanian": "Ata (do të) thonë",
+      "arabic": "قَالُوا۟"
+    },
+    {
+      "word": 2,
+      "albanian": "\"\"\"Po\"",
+      "arabic": "بَلَىٰ"
+    },
+    {
+      "word": 3,
+      "albanian": "sigurisht",
+      "arabic": "قَدْ"
+    },
+    {
+      "word": 4,
+      "albanian": "erdhi tek ne",
+      "arabic": "جَآءَنَا"
+    },
+    {
+      "word": 5,
+      "albanian": "një paralajmërues",
+      "arabic": "نَذِيرٌ"
+    },
+    {
+      "word": 6,
+      "albanian": "por ne përgënjeshtruam",
+      "arabic": "فَكَذَّبْنَا"
+    },
+    {
+      "word": 7,
+      "albanian": "dhe thamë",
+      "arabic": "وَقُلْنَا"
+    },
+    {
+      "word": 8,
+      "albanian": "\"\"\"Nuk\"",
+      "arabic": "مَا"
+    },
+    {
+      "word": 9,
+      "albanian": "ka zbritur",
+      "arabic": "نَزَّلَ"
+    },
+    {
+      "word": 10,
+      "albanian": "Allahu",
+      "arabic": "ٱللَّهُ"
+    },
+    {
+      "word": 11,
+      "albanian": "asnjë",
+      "arabic": "مِن"
+    },
+    {
+      "word": 12,
+      "albanian": "gjë",
+      "arabic": "شَىْءٍ"
+    },
+    {
+      "word": 13,
+      "albanian": "nuk",
+      "arabic": "إِنْ"
+    },
+    {
+      "word": 14,
+      "albanian": "ju (jeni)",
+      "arabic": "أَنتُمْ"
+    },
+    {
+      "word": 15,
+      "albanian": "përveçse",
+      "arabic": "إِلَّا"
+    },
+    {
+      "word": 16,
+      "albanian": "në",
+      "arabic": "فِى"
+    },
+    {
+      "word": 17,
+      "albanian": "një humbje",
+      "arabic": "ضَلَٰلٍ"
+    },
+    {
+      "word": 18,
+      "albanian": "\"të madhe\"\"\"",
+      "arabic": "كَبِيرٍ"
+    }
+  ],
+  "10": [
+    {
+      "word": 1,
+      "albanian": "Dhe thanë",
+      "arabic": "وَقَالُوا۟"
+    },
+    {
+      "word": 2,
+      "albanian": "\"\"\"Sikur\"",
+      "arabic": "لَوْ"
+    },
+    {
+      "word": 3,
+      "albanian": "(të) ishim",
+      "arabic": "كُنَّا"
+    },
+    {
+      "word": 4,
+      "albanian": "(që) dëgjonim",
+      "arabic": "نَسْمَعُ"
+    },
+    {
+      "word": 5,
+      "albanian": "apo",
+      "arabic": "أَوْ"
+    },
+    {
+      "word": 6,
+      "albanian": "rroknim",
+      "arabic": "نَعْقِلُ"
+    },
+    {
+      "word": 7,
+      "albanian": "nuk",
+      "arabic": "مَا"
+    },
+    {
+      "word": 8,
+      "albanian": "(do të) ishim",
+      "arabic": "كُنَّا"
+    },
+    {
+      "word": 9,
+      "albanian": "në mesin e",
+      "arabic": "فِىٓ"
+    },
+    {
+      "word": 10,
+      "albanian": "banorëve",
+      "arabic": "أَصْحَٰبِ"
+    },
+    {
+      "word": 11,
+      "albanian": "\"të zjarrit ndezës\"\"\"",
+      "arabic": "ٱلسَّعِيرِ"
+    }
+  ],
+  "11": [
+    {
+      "word": 1,
+      "albanian": "Prandaj ata e pranuan",
+      "arabic": "فَٱعْتَرَفُوا۟"
+    },
+    {
+      "word": 2,
+      "albanian": "mëkatin e tyre",
+      "arabic": "بِذَنۢبِهِمْ"
+    },
+    {
+      "word": 3,
+      "albanian": "e qofshin larg",
+      "arabic": "فَسُحْقًا"
+    },
+    {
+      "word": 4,
+      "albanian": "banorët",
+      "arabic": "لِّأَصْحَٰبِ"
+    },
+    {
+      "word": 5,
+      "albanian": "e zjarrit ndezës!",
+      "arabic": "ٱلسَّعِيرِ"
+    }
+  ],
+  "12": [
+    {
+      "word": 1,
+      "albanian": "Vërtet",
+      "arabic": "إِنَّ"
+    },
+    {
+      "word": 2,
+      "albanian": "ata të cilët",
+      "arabic": "ٱلَّذِينَ"
+    },
+    {
+      "word": 3,
+      "albanian": "i përulen me frikë",
+      "arabic": "يَخْشَوْنَ"
+    },
+    {
+      "word": 4,
+      "albanian": "Zotit të tyre",
+      "arabic": "رَبَّهُم"
+    },
+    {
+      "word": 5,
+      "albanian": "në fshehtësi",
+      "arabic": "بِٱلْغَيْبِ"
+    },
+    {
+      "word": 6,
+      "albanian": "për ta (ka)",
+      "arabic": "لَهُم"
+    },
+    {
+      "word": 7,
+      "albanian": "falje",
+      "arabic": "مَّغْفِرَةٌ"
+    },
+    {
+      "word": 8,
+      "albanian": "dhe shpërblim",
+      "arabic": "وَأَجْرٌ"
+    },
+    {
+      "word": 9,
+      "albanian": "të madh",
+      "arabic": "كَبِيرٌ"
+    }
+  ],
+  "13": [
+    {
+      "word": 1,
+      "albanian": "Dhe fshiheni",
+      "arabic": "وَأَسِرُّوا۟"
+    },
+    {
+      "word": 2,
+      "albanian": "fjalën tuaj",
+      "arabic": "قَوْلَكُمْ"
+    },
+    {
+      "word": 3,
+      "albanian": "apo",
+      "arabic": "أَوِ"
+    },
+    {
+      "word": 4,
+      "albanian": "publikojeni",
+      "arabic": "ٱجْهَرُوا۟"
+    },
+    {
+      "word": 5,
+      "albanian": "atë!",
+      "arabic": "بِهِۦٓ"
+    },
+    {
+      "word": 6,
+      "albanian": "Vërtet Ai (është)",
+      "arabic": "إِنَّهُۥ"
+    },
+    {
+      "word": 7,
+      "albanian": "i Gjithëdijshëm",
+      "arabic": "عَلِيمٌۢ"
+    },
+    {
+      "word": 8,
+      "albanian": "për atë çfarë posedojnë",
+      "arabic": "بِذَاتِ"
+    },
+    {
+      "word": 9,
+      "albanian": "gjokset",
+      "arabic": "ٱلصُّدُورِ"
+    }
+  ],
+  "14": [
+    {
+      "word": 1,
+      "albanian": "A nuk",
+      "arabic": "أَلَا"
+    },
+    {
+      "word": 2,
+      "albanian": "e di",
+      "arabic": "يَعْلَمُ"
+    },
+    {
+      "word": 3,
+      "albanian": "Ai i Cili",
+      "arabic": "مَنْ"
+    },
+    {
+      "word": 4,
+      "albanian": "krijoi",
+      "arabic": "خَلَقَ"
+    },
+    {
+      "word": 5,
+      "albanian": "dhe Ai (është)",
+      "arabic": "وَهُوَ"
+    },
+    {
+      "word": 6,
+      "albanian": "Më i Buti",
+      "arabic": "ٱللَّطِيفُ"
+    },
+    {
+      "word": 7,
+      "albanian": "dhe i Gjithëinformuari",
+      "arabic": "ٱلْخَبِيرُ"
+    }
+  ],
+  "15": [
+    {
+      "word": 1,
+      "albanian": "Ai (është)",
+      "arabic": "هُوَ"
+    },
+    {
+      "word": 2,
+      "albanian": "i Cili",
+      "arabic": "ٱلَّذِى"
+    },
+    {
+      "word": 3,
+      "albanian": "bëri",
+      "arabic": "جَعَلَ"
+    },
+    {
+      "word": 4,
+      "albanian": "për ju",
+      "arabic": "لَكُمُ"
+    },
+    {
+      "word": 5,
+      "albanian": "tokën",
+      "arabic": "ٱلْأَرْضَ"
+    },
+    {
+      "word": 6,
+      "albanian": "të përshtatshme",
+      "arabic": "ذَلُولًا"
+    },
+    {
+      "word": 7,
+      "albanian": "prandaj ecni",
+      "arabic": "فَٱمْشُوا۟"
+    },
+    {
+      "word": 8,
+      "albanian": "nëpër",
+      "arabic": "فِى"
+    },
+    {
+      "word": 9,
+      "albanian": "pjesët e saj",
+      "arabic": "مَنَاكِبِهَا"
+    },
+    {
+      "word": 10,
+      "albanian": "dhe hani",
+      "arabic": "وَكُلُوا۟"
+    },
+    {
+      "word": 11,
+      "albanian": "nga",
+      "arabic": "مِن"
+    },
+    {
+      "word": 12,
+      "albanian": "furnizimi i Tij",
+      "arabic": "رِّزْقِهِۦ"
+    },
+    {
+      "word": 13,
+      "albanian": "dhe tek Ai (është)",
+      "arabic": "وَإِلَيْهِ"
+    },
+    {
+      "word": 14,
+      "albanian": "ringjallja",
+      "arabic": "ٱلنُّشُورُ"
+    }
+  ],
+  "16": [
+    {
+      "word": 1,
+      "albanian": "A u siguruat",
+      "arabic": "ءَأَمِنتُم"
+    },
+    {
+      "word": 2,
+      "albanian": "prej Atij që",
+      "arabic": "مَّن"
+    },
+    {
+      "word": 3,
+      "albanian": "(është) në",
+      "arabic": "فِى"
+    },
+    {
+      "word": 4,
+      "albanian": "qiell",
+      "arabic": "ٱلسَّمَآءِ"
+    },
+    {
+      "word": 5,
+      "albanian": "që të",
+      "arabic": "أَن"
+    },
+    {
+      "word": 6,
+      "albanian": "fundosë",
+      "arabic": "يَخْسِفَ"
+    },
+    {
+      "word": 7,
+      "albanian": "me ju",
+      "arabic": "بِكُمُ"
+    },
+    {
+      "word": 8,
+      "albanian": "tokën",
+      "arabic": "ٱلْأَرْضَ"
+    },
+    {
+      "word": 9,
+      "albanian": "ndërkohë që",
+      "arabic": "فَإِذَا"
+    },
+    {
+      "word": 10,
+      "albanian": "ajo",
+      "arabic": "هِىَ"
+    },
+    {
+      "word": 11,
+      "albanian": "dridhet",
+      "arabic": "تَمُورُ"
+    }
+  ],
+  "17": [
+    {
+      "word": 1,
+      "albanian": "Apo vallë",
+      "arabic": "أَمْ"
+    },
+    {
+      "word": 2,
+      "albanian": "u siguruat",
+      "arabic": "أَمِنتُم"
+    },
+    {
+      "word": 3,
+      "albanian": "prej Atij që",
+      "arabic": "مَّن"
+    },
+    {
+      "word": 4,
+      "albanian": "(është) në",
+      "arabic": "فِى"
+    },
+    {
+      "word": 5,
+      "albanian": "qiell",
+      "arabic": "ٱلسَّمَآءِ"
+    },
+    {
+      "word": 6,
+      "albanian": "që të",
+      "arabic": "أَن"
+    },
+    {
+      "word": 7,
+      "albanian": "dërgojë",
+      "arabic": "يُرْسِلَ"
+    },
+    {
+      "word": 8,
+      "albanian": "mbi ju",
+      "arabic": "عَلَيْكُمْ"
+    },
+    {
+      "word": 9,
+      "albanian": "një stuhi",
+      "arabic": "حَاصِبًا"
+    },
+    {
+      "word": 10,
+      "albanian": "e ju pastaj do të kuptoni",
+      "arabic": "فَسَتَعْلَمُونَ"
+    },
+    {
+      "word": 11,
+      "albanian": "si (është)",
+      "arabic": "كَيْفَ"
+    },
+    {
+      "word": 12,
+      "albanian": "paralajmërimi im!",
+      "arabic": "نَذِيرِ"
+    }
+  ],
+  "18": [
+    {
+      "word": 1,
+      "albanian": "E sigurisht",
+      "arabic": "وَلَقَدْ"
+    },
+    {
+      "word": 2,
+      "albanian": "kanë përgënjeshtruar",
+      "arabic": "كَذَّبَ"
+    },
+    {
+      "word": 3,
+      "albanian": "ata të cilët (ishin)",
+      "arabic": "ٱلَّذِينَ"
+    },
+    {
+      "word": 4,
+      "albanian": "nga",
+      "arabic": "مِن"
+    },
+    {
+      "word": 5,
+      "albanian": "para tyre",
+      "arabic": "قَبْلِهِمْ"
+    },
+    {
+      "word": 6,
+      "albanian": "e si",
+      "arabic": "فَكَيْفَ"
+    },
+    {
+      "word": 7,
+      "albanian": "ishte",
+      "arabic": "كَانَ"
+    },
+    {
+      "word": 8,
+      "albanian": "ndëshkimi im?",
+      "arabic": "نَكِيرِ"
+    }
+  ],
+  "19": [
+    {
+      "word": 1,
+      "albanian": "A nuk",
+      "arabic": "أَوَلَمْ"
+    },
+    {
+      "word": 2,
+      "albanian": "shikojnë",
+      "arabic": "يَرَوْا۟"
+    },
+    {
+      "word": 3,
+      "albanian": "tek",
+      "arabic": "إِلَى"
+    },
+    {
+      "word": 4,
+      "albanian": "shpendët",
+      "arabic": "ٱلطَّيْرِ"
+    },
+    {
+      "word": 5,
+      "albanian": "mbi ta",
+      "arabic": "فَوْقَهُمْ"
+    },
+    {
+      "word": 6,
+      "albanian": "krahëhapur",
+      "arabic": "صَٰٓفَّٰتٍ"
+    },
+    {
+      "word": 7,
+      "albanian": "dhe i palosin?",
+      "arabic": "وَيَقْبِضْنَ"
+    },
+    {
+      "word": 8,
+      "albanian": "Nuk",
+      "arabic": "مَا"
+    },
+    {
+      "word": 9,
+      "albanian": "i mban ata",
+      "arabic": "يُمْسِكُهُنَّ"
+    },
+    {
+      "word": 10,
+      "albanian": "askush përveç",
+      "arabic": "إِلَّا"
+    },
+    {
+      "word": 11,
+      "albanian": "të Gjithëmëshirshmit",
+      "arabic": "ٱلرَّحْمَٰنُ"
+    },
+    {
+      "word": 12,
+      "albanian": "Vërtet Ai (është)",
+      "arabic": "إِنَّهُۥ"
+    },
+    {
+      "word": 13,
+      "albanian": "për çdo",
+      "arabic": "بِكُلِّ"
+    },
+    {
+      "word": 14,
+      "albanian": "gjë",
+      "arabic": "شَىْءٍۭ"
+    },
+    {
+      "word": 15,
+      "albanian": "Gjithëshikues",
+      "arabic": "بَصِيرٌ"
+    }
+  ],
+  "20": [
+    {
+      "word": 1,
+      "albanian": "A ka ndonjë sikur",
+      "arabic": "أَمَّنْ"
+    },
+    {
+      "word": 2,
+      "albanian": "kjo",
+      "arabic": "هَٰذَا"
+    },
+    {
+      "word": 3,
+      "albanian": "e cila",
+      "arabic": "ٱلَّذِى"
+    },
+    {
+      "word": 4,
+      "albanian": "ajo (është)",
+      "arabic": "هُوَ"
+    },
+    {
+      "word": 5,
+      "albanian": "një ushtri",
+      "arabic": "جُندٌ"
+    },
+    {
+      "word": 6,
+      "albanian": "për ju",
+      "arabic": "لَّكُمْ"
+    },
+    {
+      "word": 7,
+      "albanian": "ju ndihmon ju",
+      "arabic": "يَنصُرُكُم"
+    },
+    {
+      "word": 8,
+      "albanian": "nga",
+      "arabic": "مِّن"
+    },
+    {
+      "word": 9,
+      "albanian": "pos",
+      "arabic": "دُونِ"
+    },
+    {
+      "word": 10,
+      "albanian": "të Gjithëmëshirshmit?",
+      "arabic": "ٱلرَّحْمَٰنِ"
+    },
+    {
+      "word": 11,
+      "albanian": "Nuk (janë)",
+      "arabic": "إِنِ"
+    },
+    {
+      "word": 12,
+      "albanian": "mohuesit",
+      "arabic": "ٱلْكَٰفِرُونَ"
+    },
+    {
+      "word": 13,
+      "albanian": "përveçse",
+      "arabic": "إِلَّا"
+    },
+    {
+      "word": 14,
+      "albanian": "në",
+      "arabic": "فِى"
+    },
+    {
+      "word": 15,
+      "albanian": "një mashtrim",
+      "arabic": "غُرُورٍ"
+    }
+  ],
+  "21": [
+    {
+      "word": 1,
+      "albanian": "A ka ndonjë sikur",
+      "arabic": "أَمَّنْ"
+    },
+    {
+      "word": 2,
+      "albanian": "Ky",
+      "arabic": "هَٰذَا"
+    },
+    {
+      "word": 3,
+      "albanian": "i Cili",
+      "arabic": "ٱلَّذِى"
+    },
+    {
+      "word": 4,
+      "albanian": "ju ushqen ju",
+      "arabic": "يَرْزُقُكُمْ"
+    },
+    {
+      "word": 5,
+      "albanian": "nëse",
+      "arabic": "إِنْ"
+    },
+    {
+      "word": 6,
+      "albanian": "Ai e ndërpret",
+      "arabic": "أَمْسَكَ"
+    },
+    {
+      "word": 7,
+      "albanian": "furnizimin e Tij?",
+      "arabic": "رِزْقَهُۥ"
+    },
+    {
+      "word": 8,
+      "albanian": "Jo por",
+      "arabic": "بَل"
+    },
+    {
+      "word": 9,
+      "albanian": "ata janë futur",
+      "arabic": "لَّجُّوا۟"
+    },
+    {
+      "word": 10,
+      "albanian": "në",
+      "arabic": "فِى"
+    },
+    {
+      "word": 11,
+      "albanian": "arrogancë",
+      "arabic": "عُتُوٍّ"
+    },
+    {
+      "word": 12,
+      "albanian": "dhe neveri",
+      "arabic": "وَنُفُورٍ"
+    }
+  ],
+  "22": [
+    {
+      "word": 1,
+      "albanian": "Vallë ai i cili",
+      "arabic": "أَفَمَن"
+    },
+    {
+      "word": 2,
+      "albanian": "ecën",
+      "arabic": "يَمْشِى"
+    },
+    {
+      "word": 3,
+      "albanian": "i përmbysur",
+      "arabic": "مُكِبًّا"
+    },
+    {
+      "word": 4,
+      "albanian": "me",
+      "arabic": "عَلَىٰ"
+    },
+    {
+      "word": 5,
+      "albanian": "fytyrën e tij",
+      "arabic": "وَجْهِهِۦٓ"
+    },
+    {
+      "word": 6,
+      "albanian": "(është) më i udhëzuar",
+      "arabic": "أَهْدَىٰٓ"
+    },
+    {
+      "word": 7,
+      "albanian": "apo ai i cili",
+      "arabic": "أَمَّن"
+    },
+    {
+      "word": 8,
+      "albanian": "ecën",
+      "arabic": "يَمْشِى"
+    },
+    {
+      "word": 9,
+      "albanian": "pingul",
+      "arabic": "سَوِيًّا"
+    },
+    {
+      "word": 10,
+      "albanian": "në",
+      "arabic": "عَلَىٰ"
+    },
+    {
+      "word": 11,
+      "albanian": "një rrugë",
+      "arabic": "صِرَٰطٍ"
+    },
+    {
+      "word": 12,
+      "albanian": "të drejtë?",
+      "arabic": "مُّسْتَقِيمٍ"
+    }
+  ],
+  "23": [
+    {
+      "word": 1,
+      "albanian": "Thuaj",
+      "arabic": "قُلْ"
+    },
+    {
+      "word": 2,
+      "albanian": "\"\"\"Ai (është)\"",
+      "arabic": "هُوَ"
+    },
+    {
+      "word": 3,
+      "albanian": "i Cili",
+      "arabic": "ٱلَّذِىٓ"
+    },
+    {
+      "word": 4,
+      "albanian": "ju krijoi ju",
+      "arabic": "أَنشَأَكُمْ"
+    },
+    {
+      "word": 5,
+      "albanian": "dhe bëri",
+      "arabic": "وَجَعَلَ"
+    },
+    {
+      "word": 6,
+      "albanian": "për ju",
+      "arabic": "لَكُمُ"
+    },
+    {
+      "word": 7,
+      "albanian": "dëgjimin",
+      "arabic": "ٱلسَّمْعَ"
+    },
+    {
+      "word": 8,
+      "albanian": "dhe shikimet",
+      "arabic": "وَٱلْأَبْصَٰرَ"
+    },
+    {
+      "word": 9,
+      "albanian": "dhe zemrat",
+      "arabic": "وَٱلْأَفْـِٔدَةَ"
+    },
+    {
+      "word": 10,
+      "albanian": "sa pak",
+      "arabic": "قَلِيلًا"
+    },
+    {
+      "word": 11,
+      "albanian": "[është ajo çfarë]",
+      "arabic": "مَّا"
+    },
+    {
+      "word": 12,
+      "albanian": "\"ju falënderoni\"\"\"",
+      "arabic": "تَشْكُرُونَ"
+    }
+  ],
+  "24": [
+    {
+      "word": 1,
+      "albanian": "Thuaj",
+      "arabic": "قُلْ"
+    },
+    {
+      "word": 2,
+      "albanian": "\"\"\"Ai (është)\"",
+      "arabic": "هُوَ"
+    },
+    {
+      "word": 3,
+      "albanian": "i Cili",
+      "arabic": "ٱلَّذِى"
+    },
+    {
+      "word": 4,
+      "albanian": "ju krijoi e ju shumoi",
+      "arabic": "ذَرَأَكُمْ"
+    },
+    {
+      "word": 5,
+      "albanian": "në",
+      "arabic": "فِى"
+    },
+    {
+      "word": 6,
+      "albanian": "tokë",
+      "arabic": "ٱلْأَرْضِ"
+    },
+    {
+      "word": 7,
+      "albanian": "dhe tek Ai",
+      "arabic": "وَإِلَيْهِ"
+    },
+    {
+      "word": 8,
+      "albanian": "\"(do të) tuboheni\"\"\"",
+      "arabic": "تُحْشَرُونَ"
+    }
+  ],
+  "25": [
+    {
+      "word": 1,
+      "albanian": "Dhe ata thonë",
+      "arabic": "وَيَقُولُونَ"
+    },
+    {
+      "word": 2,
+      "albanian": "\"\"\"Kur (është)\"",
+      "arabic": "مَتَىٰ"
+    },
+    {
+      "word": 3,
+      "albanian": "ky",
+      "arabic": "هَٰذَا"
+    },
+    {
+      "word": 4,
+      "albanian": "premtim",
+      "arabic": "ٱلْوَعْدُ"
+    },
+    {
+      "word": 5,
+      "albanian": "nëse",
+      "arabic": "إِن"
+    },
+    {
+      "word": 6,
+      "albanian": "jeni",
+      "arabic": "كُنتُمْ"
+    },
+    {
+      "word": 7,
+      "albanian": "\"të sinqertë?\"\"\"",
+      "arabic": "صَٰدِقِينَ"
+    }
+  ],
+  "26": [
+    {
+      "word": 1,
+      "albanian": "Thuaj",
+      "arabic": "قُلْ"
+    },
+    {
+      "word": 2,
+      "albanian": "\"\"\"Vetëm\"",
+      "arabic": "إِنَّمَا"
+    },
+    {
+      "word": 3,
+      "albanian": "dija",
+      "arabic": "ٱلْعِلْمُ"
+    },
+    {
+      "word": 4,
+      "albanian": "(është) tek",
+      "arabic": "عِندَ"
+    },
+    {
+      "word": 5,
+      "albanian": "Allahu",
+      "arabic": "ٱللَّهِ"
+    },
+    {
+      "word": 6,
+      "albanian": "dhe vetëm",
+      "arabic": "وَإِنَّمَآ"
+    },
+    {
+      "word": 7,
+      "albanian": "unë (jam)",
+      "arabic": "أَنَا۠"
+    },
+    {
+      "word": 8,
+      "albanian": "një paralajmërues",
+      "arabic": "نَذِيرٌ"
+    },
+    {
+      "word": 9,
+      "albanian": "\"i qartë\"\"\"",
+      "arabic": "مُّبِينٌ"
+    }
+  ],
+  "27": [
+    {
+      "word": 1,
+      "albanian": "E pasi që",
+      "arabic": "فَلَمَّا"
+    },
+    {
+      "word": 2,
+      "albanian": "ata e panë atë (xhehenemin)",
+      "arabic": "رَأَوْهُ"
+    },
+    {
+      "word": 3,
+      "albanian": "duke u afruar",
+      "arabic": "زُلْفَةً"
+    },
+    {
+      "word": 4,
+      "albanian": "u shëmtuan",
+      "arabic": "سِيٓـَٔتْ"
+    },
+    {
+      "word": 5,
+      "albanian": "fytyrat",
+      "arabic": "وُجُوهُ"
+    },
+    {
+      "word": 6,
+      "albanian": "e atyre të cilët",
+      "arabic": "ٱلَّذِينَ"
+    },
+    {
+      "word": 7,
+      "albanian": "mohuan",
+      "arabic": "كَفَرُوا۟"
+    },
+    {
+      "word": 8,
+      "albanian": "dhe u thuhet",
+      "arabic": "وَقِيلَ"
+    },
+    {
+      "word": 9,
+      "albanian": "\"\"\"Kjo (është)\"",
+      "arabic": "هَٰذَا"
+    },
+    {
+      "word": 10,
+      "albanian": "ajo e cila",
+      "arabic": "ٱلَّذِى"
+    },
+    {
+      "word": 11,
+      "albanian": "ju ishit",
+      "arabic": "كُنتُم"
+    },
+    {
+      "word": 12,
+      "albanian": "atë",
+      "arabic": "بِهِۦ"
+    },
+    {
+      "word": 13,
+      "albanian": "\"duke e kërkuar\"\"\"",
+      "arabic": "تَدَّعُونَ"
+    }
+  ],
+  "28": [
+    {
+      "word": 1,
+      "albanian": "Thuaj",
+      "arabic": "قُلْ"
+    },
+    {
+      "word": 2,
+      "albanian": "\"\"\"Ç'mendoni vallë\"",
+      "arabic": "أَرَءَيْتُمْ"
+    },
+    {
+      "word": 3,
+      "albanian": "nëse",
+      "arabic": "إِنْ"
+    },
+    {
+      "word": 4,
+      "albanian": "më shkatërron mua",
+      "arabic": "أَهْلَكَنِىَ"
+    },
+    {
+      "word": 5,
+      "albanian": "Allahu",
+      "arabic": "ٱللَّهُ"
+    },
+    {
+      "word": 6,
+      "albanian": "dhe ata që janë",
+      "arabic": "وَمَن"
+    },
+    {
+      "word": 7,
+      "albanian": "me mua",
+      "arabic": "مَّعِىَ"
+    },
+    {
+      "word": 8,
+      "albanian": "apo",
+      "arabic": "أَوْ"
+    },
+    {
+      "word": 9,
+      "albanian": "na mëshiron ne",
+      "arabic": "رَحِمَنَا"
+    },
+    {
+      "word": 10,
+      "albanian": "atëherë kush",
+      "arabic": "فَمَن"
+    },
+    {
+      "word": 11,
+      "albanian": "(do t'i) mbrojë",
+      "arabic": "يُجِيرُ"
+    },
+    {
+      "word": 12,
+      "albanian": "mohuesit",
+      "arabic": "ٱلْكَٰفِرِينَ"
+    },
+    {
+      "word": 13,
+      "albanian": "nga",
+      "arabic": "مِنْ"
+    },
+    {
+      "word": 14,
+      "albanian": "një dënim",
+      "arabic": "عَذَابٍ"
+    },
+    {
+      "word": 15,
+      "albanian": "\"i dhembshëm?\"\"\"",
+      "arabic": "أَلِيمٍ"
+    }
+  ],
+  "29": [
+    {
+      "word": 1,
+      "albanian": "Thuaj",
+      "arabic": "قُلْ"
+    },
+    {
+      "word": 2,
+      "albanian": "\"\"\"Ai (është)\"",
+      "arabic": "هُوَ"
+    },
+    {
+      "word": 3,
+      "albanian": "i Gjithëmëshirshmi",
+      "arabic": "ٱلرَّحْمَٰنُ"
+    },
+    {
+      "word": 4,
+      "albanian": "ne besojmë",
+      "arabic": "ءَامَنَّا"
+    },
+    {
+      "word": 5,
+      "albanian": "në Të",
+      "arabic": "بِهِۦ"
+    },
+    {
+      "word": 6,
+      "albanian": "dhe tek Ai",
+      "arabic": "وَعَلَيْهِ"
+    },
+    {
+      "word": 7,
+      "albanian": "mbështetemi",
+      "arabic": "تَوَكَّلْنَا"
+    },
+    {
+      "word": 8,
+      "albanian": "e ju do ta dini",
+      "arabic": "فَسَتَعْلَمُونَ"
+    },
+    {
+      "word": 9,
+      "albanian": "kush",
+      "arabic": "مَنْ"
+    },
+    {
+      "word": 10,
+      "albanian": "(është) ai",
+      "arabic": "هُوَ"
+    },
+    {
+      "word": 11,
+      "albanian": "në",
+      "arabic": "فِى"
+    },
+    {
+      "word": 12,
+      "albanian": "një devijim",
+      "arabic": "ضَلَٰلٍ"
+    },
+    {
+      "word": 13,
+      "albanian": "\"të qartë\"\"\"",
+      "arabic": "مُّبِينٍ"
+    }
+  ],
+  "30": [
+    {
+      "word": 1,
+      "albanian": "Thuaj",
+      "arabic": "قُلْ"
+    },
+    {
+      "word": 2,
+      "albanian": "\"\"\"Ç'mendoni vallë\"",
+      "arabic": "أَرَءَيْتُمْ"
+    },
+    {
+      "word": 3,
+      "albanian": "nëse",
+      "arabic": "إِنْ"
+    },
+    {
+      "word": 4,
+      "albanian": "shteret",
+      "arabic": "أَصْبَحَ"
+    },
+    {
+      "word": 5,
+      "albanian": "uji juaj",
+      "arabic": "مَآؤُكُمْ"
+    },
+    {
+      "word": 6,
+      "albanian": "në thellësi",
+      "arabic": "غَوْرًا"
+    },
+    {
+      "word": 7,
+      "albanian": "atëherë kush",
+      "arabic": "فَمَن"
+    },
+    {
+      "word": 8,
+      "albanian": "do t'ju sjell ju",
+      "arabic": "يَأْتِيكُم"
+    },
+    {
+      "word": 9,
+      "albanian": "ujë",
+      "arabic": "بِمَآءٍ"
+    },
+    {
+      "word": 10,
+      "albanian": "\"burimor?\"\"\"",
+      "arabic": "مَّعِينٍۭ"
+    }
+  ]
+}
