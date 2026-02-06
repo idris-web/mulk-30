@@ -5,21 +5,22 @@ import { MULK_VERSES, SURAH_INFO } from '../../data/mulk-verses';
 ---
 
 <Layout title="Kalendari">
-  <div class="min-h-screen flex flex-col bg-white/10">
-    <!-- Header -->
-    <header class="sticky top-0 z-10 bg-[var(--color-header)] text-white backdrop-blur-xl  px-4 py-3 safe-top">
+  <div class="min-h-screen flex flex-col bg-[var(--color-background)]">
+    
+    <!-- Header with gradient -->
+    <header class="bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7] text-white px-4 pt-3 pb-16 safe-top">
       <div class="max-w-lg mx-auto flex items-center gap-3">
         <a href="/app" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center active:scale-95 transition-transform" aria-label="Kthehu">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
         </a>
         <div>
-          <h1 class="text-lg font-semibold text-white tracking-tight">Kalendari i sfidës</h1>
+          <h1 class="text-lg font-semibold">Kalendari</h1>
           <p class="text-xs text-white/70">30 ditë • {SURAH_INFO.name}</p>
         </div>
       </div>
     </header>
 
-    <main class="flex-1 px-4 py-6">
+    <main class="flex-1 px-4 -mt-12">
       <div class="max-w-lg mx-auto space-y-2" id="timeline-list">
         {MULK_VERSES.map((verse) => (
           <a href={`/app/day/${verse.dayIndex}`} class="timeline-item card flex items-center gap-4 py-3 px-4 active:scale-[0.98] transition-transform" data-day={verse.dayIndex}>

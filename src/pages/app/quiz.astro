@@ -5,20 +5,24 @@ import { MULK_VERSES } from '../../data/mulk-verses';
 ---
 
 <Layout title="Testi">
-  <div class="min-h-screen flex flex-col bg-white/10">
-    <!-- Header -->
-    <header class="sticky top-0 z-10 bg-[var(--color-header)] text-white backdrop-blur-xl  px-4 py-3 safe-top">
+  <div class="min-h-screen flex flex-col bg-[var(--color-background)]">
+    
+    <!-- Header with gradient -->
+    <header class="bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7] text-white px-4 pt-3 pb-16 safe-top">
       <div class="max-w-lg mx-auto flex items-center justify-between">
-        <button id="back-to-select" class="w-11 h-11 flex items-center justify-center -ml-2 text-white/70 hover:text-white transition-colors hidden">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        <button id="back-to-select" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-white active:scale-95 transition-transform hidden">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
         </button>
-        <h1 class="text-lg font-semibold text-white flex-1 text-center">Testi i Memorizimit</h1>
-        <div class="w-10"></div>
+        <div class="text-center flex-1">
+          <h1 class="text-lg font-semibold">Testi</h1>
+          <p class="text-xs text-white/70">Testo memorizimin</p>
+        </div>
+        <div class="w-11"></div>
       </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-1 px-4 py-6 pb-24">
+    <!-- Main Content - pulls up into header -->
+    <main class="flex-1 px-4 pb-24 -mt-12">
       <div class="max-w-lg mx-auto">
         
         <!-- ==================== SELECTION VIEW ==================== -->

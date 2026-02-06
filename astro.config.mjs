@@ -3,10 +3,12 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://idris-web.github.io',
-  base: '/mulk-30',
+  site: isProduction ? 'https://idris-web.github.io' : 'http://localhost:4321',
+  base: isProduction ? '/mulk-30' : '/',
   vite: {
     plugins: [tailwindcss()],
     preview: {
