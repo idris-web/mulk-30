@@ -1,8 +1,9 @@
 ---
 // Shared Bottom Navigation component (#6)
-// Usage: <BottomNav active="home" /> | active: "home" | "repeat" | "quiz" | "settings"
+// Usage: <BottomNav active="home" /> | active: "home" | "repeat" | "quiz" | "settings" | "none"
+// Use "none" for pages not in the navigation (timeline, gift, etc.)
 interface Props {
-  active?: 'home' | 'repeat' | 'quiz' | 'settings';
+  active?: 'home' | 'repeat' | 'quiz' | 'settings' | 'none';
 }
 const { active = 'home' } = Astro.props;
 ---

@@ -557,9 +557,20 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     const verse = MULK_VERSES.find(v => v.dayIndex === currentAyah);
     const totalAyahs = Math.abs(selectedEnd - selectedStart) + 1;
     
-    // Update UI
+    // Reset translation toggle state on new ayah
+    showingTranslation = false;
+    const arabicEl = document.getElementById('player-arabic');
+    const translationEl = document.getElementById('player-translation');
+    const toggleText = document.getElementById('translation-toggle-text');
+    
+    // Update UI - always show Arabic first
     document.getElementById('player-ayah-num')!.textContent = String(currentAyah);
-    document.getElementById('player-arabic')!.textContent = verse?.arabic || '';
+    if (arabicEl) {
+      arabicEl.textContent = verse?.arabic || '';
+      arabicEl.classList.remove('hidden');
+    }
+    if (translationEl) translationEl.classList.add('hidden');
+    if (toggleText) toggleText.textContent = 'Shfaq përkthimin';
     
     // Update transliteration
     const translitEl = document.querySelector('#player-transliteration p');
