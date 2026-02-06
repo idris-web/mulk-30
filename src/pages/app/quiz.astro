@@ -7,7 +7,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
 <Layout title="Testi">
   <div class="min-h-screen flex flex-col bg-[var(--color-background)]">
     
-    <!-- Header with gradient + smooth transition -->
+    <!-- Header with gradient + smooth transition (like repeat page) -->
     <header class="bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7] text-white px-4 pt-3 pb-16 safe-top">
       <div class="max-w-lg mx-auto flex items-center justify-between">
         <button id="back-to-select" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-white active:scale-95 transition-transform hidden">
@@ -27,27 +27,6 @@ import { MULK_VERSES } from '../../data/mulk-verses';
         
         <!-- ==================== SELECTION VIEW ==================== -->
         <div id="view-select" class="space-y-4">
-          
-          <!-- Hero Stats Card -->
-          <div class="card">
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 rounded-xl bg-[var(--color-primary)]/15 flex items-center justify-center">
-                <svg class="w-7 h-7 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                  <circle cx="12" cy="12" r="6" stroke-width="2"/>
-                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <p class="text-xs text-[var(--color-text-secondary)]">Rezultati më i mirë</p>
-                <p class="text-2xl font-bold text-[var(--color-primary)]" id="best-score-display">-</p>
-              </div>
-              <div class="text-right">
-                <p class="text-xs text-[var(--color-text-secondary)]">Teste</p>
-                <p class="text-xl font-bold text-[var(--color-text)]" id="total-tests-display">0</p>
-              </div>
-            </div>
-          </div>
           
           <!-- Ayah Selection Card -->
           <div class="card">
@@ -266,7 +245,8 @@ import { MULK_VERSES } from '../../data/mulk-verses';
         <button id="start-quiz-btn" class="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white font-semibold py-5 rounded-2xl active:scale-[0.98] transition-all shadow-lg shadow-[#318fb5]/35">
           <div class="flex items-center justify-center gap-3">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-            <span id="start-btn-text">Fillo Testin</span>
+            <span id="start-btn-text">Testo 30 ajete</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </div>
         </button>
       </div>
@@ -391,7 +371,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   
   function updateStartButton() {
     const count = Math.abs(rangeEnd - rangeStart) + 1;
-    startBtnText.textContent = count === 1 ? `Testo ajetin ${rangeStart}` : `Testo ${count} ajete`;
+    startBtnText.textContent = `Testo ${count} ajete`;
   }
   
   function showView(view: 'select' | 'quiz' | 'results') {

@@ -134,53 +134,6 @@ import { MULK_VERSES } from '../../data/mulk-verses';
           </div>
         </div>
         
-        <!-- Settings (Collapsible) -->
-        <div class="card">
-          <button id="settings-toggle" class="w-full flex items-center justify-between">
-            <span class="text-sm font-medium text-[var(--color-text)]">Cilësimet</span>
-            <div class="flex items-center gap-2">
-              <span id="settings-preview" class="text-sm text-[var(--color-text-secondary)]">3x, 1.0x</span>
-              <svg id="settings-chevron" class="w-5 h-5 text-[var(--color-text-secondary)] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </div>
-          </button>
-          
-          <div id="settings-content" class="hidden mt-4 space-y-4">
-            <!-- Repeat Count -->
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="text-sm font-medium text-[var(--color-text)]">Përsëritje</p>
-                <p class="text-xs text-[var(--color-text-secondary)]">Sa herë për ajet</p>
-              </div>
-              <div class="flex items-center gap-2">
-                <button id="repeat-minus" class="w-10 h-10 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 12H4"/></svg>
-                </button>
-                <span id="repeat-count" class="text-xl font-bold text-[var(--color-text)] w-8 text-center">3</span>
-                <button id="repeat-plus" class="w-10 h-10 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
-                </button>
-              </div>
-            </div>
-            
-            <div class="h-px bg-[var(--color-border)]"></div>
-            
-            <!-- Speed -->
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="text-sm font-medium text-[var(--color-text)]">Shpejtësia</p>
-                <p class="text-xs text-[var(--color-text-secondary)]">Ritmi i recitimit</p>
-              </div>
-              <div class="flex gap-1.5">
-                <button class="speed-btn w-12 h-10 rounded-xl text-xs font-semibold transition-all" data-speed="0.75">0.75x</button>
-                <button class="speed-btn active w-12 h-10 rounded-xl text-xs font-semibold transition-all" data-speed="1">1x</button>
-                <button class="speed-btn w-12 h-10 rounded-xl text-xs font-semibold transition-all" data-speed="1.25">1.25x</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </main>
 
@@ -341,7 +294,6 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   const rangeStart = document.getElementById('range-start') as HTMLSelectElement;
   const rangeEnd = document.getElementById('range-end') as HTMLSelectElement;
   const rangeCountEl = document.getElementById('range-count')!;
-  const settingsPreview = document.getElementById('settings-preview')!;
   
   // Initialize
   populateRangeDropdowns();
@@ -410,10 +362,6 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     startBtnText.textContent = count === 1 ? `Dëgjo ajetin ${selectedStart}` : `Dëgjo ${count} ajete`;
   }
   
-  function updateSettingsPreview() {
-    settingsPreview.textContent = `${repeatCount}x, ${speed}x`;
-  }
-  
   // Custom Range Toggle
   document.getElementById('custom-toggle')?.addEventListener('click', () => {
     const content = document.getElementById('custom-content')!;
@@ -434,14 +382,6 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     }
   });
   
-  // Settings Toggle
-  document.getElementById('settings-toggle')?.addEventListener('click', () => {
-    const content = document.getElementById('settings-content')!;
-    const chevron = document.getElementById('settings-chevron')!;
-    content.classList.toggle('hidden');
-    chevron.classList.toggle('rotate-180');
-  });
-  
   // Range Dropdowns
   rangeStart?.addEventListener('change', () => {
     selectedStart = parseInt(rangeStart.value);
@@ -455,34 +395,6 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('selected'));
     updateRangeCount();
     updateStartButton();
-  });
-  
-  // Repeat Count
-  document.getElementById('repeat-minus')?.addEventListener('click', () => {
-    if (repeatCount > 1) {
-      repeatCount--;
-      document.getElementById('repeat-count')!.textContent = String(repeatCount);
-      updateSettingsPreview();
-    }
-  });
-  
-  document.getElementById('repeat-plus')?.addEventListener('click', () => {
-    if (repeatCount < 10) {
-      repeatCount++;
-      document.getElementById('repeat-count')!.textContent = String(repeatCount);
-      updateSettingsPreview();
-    }
-  });
-  
-  // Speed Buttons
-  document.querySelectorAll('.speed-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      speed = parseFloat((btn as HTMLElement).dataset.speed || '1');
-      if (audio) audio.playbackRate = speed;
-      updateSettingsPreview();
-    });
   });
   
   // Start Button
