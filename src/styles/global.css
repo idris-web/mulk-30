@@ -32,21 +32,22 @@
   --color-step-read: #318fb5;      /* Teal - Lexo (aktiv, fokussiert) */
   --color-step-recite: #005086;    /* Ocean - Recito (Tiefe, Meisterschaft) */
   
-  /* Backgrounds */
-  --color-background: #f7d6bf;     /* Sand - Page BG (warm, einladend) */
+  /* Backgrounds — WEISS als Hauptfarbe */
+  --color-background: #FFFFFF;     /* Pure White - Page BG */
   --color-surface: #FFFFFF;        /* White - Cards */
+  --color-surface-alt: #f7d6bf;    /* Sand - Alternative surfaces, highlights */
   --color-header: #001244;         /* Deep Night - Header */
   
-  /* Text — Maximum contrast on light backgrounds */
-  --color-text: #001244;           /* Deep Night - 14.2:1 contrast */
-  --color-text-secondary: #005086; /* Ocean - 7.8:1 contrast */
+  /* Text — Maximum contrast on white */
+  --color-text: #001244;           /* Deep Night */
+  --color-text-secondary: #005086; /* Ocean */
   
-  /* Borders */
-  --color-border: #d4c4b5;         /* Derived: darker Sand */
+  /* Borders — sehr subtil auf Weiß */
+  --color-border: #e8e8e8;         /* Light gray */
   
   /* Semantic */
   --color-success: #318fb5;        /* Teal */
-  --color-error: #c44536;          /* Warm red (nicht in Palette, aber nötig) */
+  --color-error: #c44536;          /* Warm red */
   
   /* Radius */
   --radius-sm: 0.5rem;
