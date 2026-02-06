@@ -131,7 +131,7 @@ const verseWordByWord = (wordByWordData as Record<string, {word: number, albania
               </div>
               <div>
                 <p class="text-[var(--color-text)] font-medium">Thuaje nga memoria!</p>
-                <p class="text-sm text-[var(--color-text-secondary)] mt-1">Trokit për të parë tekstin</p>
+                <p class="text-sm text-[var(--color-text-secondary)] mt-1">Kliko për të parë tekstin</p>
               </div>
             </div>
             
@@ -277,9 +277,9 @@ const verseWordByWord = (wordByWordData as Record<string, {word: number, albania
               </div>
             </div>
             
-            <!-- Peek Button -->
-            <button id="peek-btn" class="w-12 h-12 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)]">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+            <!-- Complete Button - Tap to count recite repetition -->
+            <button id="recite-complete-btn" class="w-12 h-12 rounded-xl bg-white border-2 border-[var(--color-step-listen)] flex items-center justify-center text-[var(--color-step-listen)] active:scale-95 transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
             </button>
           </div>
         </div>
@@ -880,30 +880,34 @@ const verseWordByWord = (wordByWordData as Record<string, {word: number, albania
     }
   });
   
-  // Peek toggle function
+  // Peek toggle function - reveal Arabic text temporarily
   function togglePeek() {
     isPeeking = !isPeeking;
-    const arabicContent = document.getElementById('arabic-content')!;
     const cardFront = document.getElementById('card-front')!;
     const hiddenContent = document.getElementById('hidden-content')!;
-    const translitSection = document.getElementById('transliteration-section')!;
-    const peekBtn = document.getElementById('peek-btn');
     
     if (isPeeking) {
       // Show Arabic text
       cardFront.classList.remove('hidden');
       hiddenContent.classList.add('hidden');
-      if (peekBtn) peekBtn.classList.add('bg-[var(--color-text)]/10', 'border-[var(--color-text)]');
     } else {
       // Hide Arabic text
       cardFront.classList.add('hidden');
       hiddenContent.classList.remove('hidden');
-      if (peekBtn) peekBtn.classList.remove('bg-[var(--color-text)]/10', 'border-[var(--color-text)]');
     }
   }
   
-  // Peek button
-  document.getElementById('peek-btn')?.addEventListener('click', togglePeek);
+  // Recite complete button - counts repetition
+  document.getElementById('recite-complete-btn')?.addEventListener('click', () => {
+    progress = incrementStep(dayIndex, 'recite');
+    bumpCount(document.getElementById('recite-count'));
+    updateProgressBars();
+    updateStepIndicators();
+    
+    if (progress.reciteCount >= REQUIRED_COUNT) {
+      switchMode('done');
+    }
+  });
   
   // Hidden content tap to toggle peek
   document.getElementById('hidden-content')?.addEventListener('click', togglePeek);
