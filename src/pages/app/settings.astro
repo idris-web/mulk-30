@@ -1,8 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BottomNav from '../../components/BottomNav.astro';
-import RewardBanner from '../../components/RewardBanner.astro';
-import HowItWorks from '../../components/HowItWorks.astro';
 import { SURAH_INFO } from '../../data/mulk-verses';
 ---
 
@@ -11,203 +9,148 @@ import { SURAH_INFO } from '../../data/mulk-verses';
     
     <!-- Header with gradient -->
     <header class="bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7] text-white px-4 pt-3 pb-16 safe-top">
-      <div class="max-w-lg mx-auto flex items-center gap-3">
-        <a href="/app" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center active:scale-95 transition-transform" aria-label="Kthehu">
+      <div class="max-w-lg mx-auto flex items-center justify-between">
+        <a href="/app" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center active:scale-95 transition-transform">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
         </a>
-        <div>
-          <h1 class="text-lg font-semibold">Cilësimet</h1>
+        <div class="text-center">
+          <h1 class="text-lg font-semibold tracking-tight">Cilësimet</h1>
           <p class="text-xs text-white/70">Personalizo aplikacionin</p>
         </div>
+        <div class="w-11"></div>
       </div>
     </header>
 
     <main class="flex-1 px-4 pb-28 -mt-12">
-      <div class="max-w-lg mx-auto space-y-6">
+      <div class="max-w-lg mx-auto space-y-4">
 
-        <!-- SECTION 1: Erscheinung / Pamja -->
-        <section class="settings-section">
-          <h2 class="settings-section-title">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
-            Pamja
-          </h2>
-          <div class="card">
-            <div class="settings-row">
-              <div class="settings-row-content">
-                <div class="settings-icon-wrapper">
-                  <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                </div>
-                <div class="settings-label">
-                  <span class="settings-title">Modaliteti i errët</span>
-                  <span class="settings-subtitle">Më e lehtë për sytë gjatë natës</span>
-                </div>
-              </div>
-              <button id="dark-toggle" class="toggle" aria-label="Ndrysho temën">
-                <div id="dark-toggle-dot" class="toggle-dot"></div>
-              </button>
+        <!-- Ramazan Start Date -->
+        <div class="card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--color-text)]">Fillimi i Ramazanit</p>
+              <p class="text-xs text-[var(--color-text-secondary)]">Zgjidh ditën e parë të Ramazanit 2026</p>
             </div>
           </div>
-        </section>
-
-        <!-- SECTION 2: Audio -->
-        <section class="settings-section">
-          <h2 class="settings-section-title">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-            Audio
-          </h2>
-          <div class="card">
-            <div class="settings-row">
-              <div class="settings-row-content">
-                <div class="settings-icon-wrapper">
-                  <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-                <div class="settings-label">
-                  <span class="settings-title">Shpejtësia e dëgjimit</span>
-                  <span class="settings-subtitle">Ritmi standart i audios</span>
-                </div>
-              </div>
-              <select id="audio-speed" class="settings-select" aria-label="Zgjidhni shpejtësinë">
-                <option value="0.75">0.75×</option>
-                <option value="1" selected>1× Normal</option>
-                <option value="1.25">1.25×</option>
-                <option value="1.5">1.5×</option>
-              </select>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECTION 3: Sfida / Challenge -->
-        <section class="settings-section">
-          <h2 class="settings-section-title">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
-            Sfida
-          </h2>
-          <div class="card space-y-4">
-            <!-- Start Date -->
-            <div class="settings-row">
-              <div class="settings-row-content">
-                <div class="settings-icon-wrapper">
-                  <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                </div>
-                <div class="settings-label">
-                  <span class="settings-title">Data e fillimit</span>
-                  <span class="settings-subtitle">Kur filloi sfida 30-ditore</span>
-                </div>
-              </div>
-              <input type="date" id="start-date" class="settings-date" />
-            </div>
-
-            <div class="border-t border-[var(--color-border)]"></div>
-
-            <!-- Reset Progress - Destructive -->
-            <div class="settings-row destructive-row">
-              <div class="settings-row-content">
-                <div class="settings-icon-wrapper destructive">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                </div>
-                <div class="settings-label">
-                  <span class="settings-title destructive">Fshij progresin</span>
-                  <span class="settings-subtitle">Fillon nga fillimi</span>
-                </div>
-              </div>
-              <button id="reset-btn" class="settings-action-btn destructive" aria-label="Fshij progresin">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECTION 4: Konto / Account -->
-        <section class="settings-section">
-          <h2 class="settings-section-title">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-            Llogaria
-          </h2>
-          <div class="card">
-            <!-- User Info -->
-            <div class="settings-row" id="user-info-row">
-              <div class="settings-row-content">
-                <div class="settings-icon-wrapper">
-                  <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                </div>
-                <div class="settings-label">
-                  <span class="settings-title" id="user-email">Duke ngarkuar...</span>
-                  <span class="settings-subtitle">Email i llogarisë</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="border-t border-[var(--color-border)] my-4"></div>
-
-            <!-- Logout -->
-            <button id="logout-btn" class="settings-full-btn destructive">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
-              Dilni nga llogaria
+          
+          <div class="flex gap-2">
+            <button id="date-18" class="date-option flex-1 py-3 px-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] text-center transition-all active:scale-[0.98]" data-date="2026-02-18">
+              <p class="text-lg font-bold text-[var(--color-text)]">18</p>
+              <p class="text-xs text-[var(--color-text-secondary)]">Shkurt 2026</p>
+            </button>
+            <button id="date-19" class="date-option selected flex-1 py-3 px-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] text-center transition-all active:scale-[0.98]" data-date="2026-02-19">
+              <p class="text-lg font-bold text-[var(--color-text)]">19</p>
+              <p class="text-xs text-[var(--color-text-secondary)]">Shkurt 2026</p>
             </button>
           </div>
-        </section>
+        </div>
 
-        <!-- Reward Info (shared component #5) -->
-        <RewardBanner variant="full" />
+        <!-- Audio Settings -->
+        <div class="card">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#318fb5]/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[#318fb5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-[var(--color-text)]">Shpejtësia e audios</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Ritmi i recitimit</p>
+              </div>
+            </div>
+            <select id="audio-speed" class="h-10 px-3 pr-8 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] text-sm font-medium text-[var(--color-text)] cursor-pointer appearance-none bg-[url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 24 24%27 stroke=%27%238395A7%27%3E%3Cpath stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M19 9l-7 7-7-7%27%3E%3C/path%3E%3C/svg%3E')] bg-no-repeat bg-[right_0.5rem_center] bg-[length:1.25rem]">
+              <option value="0.75">0.75×</option>
+              <option value="1" selected>1×</option>
+              <option value="1.25">1.25×</option>
+            </select>
+          </div>
+        </div>
 
-        <!-- How It Works (shared component #5) -->
-        <HowItWorks />
-
-        <!-- SECTION 5: Rreth / About -->
-        <section class="settings-section">
-          <h2 class="settings-section-title">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Rreth
-          </h2>
-          <div class="card">
-            <p class="text-sm text-[var(--color-text-secondary)] mb-4">{SURAH_INFO.description}</p>
-            <div class="flex items-center justify-between text-xs text-[var(--color-text-secondary)] pt-3 border-t border-[var(--color-border)]">
-              <span>Mulk 30</span>
-              <span class="flex items-center gap-2">
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-medium">v1.0.0</span>
-                <span>•</span>
-                <span>Lensa Labs</span>
-              </span>
+        <!-- Account Section -->
+        <div class="card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-[#b0cac7]/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#005086]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-[var(--color-text)]" id="user-email">Duke ngarkuar...</p>
+              <p class="text-xs text-[var(--color-text-secondary)]">Llogaria juaj</p>
             </div>
           </div>
-        </section>
+          
+          <button id="logout-btn" class="w-full py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text-secondary)] font-medium flex items-center justify-center gap-2 hover:bg-[var(--color-background)] transition-colors active:scale-[0.98]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+            Dilni nga llogaria
+          </button>
+        </div>
+
+        <!-- Reset Progress -->
+        <div class="card">
+          <button id="reset-btn" class="w-full flex items-center justify-between active:scale-[0.98] transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
+                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+              </div>
+              <div class="text-left">
+                <p class="font-semibold text-red-500">Fshij progresin</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Fillon nga fillimi</p>
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+
+        <!-- About -->
+        <div class="card">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-[var(--color-border)]/50 flex items-center justify-center">
+              <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--color-text)]">Rreth Mulk 30</p>
+              <p class="text-xs text-[var(--color-text-secondary)]">Version 1.0.0</p>
+            </div>
+          </div>
+          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">{SURAH_INFO.description}</p>
+        </div>
 
       </div>
     </main>
 
-    <!-- Bottom Nav (shared component #6) -->
     <BottomNav active="settings" />
 
     <!-- Reset Confirmation Modal -->
-    <div id="reset-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-label="Konfirmo fshirjen e progresit">
-      <div class="modal-content">
+    <div id="reset-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+      <div class="bg-white rounded-2xl p-6 max-w-sm w-full shadow-xl">
         <div class="text-center mb-6">
-          <div class="w-14 h-14 mx-auto rounded-xl bg-[var(--color-primary)]/10 dark:bg-[var(--color-primary)]/30 flex items-center justify-center mb-4">
-            <svg class="w-7 h-7 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path></svg>
+          <div class="w-14 h-14 mx-auto rounded-xl bg-red-50 flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path></svg>
           </div>
-          <h3 class="heading-card text-lg">Fshij progresin?</h3>
-          <p class="text-sm text-[var(--color-text-secondary)] mt-2 leading-relaxed">Kjo do të fshijë të gjithë progresin tënd të 30 ditëve.<br><strong class="text-[var(--color-text)]">Ky veprim nuk mund të kthehet.</strong></p>
+          <h3 class="text-lg font-bold text-[var(--color-text)]">Fshij progresin?</h3>
+          <p class="text-sm text-[var(--color-text-secondary)] mt-2">Kjo do të fshijë të gjithë progresin. Ky veprim nuk mund të kthehet.</p>
         </div>
         <div class="flex gap-3">
-          <button id="modal-cancel" class="btn btn-secondary flex-1 h-12">Anulo</button>
-          <button id="modal-confirm" class="btn flex-1 h-12 bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] active:bg-[var(--color-primary-dark)]">Fshij</button>
+          <button id="modal-cancel" class="flex-1 py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text)] font-medium">Anulo</button>
+          <button id="modal-confirm" class="flex-1 py-3 rounded-xl bg-red-500 text-white font-medium">Fshij</button>
         </div>
       </div>
     </div>
 
     <!-- Logout Confirmation Modal -->
-    <div id="logout-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-label="Konfirmo daljen">
-      <div class="modal-content">
+    <div id="logout-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+      <div class="bg-white rounded-2xl p-6 max-w-sm w-full shadow-xl">
         <div class="text-center mb-6">
           <div class="w-14 h-14 mx-auto rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
             <svg class="w-7 h-7 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
           </div>
-          <h3 class="heading-card text-lg">Dilni nga llogaria?</h3>
+          <h3 class="text-lg font-bold text-[var(--color-text)]">Dilni nga llogaria?</h3>
           <p class="text-sm text-[var(--color-text-secondary)] mt-2">Progresi juaj do të ruhet në pajisje.</p>
         </div>
         <div class="flex gap-3">
-          <button id="logout-cancel" class="btn btn-secondary flex-1 h-12">Anulo</button>
-          <button id="logout-confirm" class="btn btn-primary flex-1 h-12">Dilni</button>
+          <button id="logout-cancel" class="flex-1 py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text)] font-medium">Anulo</button>
+          <button id="logout-confirm" class="flex-1 py-3 rounded-xl bg-[var(--color-primary)] text-white font-medium">Dilni</button>
         </div>
       </div>
     </div>
@@ -215,209 +158,21 @@ import { SURAH_INFO } from '../../data/mulk-verses';
 </Layout>
 
 <style>
-  /* Settings Section Styling */
-  .settings-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .settings-section-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-secondary);
-    padding: 0 0.25rem;
-  }
-
-  .settings-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.25rem 0;
-    min-height: 56px;
-  }
-
-  .settings-row-content {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .settings-icon-wrapper {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 0.75rem;
-    background: rgba(var(--color-primary-rgb, 5, 150, 105), 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .settings-icon-wrapper.destructive {
-    background: rgba(239, 68, 68, 0.1);
-    color: var(--color-primary);
-  }
-
-  .settings-label {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-  }
-
-  .settings-title {
-    color: var(--color-text);
-    font-weight: 500;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .settings-title.destructive {
-    color: var(--color-primary);
-  }
-
-  .settings-subtitle {
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .toggle {
-    position: relative;
-    width: 3.5rem;
-    height: 2rem;
-    border-radius: 9999px;
-    background: var(--color-border);
-    transition: background-color 0.2s;
-    flex-shrink: 0;
-    cursor: pointer;
-  }
-
-  .toggle.active {
-    background-color: var(--color-primary);
-  }
-
-  .toggle-dot {
-    position: absolute;
-    top: 0.25rem;
-    left: 0.25rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 9999px;
+  .card {
     background: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  }
-
-  .toggle.active .toggle-dot {
-    transform: translateX(1.5rem);
-  }
-
-  .settings-select {
-    height: 2.5rem;
-    padding: 0 2rem 0 0.75rem;
-    border-radius: 0.75rem;
-    background: var(--color-background);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 80, 134, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--color-border);
-    font-size: 0.875rem;
-    color: var(--color-text);
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238395A7'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.5rem center;
-    background-size: 1.25rem;
   }
 
-  .settings-select:focus {
-    border-color: var(--color-primary);
-    outline: none;
+  .date-option.selected {
+    border-color: var(--color-primary) !important;
+    background: rgba(49, 143, 181, 0.05) !important;
   }
-
-  .settings-date {
-    height: 2.5rem;
-    padding: 0 0.75rem;
-    border-radius: 0.75rem;
-    background: var(--color-background);
-    border: 1px solid var(--color-border);
-    font-size: 0.875rem;
-    color: var(--color-text);
-    cursor: pointer;
-  }
-
-  .settings-date:focus {
-    border-color: var(--color-primary);
-    outline: none;
-  }
-
-  .settings-action-btn {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-secondary);
-    transition: transform 0.1s;
-  }
-
-  .settings-action-btn:active {
-    transform: scale(0.95);
-  }
-
-  .settings-action-btn.destructive {
+  
+  .date-option.selected p:first-child {
     color: var(--color-primary);
-  }
-
-  .settings-full-btn {
-    width: 100%;
-    height: 3rem;
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-    background: var(--color-background);
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
-  }
-
-  .settings-full-btn:active {
-    transform: scale(0.98);
-  }
-
-  .settings-full-btn.destructive {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-    background: color-mix(in srgb, var(--color-primary) 10%, white);
-  }
-
-  .settings-full-btn.destructive:hover {
-    background: color-mix(in srgb, var(--color-primary) 15%, white);
-  }
-
-  .destructive-row {
-    margin: 0 -1rem;
-    padding: 0 1rem;
-    border-radius: 0.75rem;
-    transition: background-color 0.2s;
-  }
-
-  .destructive-row:hover {
-    background: color-mix(in srgb, var(--color-primary) 10%, white);
   }
 </style>
 
@@ -425,7 +180,7 @@ import { SURAH_INFO } from '../../data/mulk-verses';
   import { getState, saveState, setStartDate } from '../../lib/challenge';
   import { getSession, supabase } from '../../lib/supabase';
 
-  // Auth guard & load user info (#3)
+  // Load user info
   (async () => {
     try {
       const { session } = await getSession();
@@ -441,22 +196,30 @@ import { SURAH_INFO } from '../../data/mulk-verses';
     }
   })();
 
-  // Dark mode toggle
-  const darkToggle = document.getElementById('dark-toggle') as HTMLButtonElement;
-
-  function updateToggle() {
-    const dark = document.documentElement.classList.contains('dark');
-    if (dark) {
-      darkToggle.classList.add('active');
-    } else {
-      darkToggle.classList.remove('active');
-    }
+  // Ramazan date selection
+  const date18 = document.getElementById('date-18')!;
+  const date19 = document.getElementById('date-19')!;
+  const state = getState();
+  
+  // Set initial selection based on saved state
+  if (state.startDate === '2026-02-18') {
+    date18.classList.add('selected');
+    date19.classList.remove('selected');
+  } else {
+    date19.classList.add('selected');
+    date18.classList.remove('selected');
   }
-
-  darkToggle?.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    updateToggle();
+  
+  date18.addEventListener('click', () => {
+    date18.classList.add('selected');
+    date19.classList.remove('selected');
+    setStartDate('2026-02-18');
+  });
+  
+  date19.addEventListener('click', () => {
+    date19.classList.add('selected');
+    date18.classList.remove('selected');
+    setStartDate('2026-02-19');
   });
 
   // Audio speed
@@ -468,23 +231,17 @@ import { SURAH_INFO } from '../../data/mulk-verses';
     localStorage.setItem('mulk30_audio_speed', speedSelect.value);
   });
 
-  // Start date
-  const dateInput = document.getElementById('start-date') as HTMLInputElement;
-  const state = getState();
-  dateInput.value = state.startDate;
-  dateInput.addEventListener('change', () => {
-    setStartDate(dateInput.value);
-  });
-
   // Reset progress modal
   const resetModal = document.getElementById('reset-modal')!;
   
   function showModal(modal: HTMLElement) {
-    modal.style.display = 'flex';
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
   }
   
   function hideModal(modal: HTMLElement) {
-    modal.style.display = 'none';
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
   }
   
   document.getElementById('reset-btn')?.addEventListener('click', () => {
@@ -522,9 +279,7 @@ import { SURAH_INFO } from '../../data/mulk-verses';
   document.getElementById('logout-confirm')?.addEventListener('click', async () => {
     try {
       await supabase.auth.signOut();
-    } catch (e) {
-      // Ignore errors
-    }
+    } catch (e) {}
     window.location.href = '/auth/login';
   });
 
@@ -532,13 +287,12 @@ import { SURAH_INFO } from '../../data/mulk-verses';
     if (e.target === logoutModal) hideModal(logoutModal);
   });
 
-  // Keyboard escape to close modals
+  // Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       hideModal(resetModal);
       hideModal(logoutModal);
     }
   });
-
-  updateToggle();
 </script>
+</Layout>

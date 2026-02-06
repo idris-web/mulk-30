@@ -14,14 +14,12 @@ import { SURAH_INFO, MULK_VERSES } from '../../data/mulk-verses';
           <h1 class="text-lg font-semibold tracking-tight">Mulk 30</h1>
           <p class="text-xs text-white/70">Sfida e Ramazanit</p>
         </div>
-        <button id="theme-toggle" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center active:scale-95 transition-transform" aria-label="Ndrysho temën">
-          <svg id="icon-moon" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        <a href="/app/settings" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center active:scale-95 transition-transform">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
           </svg>
-          <svg id="icon-sun" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-          </svg>
-        </button>
+        </a>
       </div>
     </header>
 
@@ -190,6 +188,24 @@ import { SURAH_INFO, MULK_VERSES } from '../../data/mulk-verses';
           </p>
           <p class="text-xs text-[var(--color-text-secondary)] mt-1">— Hadith</p>
         </div>
+
+        <!-- Gift/Reward Banner -->
+        <a href="/app/gift" class="block card bg-gradient-to-r from-[#f7d6bf]/40 to-[#b0cac7]/30 border-[#318fb5]/20">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-400 flex items-center justify-center shadow-md">
+              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 00-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-[var(--color-text)]">Fito një dhuratë!</p>
+              <p class="text-xs text-[var(--color-text-secondary)]">Përfundo sfidën 30-ditore dhe merr shpërblimin tënd</p>
+            </div>
+            <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </a>
 
       </div>
     </main>
@@ -417,20 +433,6 @@ import { SURAH_INFO, MULK_VERSES } from '../../data/mulk-verses';
     }
   });
 
-  // Theme toggle
-  const toggle = document.getElementById('theme-toggle');
-  function updateThemeIcons() {
-    const dark = document.documentElement.classList.contains('dark');
-    document.getElementById('icon-moon')?.classList.toggle('hidden', dark);
-    document.getElementById('icon-sun')?.classList.toggle('hidden', !dark);
-  }
-  toggle?.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    updateThemeIcons();
-  });
-
   // Initialize
   updateUI();
-  updateThemeIcons();
 </script>
