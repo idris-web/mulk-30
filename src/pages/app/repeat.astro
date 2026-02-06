@@ -10,7 +10,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     <!-- Header -->
     <header class="sticky top-0 z-10 bg-[var(--color-header)] text-white backdrop-blur-xl  px-4 py-3 safe-top">
       <div class="max-w-lg mx-auto flex items-center justify-between">
-        <a href="/app" class="w-11 h-11 rounded-full flex items-center justify-center text-white">
+        <a href="/app" class="w-11 h-11 rounded-xl flex items-center justify-center text-white">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
         </a>
         <h1 class="text-lg font-semibold text-[var(--color-text)]">Përsëritje</h1>
@@ -24,7 +24,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
         
         <!-- Empty State -->
         <div id="empty-state" class="hidden text-center py-16">
-          <div class="w-20 h-20 rounded-full bg-[var(--color-surface)] border-2 border-dashed border-[var(--color-border)] flex items-center justify-center mx-auto mb-5">
+          <div class="w-20 h-20 rounded-xl bg-[var(--color-surface)] border-2 border-dashed border-[var(--color-border)] flex items-center justify-center mx-auto mb-5">
             <svg class="w-10 h-10 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
             </svg>
@@ -43,7 +43,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
           <!-- Step 1: Ayah Selection -->
           <section id="step-selection">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-8 h-8 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white text-sm font-bold">1</div>
+              <div class="w-8 h-8 rounded-lg bg-[var(--color-primary)] flex items-center justify-center text-white text-sm font-bold">1</div>
               <h2 class="text-base font-semibold text-[var(--color-text)]">Zgjidh ajetet</h2>
             </div>
             
@@ -107,7 +107,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
           <section id="step-settings">
             <button id="settings-toggle" class="w-full flex items-center justify-between py-3">
               <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] text-sm font-bold">2</div>
+                <div class="w-8 h-8 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] text-sm font-bold">2</div>
                 <h2 class="text-base font-semibold text-[var(--color-text)]">Cilësimet</h2>
               </div>
               <div class="flex items-center gap-2">
@@ -176,7 +176,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
         
         <!-- Player Header -->
         <header class="px-4 py-3 safe-top flex items-center justify-between">
-          <button id="player-close" class="w-12 h-12 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform">
+          <button id="player-close" class="w-12 h-12 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
           <div class="text-center">
@@ -192,7 +192,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
         <div class="flex-1 flex flex-col items-center justify-center px-6 overflow-hidden">
           
           <!-- Ayah Number Badge -->
-          <div class="w-16 h-16 rounded-full bg-[var(--color-primary)] flex items-center justify-center mb-6">
+          <div class="w-16 h-16 rounded-xl bg-[var(--color-primary)] flex items-center justify-center mb-6">
             <span id="player-ayah-num" class="text-2xl font-bold text-[var(--color-text)]">1</span>
           </div>
 
@@ -215,14 +215,14 @@ import { MULK_VERSES } from '../../data/mulk-verses';
 
           <!-- Controls - Big Touch Targets -->
           <div class="flex items-center gap-8">
-            <button id="player-prev" class="w-14 h-14 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform disabled:opacity-30">
+            <button id="player-prev" class="w-14 h-14 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform disabled:opacity-30">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
             </button>
-            <button id="player-toggle" class="w-20 h-20 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform">
+            <button id="player-toggle" class="w-20 h-20 rounded-xl bg-[var(--color-primary)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform">
               <svg id="icon-pause" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
               <svg id="icon-play" class="w-10 h-10 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </button>
-            <button id="player-next" class="w-14 h-14 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform disabled:opacity-30">
+            <button id="player-next" class="w-14 h-14 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform disabled:opacity-30">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
             </button>
           </div>

@@ -9,7 +9,7 @@ import { MULK_VERSES, SURAH_INFO } from '../../data/mulk-verses';
     <!-- Header -->
     <header class="sticky top-0 z-10 bg-[var(--color-header)] text-white backdrop-blur-xl  px-4 py-3 safe-top">
       <div class="max-w-lg mx-auto flex items-center gap-3">
-        <a href="/app" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center active:scale-95 transition-transform" aria-label="Kthehu">
+        <a href="/app" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center active:scale-95 transition-transform" aria-label="Kthehu">
           <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
         </a>
         <div>
@@ -23,7 +23,7 @@ import { MULK_VERSES, SURAH_INFO } from '../../data/mulk-verses';
       <div class="max-w-lg mx-auto space-y-2" id="timeline-list">
         {MULK_VERSES.map((verse) => (
           <a href={`/app/day/${verse.dayIndex}`} class="timeline-item card flex items-center gap-4 py-3 px-4 active:scale-[0.98] transition-transform" data-day={verse.dayIndex}>
-            <div class="timeline-dot w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 border-2 border-[var(--color-border)] text-sm font-bold text-white/70">
+            <div class="timeline-dot w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[var(--color-border)] text-sm font-bold text-white/70">
               {verse.dayIndex}
             </div>
             <div class="flex-1 min-w-0">

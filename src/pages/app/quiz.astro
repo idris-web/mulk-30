@@ -27,7 +27,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
           <!-- Hero Stats Card -->
           <div class="card bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary)]/5 rounded-2xl p-6 border border-[var(--color-primary)]/20">
             <div class="flex items-center gap-4">
-              <div class="w-16 h-16 rounded-2xl bg-[var(--color-primary)]/20 flex items-center justify-center">
+              <div class="w-16 h-16 rounded-xl bg-[var(--color-primary)]/20 flex items-center justify-center">
                 <svg class="w-8 h-8 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10" stroke-width="2"/>
                   <circle cx="12" cy="12" r="6" stroke-width="2"/>
@@ -167,7 +167,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
             
             <!-- Result Icon -->
             <div class="relative">
-              <div id="result-icon-bg" class="w-28 h-28 mx-auto mb-4 rounded-full flex items-center justify-center animate-bounce-in bg-[var(--color-accent)]/20">
+              <div id="result-icon-bg" class="w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-[var(--color-accent)]/20">
                 <!-- Trophy (100%) -->
                 <svg id="icon-trophy" class="w-16 h-16 text-yellow-500 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7h-2c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h2c0 2.76 2.24 5 5 5s5-2.24 5-5h2c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2h-2c0-2.76-2.24-5-5-5zM5 11V9h2v2H5zm14 0h-2V9h2v2zm-7 9c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z"/></svg>
                 <!-- Star (>=90%) -->
@@ -589,25 +589,25 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     
     if (pct === 100) {
       document.getElementById('icon-trophy')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-full flex items-center justify-center animate-bounce-in bg-yellow-100';
+      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-yellow-100';
       msgEl.textContent = 'Perfekt! E ke mësuar plotësisht!';
       createConfetti();
     } else if (pct >= 80) {
       document.getElementById('icon-star')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-full flex items-center justify-center animate-bounce-in bg-[var(--color-accent)]/20';
+      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-[var(--color-accent)]/20';
       msgEl.textContent = 'Shkëlqyeshëm! Je shumë afër përsosmërisë!';
       createConfetti();
     } else if (pct >= 60) {
       document.getElementById('icon-check')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-full flex items-center justify-center animate-bounce-in bg-[var(--color-accent)]/20';
+      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-[var(--color-accent)]/20';
       msgEl.textContent = 'Mirë! Vazhdo të ushtroesh!';
     } else if (pct >= 40) {
       document.getElementById('icon-strength')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-full flex items-center justify-center animate-bounce-in bg-orange-100';
+      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-orange-100';
       msgEl.textContent = 'Mos u dorëzo! Ushtrohu edhe pak!';
     } else {
       document.getElementById('icon-book')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-full flex items-center justify-center animate-bounce-in bg-gray-100';
+      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-gray-100';
       msgEl.textContent = 'Dëgjo surenë dhe provo përsëri!';
     }
     

@@ -22,14 +22,14 @@ const arabicWords = verse.arabic.split(/\s+/);
     <!-- Minimal Header - just context, no clutter -->
     <header class="bg-[var(--color-header)] text-white px-4 py-3 safe-top">
       <div class="max-w-lg mx-auto flex items-center justify-between">
-        <a href="/app" class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center active:scale-95 transition-transform" aria-label="Kthehu">
+        <a href="/app" class="w-11 h-11 -ml-2 rounded-xl flex items-center justify-center active:scale-95 transition-transform" aria-label="Kthehu">
           <svg class="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
         </a>
         <div class="text-center">
           <h1 class="text-base font-semibold text-white">Dita {dayIndex}</h1>
           <p class="text-xs text-white/70">Ajeti {verse.ayahNumber}</p>
         </div>
-        <button id="settings-btn" class="w-11 h-11 -mr-2 rounded-full flex items-center justify-center active:scale-95 transition-transform" title="Cilësimet">
+        <button id="settings-btn" class="w-11 h-11 -mr-2 rounded-xl flex items-center justify-center active:scale-95 transition-transform" title="Cilësimet">
           <svg class="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
         </button>
       </div>
@@ -42,7 +42,7 @@ const arabicWords = verse.arabic.split(/\s+/);
           <!-- Step 1: Listen -->
           <div id="step-listen" class="step-indicator" data-step="listen">
             <div class="flex flex-col items-center">
-              <div class="step-circle w-10 h-10 rounded-full bg-[var(--color-step-listen)] flex items-center justify-center text-white text-sm font-bold">
+              <div class="step-circle w-10 h-10 rounded-xl bg-[var(--color-step-listen)] flex items-center justify-center text-white text-sm font-bold">
                 <span class="step-number">1</span>
                 <svg class="step-check w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
               </div>
@@ -56,7 +56,7 @@ const arabicWords = verse.arabic.split(/\s+/);
           <!-- Step 2: Read -->
           <div id="step-read" class="step-indicator opacity-40" data-step="read">
             <div class="flex flex-col items-center">
-              <div class="step-circle w-10 h-10 rounded-full bg-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] text-sm font-bold">
+              <div class="step-circle w-10 h-10 rounded-xl bg-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] text-sm font-bold">
                 <span class="step-number">2</span>
                 <svg class="step-check w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
               </div>
@@ -70,7 +70,7 @@ const arabicWords = verse.arabic.split(/\s+/);
           <!-- Step 3: Recite -->
           <div id="step-recite" class="step-indicator opacity-40" data-step="recite">
             <div class="flex flex-col items-center">
-              <div class="step-circle w-10 h-10 rounded-full bg-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] text-sm font-bold">
+              <div class="step-circle w-10 h-10 rounded-xl bg-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] text-sm font-bold">
                 <span class="step-number">3</span>
                 <svg class="step-check w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
               </div>
@@ -104,7 +104,7 @@ const arabicWords = verse.arabic.split(/\s+/);
           
           <!-- Hidden State for Recite Mode -->
           <div id="hidden-content" class="hidden flex-1 flex flex-col items-center justify-center p-6 text-center gap-4">
-            <div class="w-20 h-20 rounded-full bg-[var(--color-text)]/10 flex items-center justify-center">
+            <div class="w-20 h-20 rounded-xl bg-[var(--color-text)]/10 flex items-center justify-center">
               <svg class="w-10 h-10 text-[var(--color-text)]/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
             </div>
             <div>
@@ -134,7 +134,7 @@ const arabicWords = verse.arabic.split(/\s+/);
         <!-- Done Panel -->
         <div id="panel-done" class="hidden mt-6 text-center space-y-4 py-6 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-primary)]/30">
           <div id="confetti-container" class="relative">
-            <div class="w-16 h-16 mx-auto rounded-full bg-[var(--color-primary)] flex items-center justify-center animate-bounce-in">
+            <div class="w-16 h-16 mx-auto rounded-xl bg-[var(--color-primary)] flex items-center justify-center animate-bounce-in">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
             </div>
           </div>
@@ -188,7 +188,7 @@ const arabicWords = verse.arabic.split(/\s+/);
         <div id="mode-listen" class="action-mode">
           <div class="flex items-center gap-4">
             <!-- Big Play Button - Fitts's Law -->
-            <button id="play-btn" class="w-16 h-16 rounded-full bg-[var(--color-step-listen)] hover:opacity-90 flex items-center justify-center text-white active:scale-95 transition-all">
+            <button id="play-btn" class="w-16 h-16 rounded-xl bg-[var(--color-step-listen)] hover:opacity-90 flex items-center justify-center text-white active:scale-95 transition-all">
               <svg id="play-icon" class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
               <svg id="pause-icon" class="w-7 h-7 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
             </button>
@@ -215,7 +215,7 @@ const arabicWords = verse.arabic.split(/\s+/);
         <div id="mode-read" class="action-mode hidden">
           <div class="flex items-center gap-4">
             <!-- Tap to Count Button -->
-            <button id="read-tap-btn" class="w-16 h-16 rounded-full bg-[var(--color-step-read)] hover:opacity-90 flex items-center justify-center text-white active:scale-95 transition-all">
+            <button id="read-tap-btn" class="w-16 h-16 rounded-xl bg-[var(--color-step-read)] hover:opacity-90 flex items-center justify-center text-white active:scale-95 transition-all">
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
             </button>
             
@@ -241,7 +241,7 @@ const arabicWords = verse.arabic.split(/\s+/);
         <div id="mode-recite" class="action-mode hidden">
           <div class="flex items-center gap-4">
             <!-- Tap to Count Button -->
-            <button id="recite-tap-btn" class="w-16 h-16 rounded-full bg-[var(--color-step-recite)] hover:opacity-90 flex items-center justify-center text-white active:scale-95 transition-all">
+            <button id="recite-tap-btn" class="w-16 h-16 rounded-xl bg-[var(--color-step-recite)] hover:opacity-90 flex items-center justify-center text-white active:scale-95 transition-all">
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
             </button>
             
