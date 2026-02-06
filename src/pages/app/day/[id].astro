@@ -880,20 +880,23 @@ const verseWordByWord = (wordByWordData as Record<string, {word: number, albania
     }
   });
   
-  // Peek toggle function - reveal Arabic text temporarily
+  // Peek toggle function - reveal Arabic text temporarily in recite mode
   function togglePeek() {
     isPeeking = !isPeeking;
-    const cardFront = document.getElementById('card-front')!;
+    const arabicContent = document.getElementById('arabic-content')!;
     const hiddenContent = document.getElementById('hidden-content')!;
+    const translitSection = document.getElementById('transliteration-section')!;
     
     if (isPeeking) {
       // Show Arabic text
-      cardFront.classList.remove('hidden');
+      arabicContent.classList.remove('hidden');
       hiddenContent.classList.add('hidden');
+      translitSection.classList.remove('hidden');
     } else {
       // Hide Arabic text
-      cardFront.classList.add('hidden');
+      arabicContent.classList.add('hidden');
       hiddenContent.classList.remove('hidden');
+      translitSection.classList.add('hidden');
     }
   }
   
