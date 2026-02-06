@@ -402,15 +402,14 @@ import { SURAH_INFO, MULK_VERSES } from '../../data/mulk-verses';
     // Update day cells
     document.querySelectorAll('.day-cell').forEach((cell) => {
       const cellDay = parseInt(cell.getAttribute('data-day') || '0');
-      cell.classList.remove('completed', 'current', 'locked');
+      cell.classList.remove('completed', 'current');
       
       if (state.completedDays.includes(cellDay)) {
         cell.classList.add('completed');
       } else if (cellDay === day) {
         cell.classList.add('current');
-      } else if (cellDay > day && !state.completedDays.includes(cellDay - 1)) {
-        // Future days are accessible but styled differently
       }
+      // Note: All days are accessible (no locking) - users can explore ahead
     });
 
     // Hide today's steps card if challenge complete
