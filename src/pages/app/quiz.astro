@@ -398,10 +398,18 @@ import { MULK_VERSES } from '../../data/mulk-verses';
       const hiddenIdx = Math.floor(Math.random() * words.length);
       const correct = words[hiddenIdx];
       const allWords = MULK_VERSES.flatMap(v => v.arabic.split(/\s+/).filter(w => w.length > 0));
+      const uniqueWords = [...new Set(allWords)];
       const options = [correct];
-      while (options.length < 4 && allWords.length > options.length) {
-        const randomWord = allWords[Math.floor(Math.random() * allWords.length)];
+      // Protection against infinite loop: max 100 attempts
+      let attempts = 0;
+      while (options.length < 4 && uniqueWords.length >= 4 && attempts < 100) {
+        const randomWord = uniqueWords[Math.floor(Math.random() * uniqueWords.length)];
         if (!options.includes(randomWord)) options.push(randomWord);
+        attempts++;
+      }
+      // If we couldn't get 4 options, fill with placeholders
+      while (options.length < 4) {
+        options.push('—');
       }
       options.sort(() => Math.random() - 0.5);
       generated.push({ ayah: ayahNum, hiddenIndex: hiddenIdx, options, correct });
