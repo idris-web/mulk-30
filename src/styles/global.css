@@ -375,11 +375,11 @@ button, a, .nav-item, .btn, input, select, textarea {
 
 .card-interactive {
   background-color: var(--color-surface);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg); /* 1rem - consistent with .card */
   border: 1px solid var(--color-border);
-  padding: 1.5rem;
+  padding: 1rem;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 18, 68, 0.08), 0 1px 2px rgba(0, 18, 68, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 80, 134, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: border-color 0.15s ease;
 }
 

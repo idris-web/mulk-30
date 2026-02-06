@@ -920,15 +920,33 @@ const verseWordByWord = (wordByWordData as Record<string, {word: number, albania
     }
   }
   
-  // Recite complete button - counts repetition
-  document.getElementById('recite-complete-btn')?.addEventListener('click', () => {
-    progress = incrementStep(dayIndex, 'recite');
-    bumpCount(document.getElementById('recite-count'));
-    updateProgressBars();
-    updateStepIndicators();
-    
-    if (progress.reciteCount >= REQUIRED_COUNT) {
-      switchMode('done');
+  // Recite audio button - play audio to check recitation
+  let reciteAudioPlaying = false;
+  document.getElementById('recite-audio-btn')?.addEventListener('click', () => {
+    if (reciteAudioPlaying) {
+      stopAudio();
+      reciteAudioPlaying = false;
+      document.getElementById('recite-play-icon')?.classList.remove('hidden');
+      document.getElementById('recite-pause-icon')?.classList.add('hidden');
+    } else {
+      const audio = initAudio();
+      audio.playbackRate = currentSpeed;
+      audio.currentTime = 0;
+      reciteAudioPlaying = true;
+      document.getElementById('recite-play-icon')?.classList.add('hidden');
+      document.getElementById('recite-pause-icon')?.classList.remove('hidden');
+      audio.play().catch(() => {
+        reciteAudioPlaying = false;
+        document.getElementById('recite-play-icon')?.classList.remove('hidden');
+        document.getElementById('recite-pause-icon')?.classList.add('hidden');
+      });
+      // Stop audio when it ends (don't auto-count in recite mode)
+      audio.onended = () => {
+        reciteAudioPlaying = false;
+        document.getElementById('recite-play-icon')?.classList.remove('hidden');
+        document.getElementById('recite-pause-icon')?.classList.add('hidden');
+        clearHighlights();
+      };
     }
   });
   
