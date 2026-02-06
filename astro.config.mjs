@@ -8,7 +8,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     preview: {
-      allowedHosts: ['mulk-30-fwlgd9.cranl.net']
+      allowedHosts: true
+    },
+    server: {
+      allowedHosts: true
     }
   }
 });
