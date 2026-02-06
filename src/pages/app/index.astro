@@ -254,9 +254,9 @@ import { SURAH_INFO, MULK_VERSES } from '../../data/mulk-verses';
     filter: drop-shadow(0 0 8px var(--color-primary)) drop-shadow(0 0 16px rgba(49, 143, 181, 0.4));
   }
 
-  /* Heartbeat animation */
+  /* Heartbeat animation - plays 3 times then stops (better for battery) */
   .heartbeat {
-    animation: heartbeat 1.2s ease-in-out infinite;
+    animation: heartbeat 1.2s ease-in-out 3;
   }
   
   @keyframes heartbeat {
