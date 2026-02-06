@@ -88,19 +88,19 @@ const verseWordByWord = (wordByWordData as Record<string, {word: number, albania
     </div>
 
     <!-- Main Content Area - Hero Arabic Text -->
-    <main class="flex-1 flex flex-col px-4 pt-4 pb-[140px] min-h-0 overflow-auto">
-      <div class="max-w-lg mx-auto w-full">
+    <main class="flex-1 flex flex-col px-4 pt-4 pb-[168px] min-h-0 overflow-hidden">
+      <div class="max-w-lg mx-auto w-full flex-1 flex flex-col min-h-0">
         
-        <!-- Arabic Text Card - Auto height based on content -->
-        <div id="arabic-card" class="flex flex-col bg-white rounded-2xl shadow-lg shadow-[#005086]/10 border border-[var(--color-border)]/50 overflow-hidden">
+        <!-- Arabic Text Card - Fills available space -->
+        <div id="arabic-card" class="flex-1 flex flex-col bg-white rounded-2xl shadow-lg shadow-[#005086]/10 border border-[var(--color-border)]/50 overflow-hidden">
           
           <!-- Card Content Area -->
-          <div class="overflow-hidden flex flex-col">
+          <div class="flex-1 overflow-hidden flex flex-col min-h-0">
             
             <!-- FRONT: Arabic Text -->
-            <div id="card-front" class="flex flex-col">
+            <div id="card-front" class="flex-1 flex flex-col min-h-0">
               <!-- Arabic Text -->
-              <div id="arabic-content" class="flex items-center justify-center p-5 min-h-[200px]">
+              <div id="arabic-content" class="flex-1 flex items-center justify-center p-5 overflow-auto min-h-0">
                 <p class="arabic text-center text-[var(--color-text)] leading-[2.2]" id="arabic-text" dir="rtl" style="word-spacing: 0.3em; font-size: 2.1rem;">
                   {verseWordByWord.map((wordData, i) => (
                     <span 
@@ -120,12 +120,12 @@ const verseWordByWord = (wordByWordData as Record<string, {word: number, albania
             </div>
             
             <!-- BACK: Translation (hidden by default) -->
-            <div id="card-back" class="hidden flex items-center justify-center p-6 min-h-[200px]">
+            <div id="card-back" class="flex-1 hidden flex items-center justify-center p-6 min-h-0">
               <p class="text-[var(--color-text)] leading-relaxed text-lg text-center">{verse.albanian}</p>
             </div>
             
-            <!-- Hidden State for Recite Mode - Fixed height, centered -->
-            <div id="hidden-content" class="hidden flex flex-col items-center justify-center p-6 text-center bg-white min-h-[280px]">
+            <!-- Hidden State for Recite Mode -->
+            <div id="hidden-content" class="flex-1 hidden flex flex-col items-center justify-center p-6 text-center bg-white min-h-0">
               <div class="w-20 h-20 rounded-xl bg-[var(--color-text)]/10 flex items-center justify-center mb-4">
                 <svg class="w-10 h-10 text-[var(--color-text)]/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
               </div>
@@ -193,7 +193,7 @@ const verseWordByWord = (wordByWordData as Record<string, {word: number, albania
     </main>
 
     <!-- FIXED ACTION BAR - Above bottom nav -->
-    <div id="action-bar" class="fixed bottom-[88px] left-0 right-0 z-40">
+    <div id="action-bar" class="fixed bottom-[76px] left-0 right-0 z-40">
       
       <!-- Glass card effect -->
       <div class="mx-4 mb-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg shadow-[#005086]/15 border border-[var(--color-border)]/50 overflow-hidden">
