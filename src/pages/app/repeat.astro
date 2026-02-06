@@ -635,7 +635,12 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   
   // Speed options
   const speeds = [0.75, 1, 1.25, 1.5, 2];
-  let speedIndex = 1;
+  let speedIndex = speeds.indexOf(speed);
+  if (speedIndex === -1) speedIndex = 1; // fallback to 1x
+  
+  // Update speed label to match loaded speed
+  const speedLabel = document.getElementById('speed-label');
+  if (speedLabel) speedLabel.textContent = `${speed}x`;
   
   // Player Controls
   document.getElementById('player-close')?.addEventListener('click', closePlayer);
