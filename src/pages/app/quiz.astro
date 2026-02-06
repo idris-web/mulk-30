@@ -7,145 +7,163 @@ import { MULK_VERSES } from '../../data/mulk-verses';
 <Layout title="Testi">
   <div class="min-h-screen flex flex-col bg-[var(--color-background)]">
     
-    <!-- Header with gradient -->
+    <!-- Header with gradient + smooth transition -->
     <header class="bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7] text-white px-4 pt-3 pb-16 safe-top">
       <div class="max-w-lg mx-auto flex items-center justify-between">
         <button id="back-to-select" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-white active:scale-95 transition-transform hidden">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
         </button>
         <div class="text-center flex-1">
-          <h1 class="text-lg font-semibold">Testi</h1>
+          <h1 class="text-lg font-semibold tracking-tight">Testi</h1>
           <p class="text-xs text-white/70">Testo memorizimin</p>
         </div>
         <div class="w-11"></div>
       </div>
     </header>
 
-    <!-- Main Content - pulls up into header -->
-    <main class="flex-1 px-4 pb-24 -mt-12">
-      <div class="max-w-lg mx-auto">
+    <!-- Main Content - pulls up into header gradient -->
+    <main class="flex-1 px-4 pb-44 -mt-12">
+      <div class="max-w-lg mx-auto space-y-4">
         
         <!-- ==================== SELECTION VIEW ==================== -->
-        <div id="view-select" class="space-y-6">
+        <div id="view-select" class="space-y-4">
           
           <!-- Hero Stats Card -->
-          <div class="card bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary)]/5 rounded-2xl p-6 border border-[var(--color-primary)]/20">
+          <div class="card">
             <div class="flex items-center gap-4">
-              <div class="w-16 h-16 rounded-xl bg-[var(--color-primary)]/20 flex items-center justify-center">
-                <svg class="w-8 h-8 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-14 h-14 rounded-xl bg-[var(--color-primary)]/15 flex items-center justify-center">
+                <svg class="w-7 h-7 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10" stroke-width="2"/>
                   <circle cx="12" cy="12" r="6" stroke-width="2"/>
                   <circle cx="12" cy="12" r="2" fill="currentColor"/>
                 </svg>
               </div>
               <div class="flex-1">
-                <p class="text-sm text-[var(--color-text-secondary)] mb-1">Rezultati më i mirë</p>
-                <p class="text-3xl font-bold text-[var(--color-primary)]" id="best-score-display">-</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Rezultati më i mirë</p>
+                <p class="text-2xl font-bold text-[var(--color-primary)]" id="best-score-display">-</p>
               </div>
               <div class="text-right">
-                <p class="text-sm text-[var(--color-text-secondary)] mb-1">Teste</p>
-                <p class="text-2xl font-bold text-[var(--color-text)]" id="total-tests-display">0</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Teste</p>
+                <p class="text-xl font-bold text-[var(--color-text)]" id="total-tests-display">0</p>
               </div>
             </div>
           </div>
           
-          <!-- Ayah Selection — Quick Presets -->
-          <div class="card bg-[var(--color-surface)] rounded-2xl p-5 border border-[var(--color-border)]">
-            <h2 class="text-lg font-semibold text-[var(--color-text)] mb-1">Zgjidh ajetet</h2>
-            <p class="text-sm text-[var(--color-text-secondary)] mb-4">Cilat ajete dëshiron të testosh?</p>
+          <!-- Ayah Selection Card -->
+          <div class="card">
+            <p class="text-sm text-[var(--color-text-secondary)] mb-4">Zgjidh çfarë dëshiron të testosh</p>
             
-            <!-- Quick Presets -->
-            <div class="space-y-2.5 mb-5">
+            <div class="space-y-2">
               <!-- Full Surah -->
-              <button class="quiz-preset w-full py-3.5 px-4 bg-[var(--color-surface)] border-2 border-[var(--color-primary)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all bg-[var(--color-primary)]/5" data-start="1" data-end="30">
+              <button class="quiz-preset selected w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="30">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-lg bg-[var(--color-primary)]/15 flex items-center justify-center">
+                  <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
                     <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                   </div>
                   <div class="text-left">
                     <p class="font-semibold text-[var(--color-text)]">Të gjitha ajetet</p>
-                    <p class="text-xs text-[var(--color-text-secondary)]">Testo nga 1-30</p>
+                    <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 1-30</p>
                   </div>
                 </div>
-                <div class="w-5 h-5 rounded-full border-2 border-[var(--color-primary)] flex items-center justify-center">
+                <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-primary)] flex items-center justify-center">
                   <div class="w-2.5 h-2.5 rounded-full bg-[var(--color-primary)]"></div>
                 </div>
               </button>
               
               <!-- First Half -->
-              <button class="quiz-preset w-full py-3.5 px-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="15">
+              <button class="quiz-preset w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="15">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-lg bg-[#b0cac7]/20 flex items-center justify-center">
-                    <span class="text-sm font-bold text-[#005086]">1-15</span>
+                  <div class="w-10 h-10 rounded-xl bg-[#b0cac7]/20 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-[#005086]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"/></svg>
                   </div>
                   <div class="text-left">
                     <p class="font-semibold text-[var(--color-text)]">Gjysma e parë</p>
                     <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 1-15</p>
                   </div>
                 </div>
-                <div class="w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
+                <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
               </button>
               
               <!-- Second Half -->
-              <button class="quiz-preset w-full py-3.5 px-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="16" data-end="30">
+              <button class="quiz-preset w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="16" data-end="30">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-lg bg-[#b0cac7]/20 flex items-center justify-center">
-                    <span class="text-sm font-bold text-[#005086]">16-30</span>
+                  <div class="w-10 h-10 rounded-xl bg-[#b0cac7]/20 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-[#005086]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
                   </div>
                   <div class="text-left">
                     <p class="font-semibold text-[var(--color-text)]">Gjysma e dytë</p>
                     <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 16-30</p>
                   </div>
                 </div>
-                <div class="w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
+                <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
               </button>
               
               <!-- First 10 -->
-              <button class="quiz-preset w-full py-3.5 px-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="10">
+              <button class="quiz-preset w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="10">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-lg bg-[#318fb5]/10 flex items-center justify-center">
-                    <span class="text-sm font-bold text-[#318fb5]">1-10</span>
+                  <div class="w-10 h-10 rounded-xl bg-[#318fb5]/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-[#318fb5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
                   </div>
                   <div class="text-left">
                     <p class="font-semibold text-[var(--color-text)]">10 të parat</p>
-                    <p class="text-xs text-[var(--color-text-secondary)]">Fillimi i sures</p>
+                    <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 1-10</p>
                   </div>
                 </div>
-                <div class="w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
+                <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
               </button>
               
               <!-- Last 10 -->
-              <button class="quiz-preset w-full py-3.5 px-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="21" data-end="30">
+              <button class="quiz-preset w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="21" data-end="30">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-lg bg-[#318fb5]/10 flex items-center justify-center">
-                    <span class="text-sm font-bold text-[#318fb5]">21-30</span>
+                  <div class="w-10 h-10 rounded-xl bg-[#318fb5]/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-[#318fb5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
                   </div>
                   <div class="text-left">
                     <p class="font-semibold text-[var(--color-text)]">10 të fundit</p>
-                    <p class="text-xs text-[var(--color-text-secondary)]">Fundi i sures</p>
+                    <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 21-30</p>
                   </div>
                 </div>
-                <div class="w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
+                <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
               </button>
             </div>
-            
-            <!-- Hidden selects for JS compatibility -->
-            <select id="range-start" class="hidden">
-              {MULK_VERSES.map((verse) => (
-                <option value={verse.dayIndex}>{verse.dayIndex}</option>
-              ))}
-            </select>
-            <select id="range-end" class="hidden">
-              {MULK_VERSES.map((verse) => (
-                <option value={verse.dayIndex} selected={verse.dayIndex === 30}>{verse.dayIndex}</option>
-              ))}
-            </select>
-            
-            <!-- Start Quiz Button -->
-            <button id="start-quiz-btn" class="w-full btn btn-primary py-4 text-base font-semibold rounded-xl">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-              Fillo Testin
+          </div>
+          
+          <!-- Custom Range (Collapsible) -->
+          <div class="card">
+            <button id="custom-toggle" class="w-full flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[var(--color-border)]/50 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                </div>
+                <span class="text-sm font-medium text-[var(--color-text)]">Zgjedh vetë</span>
+              </div>
+              <svg id="custom-chevron" class="w-5 h-5 text-[var(--color-text-secondary)] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
             </button>
+            
+            <div id="custom-content" class="hidden mt-4">
+              <div class="flex items-center justify-center gap-4">
+                <div class="text-center">
+                  <label class="text-xs text-[var(--color-text-secondary)] mb-2 block">Nga</label>
+                  <select id="range-start" class="w-16 h-12 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl text-center text-lg font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none">
+                    {MULK_VERSES.map((verse) => (
+                      <option value={verse.dayIndex}>{verse.dayIndex}</option>
+                    ))}
+                  </select>
+                </div>
+                <svg class="w-5 h-5 text-[var(--color-text-secondary)] mt-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <div class="text-center">
+                  <label class="text-xs text-[var(--color-text-secondary)] mb-2 block">Deri</label>
+                  <select id="range-end" class="w-16 h-12 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl text-center text-lg font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none">
+                    {MULK_VERSES.map((verse) => (
+                      <option value={verse.dayIndex} selected={verse.dayIndex === 30}>{verse.dayIndex}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <p id="range-count" class="text-center text-xs text-[var(--color-text-secondary)] mt-3">30 ajete</p>
+            </div>
           </div>
           
         </div>
@@ -154,231 +172,177 @@ import { MULK_VERSES } from '../../data/mulk-verses';
         <div id="view-quiz" class="hidden space-y-4">
           
           <!-- Progress Header -->
-          <div class="card bg-[var(--color-surface)] rounded-2xl p-4 border border-[var(--color-border)]">
+          <div class="card">
             <div class="flex items-center justify-between mb-3">
-              <div class="flex items-center gap-2">
-                <span class="text-sm font-medium text-white">Pyetja <span id="q-current" class="text-[var(--color-primary)]">1</span>/<span id="q-total">10</span></span>
-              </div>
+              <span class="text-sm font-medium text-[var(--color-text)]">Pyetja <span id="q-current" class="text-[var(--color-primary)]">1</span>/<span id="q-total">10</span></span>
               <div class="flex items-center gap-4">
-                <!-- Streak -->
-                <div class="flex items-center gap-1.5" id="streak-container">
+                <div class="flex items-center gap-1.5">
                   <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 23c-3.6 0-7-2.4-7-7 0-3.1 2.7-6.4 5-9.1V2l2.5 2L15 2v4.9c2.3 2.7 5 6 5 9.1 0 4.6-3.4 7-8 7z"/></svg>
                   <span id="streak-count" class="text-sm font-bold text-orange-500">0</span>
                 </div>
-                <!-- Score -->
                 <div class="flex items-center gap-1.5">
                   <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                   <span id="score-count" class="text-sm font-bold text-[var(--color-primary)]">0</span>
                 </div>
               </div>
             </div>
-            <!-- Progress Bar -->
             <div class="h-2 bg-[var(--color-border)] rounded-full overflow-hidden">
-              <div id="progress-bar" class="h-full bg-[var(--color-primary)] rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+              <div id="progress-bar" class="h-full bg-[var(--color-primary)] rounded-full transition-all duration-500" style="width: 0%"></div>
             </div>
           </div>
           
           <!-- Question Card -->
-          <div class="card bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] overflow-hidden">
-            <!-- Ayah Badge -->
-            <div class="bg-[var(--color-primary)]/10 px-4 py-2 ">
+          <div class="card">
+            <div class="bg-[var(--color-primary)]/10 -mx-4 -mt-4 px-4 py-2 mb-4 rounded-t-2xl">
               <span class="text-sm font-medium text-[var(--color-primary)]">Ajeti <span id="q-ayah">1</span></span>
             </div>
             
-            <!-- Question Text (Hero) -->
-            <div class="p-6">
-              <p class="text-xs text-white/70 mb-3 uppercase tracking-wide">Plotëso fjalën që mungon</p>
-              <div id="q-text" class="arabic text-2xl leading-[2.5] text-center p-4 bg-white/10 rounded-xl min-h-[120px] flex items-center justify-center" dir="rtl">
-              </div>
-            </div>
+            <p class="text-xs text-[var(--color-text-secondary)] mb-3">Plotëso fjalën që mungon</p>
+            <div id="q-text" class="arabic text-2xl leading-[2.5] text-center p-4 bg-[var(--color-background)] rounded-xl min-h-[100px] flex items-center justify-center mb-4" dir="rtl"></div>
             
-            <!-- Answer Options (Full Width, Stacked) -->
-            <div id="q-options" class="p-4 pt-0 space-y-3">
-              <!-- Options will be inserted here -->
-            </div>
+            <div id="q-options" class="space-y-2"></div>
             
-            <!-- Feedback Area -->
-            <div id="q-feedback" class="hidden mx-4 mb-4 p-4 rounded-xl text-center">
-              <p id="feedback-text" class="font-semibold text-base mb-1"></p>
-              <p id="feedback-answer" class="text-sm opacity-80"></p>
+            <div id="q-feedback" class="hidden mt-4 p-3 rounded-xl text-center">
+              <p id="feedback-text" class="font-semibold"></p>
+              <p id="feedback-answer" class="text-sm opacity-80 mt-1"></p>
             </div>
           </div>
-          
         </div>
         
         <!-- ==================== RESULTS VIEW ==================== -->
         <div id="view-results" class="hidden">
-          
-          <!-- Celebration Card -->
-          <div class="card bg-[var(--color-surface)] rounded-2xl p-8 border border-[var(--color-border)] text-center relative overflow-hidden">
-            
-            <!-- Confetti Container -->
+          <div class="card text-center relative overflow-hidden">
             <div id="confetti-container" class="absolute inset-0 pointer-events-none"></div>
             
-            <!-- Result Icon -->
             <div class="relative">
-              <div id="result-icon-bg" class="w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-[var(--color-accent)]/20">
-                <!-- Trophy (100%) -->
-                <svg id="icon-trophy" class="w-16 h-16 text-yellow-500 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7h-2c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h2c0 2.76 2.24 5 5 5s5-2.24 5-5h2c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2h-2c0-2.76-2.24-5-5-5zM5 11V9h2v2H5zm14 0h-2V9h2v2zm-7 9c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z"/></svg>
-                <!-- Star (>=90%) -->
-                <svg id="icon-star" class="w-16 h-16 text-[var(--color-primary)] hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <!-- Checkmark (>=70%) -->
-                <svg id="icon-check" class="w-16 h-16 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <!-- Arm/Strength (>=50%) -->
-                <svg id="icon-strength" class="w-16 h-16 text-orange-500 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                <!-- Book (<50%) -->
-                <svg id="icon-book" class="w-16 h-16 text-[var(--color-text-secondary)] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              <div id="result-icon-bg" class="w-24 h-24 mx-auto mb-4 rounded-2xl flex items-center justify-center bg-[var(--color-primary)]/20">
+                <svg id="icon-trophy" class="w-14 h-14 text-yellow-500 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7h-2c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h2c0 2.76 2.24 5 5 5s5-2.24 5-5h2c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2h-2c0-2.76-2.24-5-5-5zM5 11V9h2v2H5zm14 0h-2V9h2v2zm-7 9c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z"/></svg>
+                <svg id="icon-star" class="w-14 h-14 text-[var(--color-primary)] hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg id="icon-check" class="w-14 h-14 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <svg id="icon-book" class="w-14 h-14 text-[var(--color-text-secondary)] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
               </div>
             </div>
             
-            <!-- Score Display -->
-            <h2 class="text-2xl font-bold text-white mb-2">Rezultati yt</h2>
-            <div class="flex items-center justify-center gap-1 mb-2">
-              <span id="result-score" class="text-5xl font-bold text-[var(--color-primary)]">8</span>
-              <span class="text-3xl text-white/70">/</span>
-              <span id="result-total" class="text-3xl text-white/70">10</span>
+            <h2 class="text-xl font-bold text-[var(--color-text)] mb-2">Rezultati yt</h2>
+            <div class="flex items-center justify-center gap-1 mb-1">
+              <span id="result-score" class="text-4xl font-bold text-[var(--color-primary)]">0</span>
+              <span class="text-2xl text-[var(--color-text-secondary)]">/</span>
+              <span id="result-total" class="text-2xl text-[var(--color-text-secondary)]">10</span>
             </div>
-            <p id="result-percent" class="text-lg text-[var(--color-primary)] font-semibold mb-4">80%</p>
+            <p id="result-percent" class="text-lg text-[var(--color-primary)] font-semibold mb-4">0%</p>
+            <p id="result-message" class="text-[var(--color-text-secondary)] mb-6">Mirë!</p>
             
-            <!-- Message -->
-            <p id="result-message" class="text-white/70 mb-6">Shkëlqyeshëm! Je shumë afër përsosmërisë!</p>
-            
-            <!-- Stats Row -->
             <div class="flex justify-center gap-6 mb-6 py-4 border-y border-[var(--color-border)]">
               <div class="text-center">
-                <p class="text-2xl font-bold text-orange-500" id="result-streak">5</p>
-                <p class="text-xs text-white/70">Seria më e gjatë</p>
+                <p class="text-xl font-bold text-orange-500" id="result-streak">0</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Seria më e gjatë</p>
               </div>
               <div class="text-center">
-                <p class="text-2xl font-bold text-[var(--color-text)]" id="result-time">1:24</p>
-                <p class="text-xs text-white/70">Koha</p>
+                <p class="text-xl font-bold text-[var(--color-text)]" id="result-time">0:00</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Koha</p>
               </div>
             </div>
             
-            <!-- Action Buttons -->
-            <div class="space-y-3">
-              <button id="retry-btn" class="w-full btn btn-primary py-4 text-base font-semibold rounded-xl">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                Provo përsëri
+            <div class="space-y-2">
+              <button id="retry-btn" class="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white font-semibold py-4 rounded-xl active:scale-[0.98] transition-all shadow-lg shadow-[#318fb5]/35">
+                <div class="flex items-center justify-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                  <span>Provo përsëri</span>
+                </div>
               </button>
-              <button id="new-quiz-btn" class="w-full btn py-4 text-base font-medium rounded-xl border-2 border-[var(--color-border)] text-white hover:bg-white/10">
+              <button id="new-quiz-btn" class="w-full py-4 rounded-xl border border-[var(--color-border)] text-[var(--color-text)] font-medium hover:bg-[var(--color-background)] transition-colors">
                 Zgjidh ajete të tjera
               </button>
             </div>
-            
           </div>
-          
         </div>
         
       </div>
     </main>
+
+    <!-- Floating CTA -->
+    <div id="cta-container" class="fixed bottom-20 left-0 right-0 px-4 pb-4 safe-bottom z-20">
+      <div class="max-w-lg mx-auto">
+        <button id="start-quiz-btn" class="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white font-semibold py-5 rounded-2xl active:scale-[0.98] transition-all shadow-lg shadow-[#318fb5]/35">
+          <div class="flex items-center justify-center gap-3">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            <span id="start-btn-text">Fillo Testin</span>
+          </div>
+        </button>
+      </div>
+    </div>
 
     <BottomNav active="quiz" />
   </div>
 </Layout>
 
 <style>
-  /* Bounce in animation for result emoji */
-  @keyframes bounce-in {
-    0% { transform: scale(0); }
-    50% { transform: scale(1.2); }
-    70% { transform: scale(0.9); }
-    100% { transform: scale(1); }
+  .card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 80, 134, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-border);
+  }
+
+  .quiz-preset.selected {
+    border-color: var(--color-primary) !important;
+    background: rgba(49, 143, 181, 0.05) !important;
   }
   
-  .animate-bounce-in {
-    animation: bounce-in 0.6s ease-out;
+  .quiz-preset.selected .radio-indicator {
+    border-color: var(--color-primary) !important;
   }
-  
-  /* Option button states */
+
+  .rotate-180 { transform: rotate(180deg); }
+
   .option-btn {
-    min-height: 56px;
-    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    min-height: 52px;
+    transition: all 0.15s ease;
   }
-  
-  .option-btn:active:not(:disabled) {
-    transform: scale(0.98);
-  }
-  
+  .option-btn:active:not(:disabled) { transform: scale(0.98); }
   .option-btn.correct {
     background-color: rgba(34, 197, 94, 0.15) !important;
     border-color: rgb(34, 197, 94) !important;
-    color: rgb(22, 163, 74) !important;
   }
-  
   .option-btn.wrong {
     background-color: rgba(239, 68, 68, 0.15) !important;
     border-color: rgb(239, 68, 68) !important;
-    color: rgb(220, 38, 38) !important;
   }
-  
-  .option-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  /* Selected ayah chips */
-  .ayah-chip.selected {
-    background-color: var(--color-primary) !important;
-    color: white !important;
-  }
-  
-  /* Feedback states */
-  .feedback-correct {
-    background-color: rgba(34, 197, 94, 0.15);
-    color: rgb(22, 163, 74);
-  }
-  
-  .feedback-wrong {
-    background-color: rgba(239, 68, 68, 0.15);
-    color: rgb(220, 38, 38);
-  }
-  
-  /* Confetti particle */
-  .confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    opacity: 0;
-  }
-  
+  .option-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+  .feedback-correct { background-color: rgba(34, 197, 94, 0.15); color: rgb(22, 163, 74); }
+  .feedback-wrong { background-color: rgba(239, 68, 68, 0.15); color: rgb(220, 38, 38); }
+
   @keyframes confetti-fall {
-    0% {
-      transform: translateY(-100%) rotate(0deg);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(400px) rotate(720deg);
-      opacity: 0;
-    }
+    0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(400px) rotate(720deg); opacity: 0; }
   }
-  
-  /* Shake animation for wrong answer */
+  .confetti { position: absolute; width: 10px; height: 10px; opacity: 0; }
+
   @keyframes shake {
     0%, 100% { transform: translateX(0); }
     20%, 60% { transform: translateX(-5px); }
     40%, 80% { transform: translateX(5px); }
   }
-  
-  .shake {
-    animation: shake 0.4s ease;
-  }
-  
-  /* Pulse animation for streak */
+  .shake { animation: shake 0.4s ease; }
+
   @keyframes pulse-grow {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.2); }
   }
-  
-  .pulse-grow {
-    animation: pulse-grow 0.3s ease;
+  .pulse-grow { animation: pulse-grow 0.3s ease; }
+
+  #custom-content { animation: slideDown 0.2s ease-out; }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>
 
 <script>
   import { MULK_VERSES } from '../../data/mulk-verses';
   
-  // ==================== STATE ====================
   interface Question {
     ayah: number;
     hiddenIndex: number;
@@ -396,15 +360,16 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   let rangeEnd = 30;
   let answered = false;
   
-  // ==================== ELEMENTS ====================
   const viewSelect = document.getElementById('view-select')!;
   const viewQuiz = document.getElementById('view-quiz')!;
   const viewResults = document.getElementById('view-results')!;
+  const ctaContainer = document.getElementById('cta-container')!;
   const backBtn = document.getElementById('back-to-select')!;
   const rangeStartSelect = document.getElementById('range-start') as HTMLSelectElement;
   const rangeEndSelect = document.getElementById('range-end') as HTMLSelectElement;
+  const rangeCountEl = document.getElementById('range-count')!;
+  const startBtnText = document.getElementById('start-btn-text')!;
   
-  // ==================== HELPERS ====================
   function loadStats() {
     const stats = JSON.parse(localStorage.getItem('mulk30_quiz_stats') || '{"best":0,"total":0}');
     document.getElementById('best-score-display')!.textContent = stats.best > 0 ? `${stats.best}%` : '-';
@@ -419,74 +384,58 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     localStorage.setItem('mulk30_quiz_stats', JSON.stringify(stats));
   }
   
-  // updateAyahChips removed - using presets now
+  function updateRangeCount() {
+    const count = Math.abs(rangeEnd - rangeStart) + 1;
+    rangeCountEl.textContent = count === 1 ? '1 ajet' : `${count} ajete`;
+  }
+  
+  function updateStartButton() {
+    const count = Math.abs(rangeEnd - rangeStart) + 1;
+    startBtnText.textContent = count === 1 ? `Testo ajetin ${rangeStart}` : `Testo ${count} ajete`;
+  }
   
   function showView(view: 'select' | 'quiz' | 'results') {
     viewSelect.classList.toggle('hidden', view !== 'select');
     viewQuiz.classList.toggle('hidden', view !== 'quiz');
     viewResults.classList.toggle('hidden', view !== 'results');
+    ctaContainer.classList.toggle('hidden', view !== 'select');
     backBtn.classList.toggle('hidden', view === 'select');
   }
   
-  // ==================== QUESTION GENERATION ====================
   function generateQuestions(): Question[] {
     const generated: Question[] = [];
-    
     for (let ayahNum = rangeStart; ayahNum <= rangeEnd; ayahNum++) {
       const verse = MULK_VERSES.find(v => v.dayIndex === ayahNum);
       if (!verse) continue;
-      
       const words = verse.arabic.split(/\s+/).filter(w => w.length > 0);
       if (words.length === 0) continue;
-      
-      // Pick a random word to hide
       const hiddenIdx = Math.floor(Math.random() * words.length);
       const correct = words[hiddenIdx];
-      
-      // Generate wrong options from other verses
       const allWords = MULK_VERSES.flatMap(v => v.arabic.split(/\s+/).filter(w => w.length > 0));
       const options = [correct];
-      
-      // Get 3 unique wrong answers (Miller's Law: max 4 options)
       while (options.length < 4 && allWords.length > options.length) {
         const randomWord = allWords[Math.floor(Math.random() * allWords.length)];
-        if (!options.includes(randomWord)) {
-          options.push(randomWord);
-        }
+        if (!options.includes(randomWord)) options.push(randomWord);
       }
-      
-      // Shuffle options
       options.sort(() => Math.random() - 0.5);
-      
-      generated.push({
-        ayah: ayahNum,
-        hiddenIndex: hiddenIdx,
-        options,
-        correct
-      });
+      generated.push({ ayah: ayahNum, hiddenIndex: hiddenIdx, options, correct });
     }
-    
-    // Shuffle questions
     return generated.sort(() => Math.random() - 0.5);
   }
   
-  // ==================== QUIZ FLOW ====================
   function startQuiz() {
     questions = generateQuestions();
     if (questions.length === 0) return;
-    
     currentIndex = 0;
     score = 0;
     streak = 0;
     maxStreak = 0;
     answered = false;
     startTime = Date.now();
-    
     document.getElementById('q-total')!.textContent = String(questions.length);
     document.getElementById('score-count')!.textContent = '0';
     document.getElementById('streak-count')!.textContent = '0';
     document.getElementById('progress-bar')!.style.width = '0%';
-    
     showView('quiz');
     renderQuestion();
   }
@@ -495,177 +444,122 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     const q = questions[currentIndex];
     const verse = MULK_VERSES.find(v => v.dayIndex === q.ayah);
     if (!verse) return;
-    
     answered = false;
-    
-    // Update header
     document.getElementById('q-current')!.textContent = String(currentIndex + 1);
     document.getElementById('q-ayah')!.textContent = String(q.ayah);
-    
-    // Build question text with blank
     const words = verse.arabic.split(/\s+/);
     const questionHtml = words.map((w, i) => 
       i === q.hiddenIndex 
-        ? '<span class="inline-block min-w-[60px] border-b-2 border-[var(--color-primary)] text-[var(--color-primary)]">؟</span>'
+        ? '<span class="inline-block min-w-[50px] border-b-2 border-[var(--color-primary)] text-[var(--color-primary)]">؟</span>'
         : w
     ).join(' ');
     document.getElementById('q-text')!.innerHTML = questionHtml;
-    
-    // Build options (full width, stacked - Fitts's Law)
     const optionsHtml = q.options.map((opt, i) => `
-      <button class="option-btn w-full p-4 rounded-xl border-2 border-[var(--color-border)] bg-white/10 hover:bg-[var(--color-surface)] hover:border-[var(--color-primary)]/50 text-lg arabic text-center" data-idx="${i}">
-        ${opt}
-      </button>
+      <button class="option-btn w-full p-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] hover:border-[var(--color-primary)]/50 text-lg arabic text-center" data-idx="${i}">${opt}</button>
     `).join('');
     document.getElementById('q-options')!.innerHTML = optionsHtml;
-    
-    // Attach click handlers
     document.querySelectorAll('.option-btn').forEach(btn => {
       btn.addEventListener('click', () => handleAnswer(btn as HTMLButtonElement));
     });
-    
-    // Hide feedback
     document.getElementById('q-feedback')!.classList.add('hidden');
   }
   
   function handleAnswer(btn: HTMLButtonElement) {
     if (answered) return;
     answered = true;
-    
     const q = questions[currentIndex];
     const selectedIdx = parseInt(btn.dataset.idx || '0');
     const selected = q.options[selectedIdx];
     const isCorrect = selected === q.correct;
-    
-    // Disable all buttons
     document.querySelectorAll('.option-btn').forEach(b => {
       (b as HTMLButtonElement).disabled = true;
-      const btnText = b.textContent?.trim();
-      if (btnText === q.correct) {
-        b.classList.add('correct');
-      }
+      if (b.textContent?.trim() === q.correct) b.classList.add('correct');
     });
-    
     if (isCorrect) {
       score++;
       streak++;
       if (streak > maxStreak) maxStreak = streak;
-      
       btn.classList.add('correct');
-      
-      // Update displays with animation
       const scoreEl = document.getElementById('score-count')!;
       const streakEl = document.getElementById('streak-count')!;
       scoreEl.textContent = String(score);
       streakEl.textContent = String(streak);
       streakEl.classList.add('pulse-grow');
       setTimeout(() => streakEl.classList.remove('pulse-grow'), 300);
-      
       showFeedback(true, 'Saktë!');
     } else {
       streak = 0;
       btn.classList.add('wrong');
       document.getElementById('streak-count')!.textContent = '0';
-      
-      // Shake animation
       btn.classList.add('shake');
       setTimeout(() => btn.classList.remove('shake'), 400);
-      
       showFeedback(false, 'Gabim', `Përgjigja: ${q.correct}`);
     }
-    
-    // Update progress bar
     const progress = ((currentIndex + 1) / questions.length) * 100;
     document.getElementById('progress-bar')!.style.width = `${progress}%`;
-    
-    // Move to next question or results
     setTimeout(() => {
       currentIndex++;
-      if (currentIndex < questions.length) {
-        renderQuestion();
-      } else {
-        showResults();
-      }
+      if (currentIndex < questions.length) renderQuestion();
+      else showResults();
     }, 1500);
   }
   
   function showFeedback(correct: boolean, text: string, answer?: string) {
     const feedbackEl = document.getElementById('q-feedback')!;
-    const textEl = document.getElementById('feedback-text')!;
-    const answerEl = document.getElementById('feedback-answer')!;
-    
     feedbackEl.classList.remove('hidden', 'feedback-correct', 'feedback-wrong');
     feedbackEl.classList.add(correct ? 'feedback-correct' : 'feedback-wrong');
-    
-    textEl.textContent = text;
+    document.getElementById('feedback-text')!.textContent = text;
+    const answerEl = document.getElementById('feedback-answer')!;
     answerEl.textContent = answer || '';
     answerEl.classList.toggle('hidden', !answer);
   }
   
-  // ==================== RESULTS ====================
   function showResults() {
     const total = questions.length;
     const pct = Math.round((score / total) * 100);
     const elapsed = Math.floor((Date.now() - startTime) / 1000);
     const minutes = Math.floor(elapsed / 60);
     const seconds = elapsed % 60;
-    
-    // Update displays
     document.getElementById('result-score')!.textContent = String(score);
     document.getElementById('result-total')!.textContent = String(total);
     document.getElementById('result-percent')!.textContent = `${pct}%`;
     document.getElementById('result-streak')!.textContent = String(maxStreak);
     document.getElementById('result-time')!.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-    
-    // Icon and message based on score
     const iconBgEl = document.getElementById('result-icon-bg')!;
     const msgEl = document.getElementById('result-message')!;
-    
-    // Hide all icons first
     document.getElementById('icon-trophy')!.classList.add('hidden');
     document.getElementById('icon-star')!.classList.add('hidden');
     document.getElementById('icon-check')!.classList.add('hidden');
-    document.getElementById('icon-strength')!.classList.add('hidden');
     document.getElementById('icon-book')!.classList.add('hidden');
-    
     if (pct === 100) {
       document.getElementById('icon-trophy')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-yellow-100';
+      iconBgEl.className = 'w-24 h-24 mx-auto mb-4 rounded-2xl flex items-center justify-center bg-yellow-100';
       msgEl.textContent = 'Perfekt! E ke mësuar plotësisht!';
       createConfetti();
     } else if (pct >= 80) {
       document.getElementById('icon-star')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-[var(--color-accent)]/20';
-      msgEl.textContent = 'Shkëlqyeshëm! Je shumë afër përsosmërisë!';
+      iconBgEl.className = 'w-24 h-24 mx-auto mb-4 rounded-2xl flex items-center justify-center bg-[var(--color-primary)]/15';
+      msgEl.textContent = 'Shkëlqyeshëm! Je shumë afër!';
       createConfetti();
     } else if (pct >= 60) {
       document.getElementById('icon-check')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-[var(--color-accent)]/20';
+      iconBgEl.className = 'w-24 h-24 mx-auto mb-4 rounded-2xl flex items-center justify-center bg-[var(--color-primary)]/15';
       msgEl.textContent = 'Mirë! Vazhdo të ushtroesh!';
-    } else if (pct >= 40) {
-      document.getElementById('icon-strength')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-orange-100';
-      msgEl.textContent = 'Mos u dorëzo! Ushtrohu edhe pak!';
     } else {
       document.getElementById('icon-book')!.classList.remove('hidden');
-      iconBgEl.className = 'w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center animate-bounce-in bg-gray-100';
+      iconBgEl.className = 'w-24 h-24 mx-auto mb-4 rounded-2xl flex items-center justify-center bg-gray-100';
       msgEl.textContent = 'Dëgjo surenë dhe provo përsëri!';
     }
-    
-    // Save stats
     saveStats(score, total);
     loadStats();
-    
     showView('results');
   }
   
   function createConfetti() {
     const container = document.getElementById('confetti-container')!;
     container.innerHTML = '';
-    
-    const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'];
-    
-    for (let i = 0; i < 50; i++) {
+    const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7'];
+    for (let i = 0; i < 40; i++) {
       const confetti = document.createElement('div');
       confetti.className = 'confetti';
       confetti.style.left = `${Math.random() * 100}%`;
@@ -675,14 +569,27 @@ import { MULK_VERSES } from '../../data/mulk-verses';
       confetti.style.animationDelay = `${Math.random() * 0.5}s`;
       container.appendChild(confetti);
     }
-    
-    // Clean up after animation
-    setTimeout(() => {
-      container.innerHTML = '';
-    }, 3000);
+    setTimeout(() => container.innerHTML = '', 3000);
   }
   
-  // ==================== EVENT LISTENERS ====================
+  // Custom toggle
+  document.getElementById('custom-toggle')?.addEventListener('click', () => {
+    const content = document.getElementById('custom-content')!;
+    const chevron = document.getElementById('custom-chevron')!;
+    content.classList.toggle('hidden');
+    chevron.classList.toggle('rotate-180');
+    // Deselect presets when custom is opened
+    if (!content.classList.contains('hidden')) {
+      document.querySelectorAll('.quiz-preset').forEach(b => {
+        b.classList.remove('selected');
+        const radio = b.querySelector('.radio-indicator');
+        if (radio) {
+          radio.className = 'radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]';
+          radio.innerHTML = '';
+        }
+      });
+    }
+  });
   
   // Range selectors
   rangeStartSelect.addEventListener('change', () => {
@@ -691,7 +598,8 @@ import { MULK_VERSES } from '../../data/mulk-verses';
       rangeEnd = rangeStart;
       rangeEndSelect.value = String(rangeEnd);
     }
-    updateAyahChips();
+    updateRangeCount();
+    updateStartButton();
   });
   
   rangeEndSelect.addEventListener('change', () => {
@@ -700,10 +608,11 @@ import { MULK_VERSES } from '../../data/mulk-verses';
       rangeStart = rangeEnd;
       rangeStartSelect.value = String(rangeStart);
     }
-    updateAyahChips();
+    updateRangeCount();
+    updateStartButton();
   });
   
-  // Quiz Preset Buttons
+  // Preset buttons
   document.querySelectorAll('.quiz-preset').forEach(btn => {
     btn.addEventListener('click', () => {
       const el = btn as HTMLElement;
@@ -714,24 +623,27 @@ import { MULK_VERSES } from '../../data/mulk-verses';
       
       // Update visual selection
       document.querySelectorAll('.quiz-preset').forEach(b => {
-        b.classList.remove('border-[var(--color-primary)]', 'border-2', 'bg-[var(--color-primary)]/5');
-        b.classList.add('border-[var(--color-border)]', 'border');
-        // Reset radio indicator
-        const radio = b.querySelector('.w-5.h-5.rounded-full');
+        b.classList.remove('selected');
+        const radio = b.querySelector('.radio-indicator');
         if (radio) {
-          radio.className = 'w-5 h-5 rounded-full border-2 border-[var(--color-border)]';
+          radio.className = 'radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]';
           radio.innerHTML = '';
         }
       });
       
-      // Select this one
-      el.classList.remove('border-[var(--color-border)]', 'border');
-      el.classList.add('border-[var(--color-primary)]', 'border-2', 'bg-[var(--color-primary)]/5');
-      const radio = el.querySelector('.w-5.h-5.rounded-full');
+      el.classList.add('selected');
+      const radio = el.querySelector('.radio-indicator');
       if (radio) {
-        radio.className = 'w-5 h-5 rounded-full border-2 border-[var(--color-primary)] flex items-center justify-center';
+        radio.className = 'radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-primary)] flex items-center justify-center';
         radio.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-[var(--color-primary)]"></div>';
       }
+      
+      // Close custom panel if open
+      document.getElementById('custom-content')!.classList.add('hidden');
+      document.getElementById('custom-chevron')!.classList.remove('rotate-180');
+      
+      updateRangeCount();
+      updateStartButton();
     });
   });
   
@@ -739,18 +651,16 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   document.getElementById('start-quiz-btn')?.addEventListener('click', startQuiz);
   
   // Back button
-  backBtn.addEventListener('click', () => {
-    showView('select');
-  });
+  backBtn.addEventListener('click', () => showView('select'));
   
   // Retry
   document.getElementById('retry-btn')?.addEventListener('click', startQuiz);
   
   // New quiz
-  document.getElementById('new-quiz-btn')?.addEventListener('click', () => {
-    showView('select');
-  });
+  document.getElementById('new-quiz-btn')?.addEventListener('click', () => showView('select'));
   
-  // ==================== INIT ====================
+  // Init
   loadStats();
+  updateStartButton();
 </script>
+</Layout>

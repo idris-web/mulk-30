@@ -7,247 +7,199 @@ import { MULK_VERSES } from '../../data/mulk-verses';
 <Layout title="Përsëritje">
   <div class="min-h-screen flex flex-col bg-[var(--color-background)]">
     
-    <!-- Header with gradient -->
+    <!-- Header with gradient + smooth transition (like homepage) -->
     <header class="bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7] text-white px-4 pt-3 pb-16 safe-top">
       <div class="max-w-lg mx-auto flex items-center justify-between">
         <a href="/app" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-white active:scale-95 transition-transform">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
         </a>
         <div class="text-center">
-          <h1 class="text-lg font-semibold">Përsëritje</h1>
+          <h1 class="text-lg font-semibold tracking-tight">Përsëritje</h1>
           <p class="text-xs text-white/70">Dëgjo dhe mëso</p>
         </div>
         <div class="w-11"></div>
       </div>
     </header>
 
-    <!-- Main Content - pulls up into header -->
-    <main class="flex-1 px-4 pb-28 -mt-12 overflow-y-auto">
-      <div class="max-w-lg mx-auto">
+    <!-- Main Content - pulls up into header gradient -->
+    <main class="flex-1 px-4 pb-44 -mt-12">
+      <div class="max-w-lg mx-auto space-y-4">
         
-        <!-- Empty State -->
-        <div id="empty-state" class="hidden text-center py-16">
-          <div class="w-20 h-20 rounded-xl bg-[var(--color-surface)] border-2 border-dashed border-[var(--color-border)] flex items-center justify-center mx-auto mb-5">
-            <svg class="w-10 h-10 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-            </svg>
-          </div>
-          <h2 class="text-xl font-semibold text-[var(--color-text)] mb-2">Asnjë ajet i përfunduar</h2>
-          <p class="text-sm text-[var(--color-text-secondary)] max-w-xs mx-auto mb-8">Mëso të paktën një ajet për të hapur përsëritjen.</p>
-          <a href="/app" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[var(--color-primary)] text-white font-semibold text-base active:scale-[0.98] transition-transform">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-            Fillo mësimin
-          </a>
-        </div>
-
-        <!-- Main Content -->
-        <div id="main-content" class="space-y-6">
+        <!-- Quick Presets Card -->
+        <div class="card">
+          <p class="text-sm text-[var(--color-text-secondary)] mb-4">Zgjidh çfarë dëshiron të përsëritësh</p>
           
-          <!-- Step 1: Ayah Selection -->
-          <section id="step-selection">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-8 h-8 rounded-lg bg-[var(--color-primary)] flex items-center justify-center text-white text-sm font-bold">1</div>
-              <h2 class="text-base font-semibold text-[var(--color-text)]">Zgjidh ajetet</h2>
-            </div>
-            
-            <!-- Mode Toggle - Bigger Touch Targets -->
-            <div class="flex p-1.5 bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] mb-5">
-              <button id="mode-single" class="mode-tab flex-1 py-3.5 rounded-xl text-sm font-semibold transition-all active">
-                Zgjedh shpejt
-              </button>
-              <button id="mode-range" class="mode-tab flex-1 py-3.5 rounded-xl text-sm font-semibold transition-all">
-                Vetë zgjedh
-              </button>
-            </div>
-            
-            <!-- Quick Presets — keine Zahlen-Tabelle mehr -->
-            <div id="single-panel">
-              <p class="text-sm text-[var(--color-text-secondary)] text-center mb-4">Zgjidh çfarë dëshiron të përsëritësh</p>
-              
-              <div class="space-y-3">
-                <!-- Full Surah -->
-                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="30">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center">
-                      <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                    </div>
-                    <div class="text-left">
-                      <p class="font-semibold text-[var(--color-text)]">Surah e plotë</p>
-                      <p class="text-xs text-[var(--color-text-secondary)]">Të 30 ajetet</p>
-                    </div>
-                  </div>
-                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-                
-                <!-- First Half -->
-                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="15">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-[#b0cac7]/20 flex items-center justify-center">
-                      <span class="text-sm font-bold text-[#005086]">1-15</span>
-                    </div>
-                    <div class="text-left">
-                      <p class="font-semibold text-[var(--color-text)]">Gjysma e parë</p>
-                      <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 1-15</p>
-                    </div>
-                  </div>
-                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-                
-                <!-- Second Half -->
-                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="16" data-end="30">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-[#b0cac7]/20 flex items-center justify-center">
-                      <span class="text-sm font-bold text-[#005086]">16-30</span>
-                    </div>
-                    <div class="text-left">
-                      <p class="font-semibold text-[var(--color-text)]">Gjysma e dytë</p>
-                      <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 16-30</p>
-                    </div>
-                  </div>
-                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-                
-                <!-- First 10 -->
-                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="10">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-[#318fb5]/10 flex items-center justify-center">
-                      <span class="text-sm font-bold text-[#318fb5]">1-10</span>
-                    </div>
-                    <div class="text-left">
-                      <p class="font-semibold text-[var(--color-text)]">10 të parat</p>
-                      <p class="text-xs text-[var(--color-text-secondary)]">Fillimi i sures</p>
-                    </div>
-                  </div>
-                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-                
-                <!-- Last 10 -->
-                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="21" data-end="30">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-[#318fb5]/10 flex items-center justify-center">
-                      <span class="text-sm font-bold text-[#318fb5]">21-30</span>
-                    </div>
-                    <div class="text-left">
-                      <p class="font-semibold text-[var(--color-text)]">10 të fundit</p>
-                      <p class="text-xs text-[var(--color-text-secondary)]">Fundi i sures</p>
-                    </div>
-                  </div>
-                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-              </div>
-              
-              <!-- Selection Summary -->
-              <div id="selection-summary" class="mt-4 text-center hidden">
-                <p class="text-sm text-[var(--color-primary)] font-medium">
-                  <span id="selected-range-text">Ajetet 1-30</span> të zgjedhura
-                </p>
-              </div>
-              
-              <!-- Hidden elements for JS compatibility -->
-              <div id="ayah-grid-container" class="hidden"></div>
-              <div id="ayah-grid" class="hidden"></div>
-              <span id="selected-ayah-num" class="hidden">1</span>
-            </div>
-            
-            <!-- Range Panel (Custom) -->
-            <div id="range-panel" class="hidden">
-              <p class="text-sm text-[var(--color-text-secondary)] text-center mb-5">Zgjidh diapazonin e ajeteve</p>
-              
-              <div class="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] p-6">
-                <div class="flex items-center justify-center gap-6">
-                  <div class="text-center">
-                    <label class="text-xs text-[var(--color-text-secondary)] mb-2 block font-medium uppercase tracking-wide">Nga</label>
-                    <select id="range-start" class="appearance-none w-20 h-14 bg-[var(--color-surface)] border-2 border-[var(--color-border)] rounded-xl text-center text-xl font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none transition-colors">
-                    </select>
-                  </div>
-                  
-                  <div class="flex flex-col items-center gap-1">
-                    <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    <span id="range-count" class="text-xs text-[var(--color-text-secondary)] font-medium">30 ajete</span>
-                  </div>
-                  
-                  <div class="text-center">
-                    <label class="text-xs text-[var(--color-text-secondary)] mb-2 block font-medium uppercase tracking-wide">Deri</label>
-                    <select id="range-end" class="appearance-none w-20 h-14 bg-[var(--color-surface)] border-2 border-[var(--color-border)] rounded-xl text-center text-xl font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none transition-colors">
-                    </select>
-                  </div>
+          <div class="space-y-2">
+            <!-- Full Surah -->
+            <button class="preset-btn selected w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="30">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                </div>
+                <div class="text-left">
+                  <p class="font-semibold text-[var(--color-text)]">Surah e plotë</p>
+                  <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 1-30</p>
                 </div>
               </div>
-            </div>
-          </section>
-          
-          <!-- Step 2: Settings (Collapsed by default - Progressive Disclosure) -->
-          <section id="step-settings">
-            <button id="settings-toggle" class="w-full flex items-center justify-between py-3">
-              <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] text-sm font-bold">2</div>
-                <h2 class="text-base font-semibold text-[var(--color-text)]">Cilësimet</h2>
-              </div>
-              <div class="flex items-center gap-2">
-                <span id="settings-preview" class="text-sm text-[var(--color-text-secondary)]">3x, 1.0x</span>
-                <svg id="settings-chevron" class="w-5 h-5 text-[var(--color-text-secondary)] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
+              <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-primary)] flex items-center justify-center">
+                <div class="w-2.5 h-2.5 rounded-full bg-[var(--color-primary)]"></div>
               </div>
             </button>
             
-            <div id="settings-content" class="hidden mt-2">
-              <div class="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] p-5 space-y-5">
-                
-                <!-- Repeat Count - Big Touch Targets -->
-                <div class="flex items-center justify-between">
-                  <div>
-                    <p class="text-sm font-semibold text-[var(--color-text)]">Përsëritje</p>
-                    <p class="text-xs text-[var(--color-text-secondary)]">Sa herë për ajet</p>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <button id="repeat-minus" class="w-12 h-12 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform">
-                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 12H4"/></svg>
-                    </button>
-                    <span id="repeat-count" class="text-2xl font-bold text-[var(--color-text)] w-10 text-center">3</span>
-                    <button id="repeat-plus" class="w-12 h-12 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95 transition-transform">
-                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
-                    </button>
-                  </div>
+            <!-- First Half -->
+            <button class="preset-btn w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="15">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#b0cac7]/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-[#005086]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"/></svg>
                 </div>
-                
-                <div class="h-px bg-[var(--color-border)]"></div>
-                
-                <!-- Speed - Bigger Buttons -->
-                <div class="flex items-center justify-between">
-                  <div>
-                    <p class="text-sm font-semibold text-[var(--color-text)]">Shpejtësia</p>
-                    <p class="text-xs text-[var(--color-text-secondary)]">Ritmi i recitimit</p>
-                  </div>
-                  <div class="flex gap-2">
-                    <button class="speed-btn w-14 h-11 rounded-xl text-sm font-semibold transition-all" data-speed="0.75">0.75x</button>
-                    <button class="speed-btn active w-14 h-11 rounded-xl text-sm font-semibold transition-all" data-speed="1">1x</button>
-                    <button class="speed-btn w-14 h-11 rounded-xl text-sm font-semibold transition-all" data-speed="1.25">1.25x</button>
-                  </div>
+                <div class="text-left">
+                  <p class="font-semibold text-[var(--color-text)]">Gjysma e parë</p>
+                  <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 1-15</p>
                 </div>
               </div>
-            </div>
-          </section>
-          
+              <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
+            </button>
+            
+            <!-- Second Half -->
+            <button class="preset-btn w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="16" data-end="30">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#b0cac7]/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-[#005086]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
+                </div>
+                <div class="text-left">
+                  <p class="font-semibold text-[var(--color-text)]">Gjysma e dytë</p>
+                  <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 16-30</p>
+                </div>
+              </div>
+              <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
+            </button>
+            
+            <!-- First 10 -->
+            <button class="preset-btn w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="10">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#318fb5]/10 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-[#318fb5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                </div>
+                <div class="text-left">
+                  <p class="font-semibold text-[var(--color-text)]">10 të parat</p>
+                  <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 1-10</p>
+                </div>
+              </div>
+              <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
+            </button>
+            
+            <!-- Last 10 -->
+            <button class="preset-btn w-full py-3.5 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="21" data-end="30">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#318fb5]/10 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-[#318fb5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                </div>
+                <div class="text-left">
+                  <p class="font-semibold text-[var(--color-text)]">10 të fundit</p>
+                  <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 21-30</p>
+                </div>
+              </div>
+              <div class="radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]"></div>
+            </button>
+          </div>
         </div>
+        
+        <!-- Custom Range (Collapsible) -->
+        <div class="card">
+          <button id="custom-toggle" class="w-full flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[var(--color-border)]/50 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+              </div>
+              <span class="text-sm font-medium text-[var(--color-text)]">Zgjedh vetë</span>
+            </div>
+            <svg id="custom-chevron" class="w-5 h-5 text-[var(--color-text-secondary)] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          <div id="custom-content" class="hidden mt-4">
+            <div class="flex items-center justify-center gap-4">
+              <div class="text-center">
+                <label class="text-xs text-[var(--color-text-secondary)] mb-2 block">Nga</label>
+                <select id="range-start" class="w-16 h-12 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl text-center text-lg font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none"></select>
+              </div>
+              <svg class="w-5 h-5 text-[var(--color-text-secondary)] mt-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              <div class="text-center">
+                <label class="text-xs text-[var(--color-text-secondary)] mb-2 block">Deri</label>
+                <select id="range-end" class="w-16 h-12 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl text-center text-lg font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none"></select>
+              </div>
+            </div>
+            <p id="range-count" class="text-center text-xs text-[var(--color-text-secondary)] mt-3">30 ajete</p>
+          </div>
+        </div>
+        
+        <!-- Settings (Collapsible) -->
+        <div class="card">
+          <button id="settings-toggle" class="w-full flex items-center justify-between">
+            <span class="text-sm font-medium text-[var(--color-text)]">Cilësimet</span>
+            <div class="flex items-center gap-2">
+              <span id="settings-preview" class="text-sm text-[var(--color-text-secondary)]">3x, 1.0x</span>
+              <svg id="settings-chevron" class="w-5 h-5 text-[var(--color-text-secondary)] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+          </button>
+          
+          <div id="settings-content" class="hidden mt-4 space-y-4">
+            <!-- Repeat Count -->
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium text-[var(--color-text)]">Përsëritje</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Sa herë për ajet</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button id="repeat-minus" class="w-10 h-10 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 12H4"/></svg>
+                </button>
+                <span id="repeat-count" class="text-xl font-bold text-[var(--color-text)] w-8 text-center">3</span>
+                <button id="repeat-plus" class="w-10 h-10 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text)] active:scale-95">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+                </button>
+              </div>
+            </div>
+            
+            <div class="h-px bg-[var(--color-border)]"></div>
+            
+            <!-- Speed -->
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium text-[var(--color-text)]">Shpejtësia</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">Ritmi i recitimit</p>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="speed-btn w-12 h-10 rounded-xl text-xs font-semibold transition-all" data-speed="0.75">0.75x</button>
+                <button class="speed-btn active w-12 h-10 rounded-xl text-xs font-semibold transition-all" data-speed="1">1x</button>
+                <button class="speed-btn w-12 h-10 rounded-xl text-xs font-semibold transition-all" data-speed="1.25">1.25x</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </main>
 
-    <!-- Floating CTA - Thumb Zone -->
-    <div id="cta-container" class="fixed bottom-20 left-0 right-0 px-4 pb-4 safe-bottom z-20 hidden">
+    <!-- Floating CTA - Same style as Homepage -->
+    <div id="cta-container" class="fixed bottom-20 left-0 right-0 px-4 pb-4 safe-bottom z-20">
       <div class="max-w-lg mx-auto">
-        <button id="start-btn" class="w-full py-5 rounded-2xl bg-[var(--color-primary)] text-white font-bold text-lg flex items-center justify-center gap-3 active:scale-[0.98] transition-transform disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#318fb5]/35">
-          <span id="start-btn-text">Dëgjo</span>
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-          </svg>
+        <button id="start-btn" class="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] hover:from-[var(--color-primary-light)] hover:to-[var(--color-primary)] text-white text-center font-semibold py-5 px-6 rounded-2xl active:scale-[0.98] transition-all shadow-lg shadow-[#318fb5]/35 disabled:opacity-50">
+          <div class="flex items-center justify-center gap-3">
+            <span id="start-btn-text">Dëgjo 30 ajete</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </div>
         </button>
       </div>
     </div>
 
     <!-- Player Overlay - Full Screen Immersive -->
     <div id="player-overlay" class="fixed inset-0 z-50 hidden">
-      <!-- Gradient Background -->
       <div class="absolute inset-0 bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7]"></div>
       
       <div class="relative h-full flex flex-col">
@@ -259,22 +211,19 @@ import { MULK_VERSES } from '../../data/mulk-verses';
           </button>
           <div class="text-center">
             <p class="text-base font-semibold text-white">Përsëritje</p>
-            <p class="text-sm text-white/70">
-              Ajeti <span id="player-ayah-num" class="font-bold">1</span> / <span id="total-ayahs">30</span>
-            </p>
+            <p class="text-sm text-white/70">Ajeti <span id="player-ayah-num" class="font-bold">1</span> / <span id="total-ayahs">30</span></p>
           </div>
           <div class="w-12"></div>
         </header>
 
         <!-- Player Content -->
         <div class="flex-1 flex flex-col items-center justify-center px-6 overflow-hidden">
-
-          <!-- Arabic Text Container -->
+          <!-- Arabic Text -->
           <div class="w-full max-w-md mb-10 bg-white/10 backdrop-blur-sm rounded-3xl p-6">
             <p id="player-arabic" class="arabic text-[1.7rem] text-center leading-[2.2] text-white" dir="rtl"></p>
           </div>
 
-          <!-- Progress Ring - Large & Central (TOTAL time) -->
+          <!-- Progress Ring -->
           <div class="relative w-56 h-56 mb-8">
             <svg class="w-full h-full -rotate-90">
               <circle cx="112" cy="112" r="100" stroke="rgba(255,255,255,0.2)" stroke-width="12" fill="none"/>
@@ -286,7 +235,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
             </div>
           </div>
 
-          <!-- Controls - Big Touch Targets -->
+          <!-- Controls -->
           <div class="flex items-center gap-6">
             <button id="player-prev" class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center text-white active:scale-95 transition-all disabled:opacity-30">
               <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
@@ -300,7 +249,6 @@ import { MULK_VERSES } from '../../data/mulk-verses';
             </button>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -309,51 +257,29 @@ import { MULK_VERSES } from '../../data/mulk-verses';
 </Layout>
 
 <style>
-  /* Mode Tab Styles */
-  .mode-tab {
-    color: var(--color-text-secondary);
-  }
-  .mode-tab.active {
-    background: var(--color-background);
-    color: var(--color-text);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-  
-  /* Ayah Button - Large Touch Targets (min 48px) */
-  .ayah-btn {
-    width: 100%;
-    aspect-ratio: 1;
-    min-height: 48px;
-    border-radius: 14px;
-    border: 2px solid var(--color-border);
-    background: var(--color-background);
-    color: var(--color-text);
-    font-size: 1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
-    cursor: pointer;
+  /* Card styling - consistent with homepage */
+  .card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 80, 134, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   
-  .ayah-btn:hover {
-    border-color: var(--color-primary);
-    background: rgba(45, 106, 79, 0.08);
+  .card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 80, 134, 0.12), 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Selected preset */
+  .preset-btn.selected {
+    border-color: var(--color-primary) !important;
+    background: rgba(49, 143, 181, 0.05) !important;
   }
   
-  .ayah-btn.selected {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    color: white;
-    transform: scale(1.05);
-  }
-  
-  .ayah-btn:active {
-    transform: scale(0.95);
-  }
-  .ayah-btn.selected:active {
-    transform: scale(1);
+  .preset-btn.selected .radio-indicator {
+    border-color: var(--color-primary) !important;
   }
   
   /* Speed Button */
@@ -371,33 +297,9 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     color: white;
   }
   
-  /* Queue Item */
-  .queue-item {
-    min-width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.15);
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    color: rgba(255, 255, 255, 0.7);
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-  }
-  .queue-item.current {
-    background: white;
-    border-color: white;
-    color: #005086;
-    transform: scale(1.15);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-  .queue-item.done {
-    background: rgba(255, 255, 255, 0.35);
-    border-color: rgba(255, 255, 255, 0.5);
-    color: white;
+  /* Chevron rotation */
+  .rotate-180 {
+    transform: rotate(180deg);
   }
   
   /* Tabular nums for time */
@@ -405,96 +307,46 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     font-variant-numeric: tabular-nums;
   }
   
-  /* Settings chevron rotation */
-  #settings-chevron.open {
-    transform: rotate(180deg);
+  /* Slide animation */
+  #custom-content, #settings-content {
+    animation: slideDown 0.2s ease-out;
   }
   
-  /* Hide scrollbar but keep scroll */
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Slide up animation for settings */
-  #settings-content {
-    animation: slideUp 0.2s ease-out;
-  }
-  @keyframes slideUp {
+  @keyframes slideDown {
     from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* CTA fade in */
-  #cta-container {
-    animation: fadeUp 0.3s ease-out;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
 </style>
 
 <script>
   import { MULK_VERSES } from '../../data/mulk-verses';
-  import { getState } from '../../lib/challenge';
   
   // State
-  const state = getState();
-  const completedDays = state.completedDays || [];
-  
-  // Elements
-  const emptyState = document.getElementById('empty-state')!;
-  const mainContent = document.getElementById('main-content')!;
-  const ctaContainer = document.getElementById('cta-container')!;
-  const startBtn = document.getElementById('start-btn') as HTMLButtonElement;
-  const startBtnText = document.getElementById('start-btn-text')!;
-  const playerOverlay = document.getElementById('player-overlay')!;
-  const queuePreview = document.getElementById('queue-preview')!;
-  const rangeStart = document.getElementById('range-start') as HTMLSelectElement;
-  const rangeEnd = document.getElementById('range-end') as HTMLSelectElement;
-  const ayahGrid = document.getElementById('ayah-grid')!;
-  const selectionSummary = document.getElementById('selection-summary')!;
-  const settingsToggle = document.getElementById('settings-toggle')!;
-  const settingsContent = document.getElementById('settings-content')!;
-  const settingsChevron = document.getElementById('settings-chevron')!;
-  const settingsPreview = document.getElementById('settings-preview')!;
-  const rangeCountEl = document.getElementById('range-count')!;
-  
-  // App State
-  let mode: 'single' | 'range' = 'single';
-  let selectedAyah: number | null = null;
+  let selectedStart = 1;
+  let selectedEnd = 30;
   let repeatCount = 3;
   let speed = 1;
   let ayahQueue: number[] = [];
   let queueIndex = 0;
   let audio: HTMLAudioElement | null = null;
   let isPlaying = false;
-  let settingsOpen = false;
-  
-  // Selected range for presets
-  let selectedStart = 1;
-  let selectedEnd = 30;
-  
-  // Total time tracking
-  let audioDurations: Map<number, number> = new Map(); // ayah -> duration in seconds
+  let audioDurations: Map<number, number> = new Map();
   let totalDuration = 0;
-  let elapsedBeforeCurrent = 0; // Time elapsed before current ayah
+  let elapsedBeforeCurrent = 0;
   
-  // Always show main content (no locking)
-  emptyState.classList.add('hidden');
-  mainContent.classList.remove('hidden');
-  setupPresetButtons();
+  // Elements
+  const startBtn = document.getElementById('start-btn') as HTMLButtonElement;
+  const startBtnText = document.getElementById('start-btn-text')!;
+  const playerOverlay = document.getElementById('player-overlay')!;
+  const rangeStart = document.getElementById('range-start') as HTMLSelectElement;
+  const rangeEnd = document.getElementById('range-end') as HTMLSelectElement;
+  const rangeCountEl = document.getElementById('range-count')!;
+  const settingsPreview = document.getElementById('settings-preview')!;
+  
+  // Initialize
   populateRangeDropdowns();
-  
-  // Auto-select first preset (Surah e plotë) on load
-  const firstPreset = document.querySelector('.preset-btn') as HTMLElement;
-  if (firstPreset) {
-    selectPreset(1, 30, firstPreset);
-  }
+  updateStartButton();
+  setupPresetButtons();
   
   // Setup Preset Buttons
   function setupPresetButtons() {
@@ -510,168 +362,99 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   function selectPreset(start: number, end: number, btn: HTMLElement) {
     // Deselect all presets
     document.querySelectorAll('.preset-btn').forEach(b => {
-      b.classList.remove('border-[var(--color-primary)]', 'bg-[var(--color-primary)]/5');
+      b.classList.remove('selected');
+      const radio = b.querySelector('.radio-indicator');
+      if (radio) {
+        radio.className = 'radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]';
+        radio.innerHTML = '';
+      }
     });
     
     // Select this one
-    btn.classList.add('border-[var(--color-primary)]', 'bg-[var(--color-primary)]/5');
+    btn.classList.add('selected');
+    const radio = btn.querySelector('.radio-indicator');
+    if (radio) {
+      radio.className = 'radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-primary)] flex items-center justify-center';
+      radio.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-[var(--color-primary)]"></div>';
+    }
     
     selectedStart = start;
     selectedEnd = end;
-    selectedAyah = null; // Clear single selection
+    rangeStart.value = String(start);
+    rangeEnd.value = String(end);
     
-    // Update summary
-    selectionSummary.classList.remove('hidden');
-    const rangeText = document.getElementById('selected-range-text');
-    if (rangeText) {
-      if (start === end) {
-        rangeText.textContent = `Ajeti ${start}`;
-      } else {
-        rangeText.textContent = `Ajetet ${start}-${end}`;
-      }
-    }
+    // Close custom panel
+    document.getElementById('custom-content')!.classList.add('hidden');
+    document.getElementById('custom-chevron')!.classList.remove('rotate-180');
     
-    // Show CTA
-    showCTA();
-    updateStartButton();
-  }
-  
-  // Legacy function kept for compatibility
-  function buildAyahGrid() {
-    // Not used anymore - presets replace the grid
-  }
-  
-  function selectSingleAyah(day: number, btn: HTMLButtonElement) {
-    selectedStart = day;
-    selectedEnd = day;
-    selectedAyah = day;
-    selectionSummary.classList.remove('hidden');
-    document.getElementById('selected-ayah-num')!.textContent = String(day);
-    showCTA();
+    updateRangeCount();
     updateStartButton();
   }
   
   function populateRangeDropdowns() {
     rangeStart.innerHTML = '';
     rangeEnd.innerHTML = '';
-    
-    // All 30 verses available
-    for (let day = 1; day <= 30; day++) {
-      const optStart = document.createElement('option');
-      optStart.value = String(day);
-      optStart.textContent = String(day);
-      rangeStart.appendChild(optStart);
-      
-      const optEnd = document.createElement('option');
-      optEnd.value = String(day);
-      optEnd.textContent = String(day);
-      if (day === 30) optEnd.selected = true;
-      rangeEnd.appendChild(optEnd);
+    for (let i = 1; i <= 30; i++) {
+      rangeStart.innerHTML += `<option value="${i}">${i}</option>`;
+      rangeEnd.innerHTML += `<option value="${i}" ${i === 30 ? 'selected' : ''}>${i}</option>`;
     }
-    
-    updateRangeCount();
   }
   
   function updateRangeCount() {
-    const start = parseInt(rangeStart.value) || 1;
-    const end = parseInt(rangeEnd.value) || 1;
-    const count = getAyahsInRange(start, end).length;
+    const count = Math.abs(selectedEnd - selectedStart) + 1;
     rangeCountEl.textContent = count === 1 ? '1 ajet' : `${count} ajete`;
   }
   
-  function getAyahsInRange(start: number, end: number): number[] {
-    const min = Math.min(start, end);
-    const max = Math.max(start, end);
-    // Return all in range, no filtering
-    const result: number[] = [];
-    for (let d = min; d <= max; d++) {
-      result.push(d);
-    }
-    return result;
-  }
-  
-  function showCTA() {
-    ctaContainer.classList.remove('hidden');
-  }
-  
   function updateStartButton() {
-    if (mode === 'single') {
-      // Use selectedStart/selectedEnd from presets
-      const ayahs = getAyahsInRange(selectedStart, selectedEnd);
-      
-      if (ayahs.length === 0) {
-        startBtnText.textContent = 'Zgjidh çfarë të dëgjosh';
-        startBtn.disabled = true;
-      } else if (ayahs.length === 1) {
-        startBtnText.textContent = `Dëgjo ajetin ${ayahs[0]}`;
-        startBtn.disabled = false;
-      } else {
-        startBtnText.textContent = `Dëgjo ${ayahs.length} ajete`;
-        startBtn.disabled = false;
-      }
-    } else {
-      const start = parseInt(rangeStart.value);
-      const end = parseInt(rangeEnd.value);
-      const ayahs = getAyahsInRange(start, end);
-      
-      if (ayahs.length === 0) {
-        startBtnText.textContent = 'Asnjë ajet i zgjedhur';
-        startBtn.disabled = true;
-      } else if (ayahs.length === 1) {
-        startBtnText.textContent = `Dëgjo ajetin ${ayahs[0]}`;
-        startBtn.disabled = false;
-      } else {
-        startBtnText.textContent = `Dëgjo ${ayahs.length} ajete`;
-        startBtn.disabled = false;
-      }
-    }
+    const count = Math.abs(selectedEnd - selectedStart) + 1;
+    startBtnText.textContent = count === 1 ? `Dëgjo ajetin ${selectedStart}` : `Dëgjo ${count} ajete`;
   }
   
   function updateSettingsPreview() {
     settingsPreview.textContent = `${repeatCount}x, ${speed}x`;
   }
   
-  // Mode Toggle
-  document.getElementById('mode-single')?.addEventListener('click', () => {
-    mode = 'single';
-    document.getElementById('mode-single')!.classList.add('active');
-    document.getElementById('mode-range')!.classList.remove('active');
-    document.getElementById('single-panel')!.classList.remove('hidden');
-    document.getElementById('range-panel')!.classList.add('hidden');
+  // Custom Range Toggle
+  document.getElementById('custom-toggle')?.addEventListener('click', () => {
+    const content = document.getElementById('custom-content')!;
+    const chevron = document.getElementById('custom-chevron')!;
+    content.classList.toggle('hidden');
+    chevron.classList.toggle('rotate-180');
     
-    // Reset selection
-    selectedStart = 1;
-    selectedEnd = 30;
-    selectedAyah = null;
-    document.querySelectorAll('.preset-btn').forEach(b => {
-      b.classList.remove('border-[var(--color-primary)]', 'bg-[var(--color-primary)]/5');
-    });
-    selectionSummary.classList.add('hidden');
-    ctaContainer.classList.add('hidden');
-    updateStartButton();
-  });
-  
-  document.getElementById('mode-range')?.addEventListener('click', () => {
-    mode = 'range';
-    document.getElementById('mode-range')!.classList.add('active');
-    document.getElementById('mode-single')!.classList.remove('active');
-    document.getElementById('single-panel')!.classList.add('hidden');
-    document.getElementById('range-panel')!.classList.remove('hidden');
-    
-    showCTA();
-    updateStartButton();
-  });
-  
-  // Settings Toggle (Progressive Disclosure)
-  settingsToggle.addEventListener('click', () => {
-    settingsOpen = !settingsOpen;
-    if (settingsOpen) {
-      settingsContent.classList.remove('hidden');
-      settingsChevron.classList.add('open');
-    } else {
-      settingsContent.classList.add('hidden');
-      settingsChevron.classList.remove('open');
+    // Deselect presets when custom is opened
+    if (!content.classList.contains('hidden')) {
+      document.querySelectorAll('.preset-btn').forEach(b => {
+        b.classList.remove('selected');
+        const radio = b.querySelector('.radio-indicator');
+        if (radio) {
+          radio.className = 'radio-indicator w-5 h-5 rounded-full border-2 border-[var(--color-border)]';
+          radio.innerHTML = '';
+        }
+      });
     }
+  });
+  
+  // Settings Toggle
+  document.getElementById('settings-toggle')?.addEventListener('click', () => {
+    const content = document.getElementById('settings-content')!;
+    const chevron = document.getElementById('settings-chevron')!;
+    content.classList.toggle('hidden');
+    chevron.classList.toggle('rotate-180');
+  });
+  
+  // Range Dropdowns
+  rangeStart?.addEventListener('change', () => {
+    selectedStart = parseInt(rangeStart.value);
+    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('selected'));
+    updateRangeCount();
+    updateStartButton();
+  });
+  
+  rangeEnd?.addEventListener('change', () => {
+    selectedEnd = parseInt(rangeEnd.value);
+    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('selected'));
+    updateRangeCount();
+    updateStartButton();
   });
   
   // Repeat Count
@@ -702,33 +485,14 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     });
   });
   
-  // Range Dropdowns
-  rangeStart?.addEventListener('change', () => {
-    updateRangeCount();
-    updateStartButton();
-  });
-  rangeEnd?.addEventListener('change', () => {
-    updateRangeCount();
-    updateStartButton();
-  });
-  
   // Start Button
   startBtn.addEventListener('click', async () => {
-    if (startBtn.disabled) return;
+    const min = Math.min(selectedStart, selectedEnd);
+    const max = Math.max(selectedStart, selectedEnd);
+    const ayahs: number[] = [];
+    for (let i = min; i <= max; i++) ayahs.push(i);
     
-    let ayahs: number[] = [];
-    if (mode === 'single') {
-      // Use preset selection
-      ayahs = getAyahsInRange(selectedStart, selectedEnd);
-    } else {
-      const start = parseInt(rangeStart.value);
-      const end = parseInt(rangeEnd.value);
-      ayahs = getAyahsInRange(start, end);
-    }
-    
-    if (ayahs.length === 0) return;
-    
-    // Build queue - ayahs repeated X times
+    // Build queue
     ayahQueue = [];
     for (let r = 0; r < repeatCount; r++) {
       ayahQueue.push(...ayahs);
@@ -736,20 +500,18 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     queueIndex = 0;
     elapsedBeforeCurrent = 0;
     
-    // Show loading state
+    // Loading state
     startBtnText.textContent = 'Duke ngarkuar...';
     startBtn.disabled = true;
     
-    // Pre-load all audio durations
+    // Load durations
     await loadAllDurations(ayahs);
     
-    // Calculate total duration
     totalDuration = 0;
     for (const ayah of ayahQueue) {
       totalDuration += audioDurations.get(ayah) || 0;
     }
     
-    // Update UI
     document.getElementById('total-ayahs')!.textContent = String(ayahs.length);
     document.getElementById('player-duration')!.textContent = formatTime(totalDuration / speed);
     
@@ -760,64 +522,43 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     playCurrentInQueue();
   });
   
-  // Load all audio durations before starting
   async function loadAllDurations(ayahs: number[]): Promise<void> {
-    const uniqueAyahs = [...new Set(ayahs)];
-    const promises = uniqueAyahs.map(ayah => {
+    const unique = [...new Set(ayahs)];
+    const promises = unique.map(ayah => {
       if (audioDurations.has(ayah)) return Promise.resolve();
-      
       return new Promise<void>((resolve) => {
-        const tempAudio = new Audio(`/audio/ayah-${ayah}.mp3`);
-        tempAudio.addEventListener('loadedmetadata', () => {
-          audioDurations.set(ayah, tempAudio.duration);
+        const temp = new Audio(`/audio/ayah-${ayah}.mp3`);
+        temp.addEventListener('loadedmetadata', () => {
+          audioDurations.set(ayah, temp.duration);
           resolve();
         });
-        tempAudio.addEventListener('error', () => {
-          audioDurations.set(ayah, 10); // Default 10s if error
+        temp.addEventListener('error', () => {
+          audioDurations.set(ayah, 10);
           resolve();
         });
       });
     });
-    
     await Promise.all(promises);
   }
   
   function openPlayer() {
     playerOverlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-    renderQueuePreview();
   }
   
   function closePlayer() {
     playerOverlay.classList.add('hidden');
     document.body.style.overflow = '';
-    if (audio) {
-      audio.pause();
-      audio = null;
-    }
+    if (audio) { audio.pause(); audio = null; }
     isPlaying = false;
-  }
-  
-  function renderQueuePreview() {
-    const uniqueAyahs = [...new Set(ayahQueue)].sort((a, b) => a - b);
-    const currentAyah = ayahQueue[queueIndex];
-    
-    queuePreview.innerHTML = uniqueAyahs.map((ayah) => {
-      const firstIndex = ayahQueue.indexOf(ayah);
-      const isDone = firstIndex < queueIndex && ayah !== currentAyah;
-      const isCurrent = ayah === currentAyah;
-      return `<div class="queue-item ${isCurrent ? 'current' : isDone ? 'done' : ''}">${ayah}</div>`;
-    }).join('');
   }
   
   function playCurrentInQueue() {
     if (queueIndex >= ayahQueue.length) {
-      // All done!
       closePlayer();
       return;
     }
     
-    // Calculate elapsed time before current ayah
     elapsedBeforeCurrent = 0;
     for (let i = 0; i < queueIndex; i++) {
       elapsedBeforeCurrent += audioDurations.get(ayahQueue[i]) || 0;
@@ -826,64 +567,35 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     const currentAyah = ayahQueue[queueIndex];
     const verse = MULK_VERSES.find(v => v.dayIndex === currentAyah);
     
-    // Update UI
     document.getElementById('player-ayah-num')!.textContent = String(currentAyah);
     document.getElementById('player-arabic')!.textContent = verse?.arabic || '';
     
-    renderQueuePreview();
-    
-    // Update prev/next button states
     const prevBtn = document.getElementById('player-prev') as HTMLButtonElement;
     const nextBtn = document.getElementById('player-next') as HTMLButtonElement;
     prevBtn.disabled = queueIndex === 0;
     nextBtn.disabled = queueIndex >= ayahQueue.length - 1;
     
-    // Load audio
-    if (audio) {
-      audio.pause();
-    }
+    if (audio) audio.pause();
     audio = new Audio(`/audio/ayah-${currentAyah}.mp3`);
     audio.playbackRate = speed;
     
     audio.addEventListener('timeupdate', () => {
       if (!audio) return;
-      
-      // Calculate TOTAL elapsed time (previous ayahs + current position)
       const currentElapsed = elapsedBeforeCurrent + audio.currentTime;
-      const adjustedElapsed = currentElapsed / speed;
-      const adjustedTotal = totalDuration / speed;
+      document.getElementById('player-time')!.textContent = formatTime(currentElapsed / speed);
       
-      // Update time display
-      document.getElementById('player-time')!.textContent = formatTime(adjustedElapsed);
-      
-      // Update progress ring
       const progressRing = document.getElementById('progress-ring') as SVGCircleElement;
       if (progressRing && totalDuration > 0) {
-        const circumference = 2 * Math.PI * 100; // 628
+        const circumference = 628;
         const progress = currentElapsed / totalDuration;
         progressRing.style.strokeDashoffset = String(circumference * (1 - progress));
       }
     });
     
     audio.addEventListener('ended', () => {
-      // Auto-continue to next in queue
       queueIndex++;
       if (queueIndex < ayahQueue.length) {
-        // Small delay for smooth transition
-        setTimeout(() => {
-          playCurrentInQueue();
-        }, 300);
-      } else {
-        // All done!
-        closePlayer();
-      }
-    });
-    
-    audio.addEventListener('error', () => {
-      // Skip to next if audio fails
-      queueIndex++;
-      if (queueIndex < ayahQueue.length) {
-        playCurrentInQueue();
+        setTimeout(() => playCurrentInQueue(), 300);
       } else {
         closePlayer();
       }
@@ -892,7 +604,6 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     isPlaying = true;
     updatePlayPauseIcon();
     audio.play().catch(() => {
-      // Auto-play blocked on first interaction, user needs to tap play once
       isPlaying = false;
       updatePlayPauseIcon();
     });
@@ -906,15 +617,8 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   }
   
   function updatePlayPauseIcon() {
-    const pauseIcon = document.getElementById('icon-pause')!;
-    const playIcon = document.getElementById('icon-play')!;
-    if (isPlaying) {
-      pauseIcon.classList.remove('hidden');
-      playIcon.classList.add('hidden');
-    } else {
-      pauseIcon.classList.add('hidden');
-      playIcon.classList.remove('hidden');
-    }
+    document.getElementById('icon-pause')!.classList.toggle('hidden', !isPlaying);
+    document.getElementById('icon-play')!.classList.toggle('hidden', isPlaying);
   }
   
   // Player Controls
@@ -922,74 +626,26 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   
   document.getElementById('player-toggle')?.addEventListener('click', () => {
     if (!audio) return;
-    if (isPlaying) {
-      audio.pause();
-      isPlaying = false;
-    } else {
-      audio.play();
-      isPlaying = true;
-    }
+    if (isPlaying) { audio.pause(); isPlaying = false; }
+    else { audio.play(); isPlaying = true; }
     updatePlayPauseIcon();
   });
   
   document.getElementById('player-prev')?.addEventListener('click', () => {
-    if (queueIndex > 0) {
-      queueIndex--;
-      playCurrentInQueue();
-    }
+    if (queueIndex > 0) { queueIndex--; playCurrentInQueue(); }
   });
   
   document.getElementById('player-next')?.addEventListener('click', () => {
-    if (queueIndex < ayahQueue.length - 1) {
-      queueIndex++;
-      playCurrentInQueue();
-    }
+    if (queueIndex < ayahQueue.length - 1) { queueIndex++; playCurrentInQueue(); }
   });
   
-  // Initialize
-  updateSettingsPreview();
-  
-  // Check for preset parameter (e.g., ?preset=daily)
+  // Check for daily preset
   const urlParams = new URLSearchParams(window.location.search);
-  const preset = urlParams.get('preset');
-  
-  if (preset === 'daily') {
-    // Daily recommendation: Full Surah 20x
-    selectedStart = 1;
-    selectedEnd = 30;
+  if (urlParams.get('preset') === 'daily') {
     repeatCount = 20;
     document.getElementById('repeat-count')!.textContent = '20';
     updateSettingsPreview();
-    
-    // Directly start playing
-    (async () => {
-      const ayahs = getAyahsInRange(1, 30);
-      
-      // Build queue - 20x repeat
-      ayahQueue = [];
-      for (let r = 0; r < 20; r++) {
-        ayahQueue.push(...ayahs);
-      }
-      queueIndex = 0;
-      elapsedBeforeCurrent = 0;
-      
-      // Load durations
-      await loadAllDurations(ayahs);
-      
-      // Calculate total
-      totalDuration = 0;
-      for (const ayah of ayahQueue) {
-        totalDuration += audioDurations.get(ayah) || 0;
-      }
-      
-      // Update UI
-      document.getElementById('total-ayahs')!.textContent = '30';
-      document.getElementById('player-duration')!.textContent = formatTime(totalDuration / speed);
-      
-      // Open player and start immediately
-      openPlayer();
-      playCurrentInQueue();
-    })();
+    startBtn.click();
   }
 </script>
 </Layout>
