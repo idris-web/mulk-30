@@ -438,49 +438,65 @@ Settings hat KEINE floating CTA, daher weniger padding. ✅ KORREKT!
 
 ### 🔴 KRITISCH (Muss sofort gefixt werden):
 
-1. **P7.1** - `loadStats()` referenziert nicht existierende Elemente
-2. **P9.1** - `/app/gift` Link zu nicht existierender Seite
+1. ~~**P7.1** - `loadStats()` referenziert nicht existierende Elemente~~ ✅ GEFIXT (vor Session)
+2. ~~**P9.1** - `/app/gift` Link zu nicht existierender Seite~~ ✅ EXISTIERT (gift.astro vorhanden)
 
 ### 🟠 HOCH (Sollte gefixt werden):
 
-1. **P6.4** - Translation Toggle überschreibt Styling nicht
-2. **P6.6** - Speed nicht aus localStorage gelesen
-3. **P8.3** - Potentieller Infinite Loop bei wenig unique Wörtern
-4. **P8.6** - Keine Fehlerbehandlung bei localStorage JSON.parse
-5. **P9.5** - `locked` Class nie hinzugefügt
+1. ~~**P6.4** - Translation Toggle überschreibt Styling nicht~~ ✅ GEFIXT (vor Session)
+2. ~~**P6.6** - Speed nicht aus localStorage gelesen~~ ✅ GEFIXT (vor Session)
+3. ~~**P8.3** - Potentieller Infinite Loop bei wenig unique Wörtern~~ ✅ GEFIXT
+4. ~~**P8.6** - Keine Fehlerbehandlung bei localStorage JSON.parse~~ ✅ GEFIXT (vor Session)
+5. ~~**P9.5** - `locked` Class nie hinzugefügt~~ ✅ GEFIXT (Code bereinigt)
 
 ### 🟡 MITTEL (Nice to fix):
 
-1. **P6.7** - Hardcoded bottom position
-2. **P6.8** - Fehlende Keyboard-Accessibility
-3. **P9.6** - Infinite Animation Performance
-4. **P9.8** - Inkonsistenter Card Spacing
-5. **P10.5/P10.6** - Keine Loading States / Silent Error
+1. **P6.7** - Hardcoded bottom position - ⏭️ Akzeptiert (funktioniert)
+2. ~~**P6.8** - Fehlende Keyboard-Accessibility~~ ✅ GEFIXT
+3. ~~**P9.6** - Infinite Animation Performance~~ ✅ GEFIXT
+4. ~~**P9.8** - Inkonsistenter Card Spacing~~ ✅ GEFIXT
+5. ~~**P10.5/P10.6** - Keine Loading States / Silent Error~~ ✅ GEFIXT (vor Session)
 
 ---
 
-## FIXES ZU IMPLEMENTIEREN
+## COMMITS WÄHREND DIESER SESSION
 
-### Fix 1: P7.1 - loadStats() Bug
-Entweder Elemente im HTML hinzufügen ODER Funktion entfernen.
-
-### Fix 2: P9.1 - Gift Page
-Entweder Page erstellen ODER Link entfernen/deaktivieren.
-
-### Fix 3: P6.6 - Speed aus Settings lesen
-Im Player `localStorage.getItem('mulk30_audio_speed')` lesen.
-
-### Fix 4: P6.4 - Translation Styling
-Separates Element oder dynamisches Styling.
-
-### Fix 5: P8.3 - Infinite Loop Protection
-Bedingung ändern oder Fallback implementieren.
+1. `fcfd4ce` - fix(quiz): prevent potential infinite loop in generateQuestions
+2. `1e84938` - fix(home): clean up unused 'locked' class logic in day grid
+3. `a00a1f9` - fix(home): normalize card spacing to space-y-4 for consistency
+4. `2049fe6` - feat(repeat): add keyboard controls for player overlay
+5. `aba1697` - fix(challenge): correct DEFAULT_START_DATE to match Settings options
+6. `092ed45` - perf(home): limit heartbeat animation to 3 iterations
 
 ---
 
-## NÄCHSTE SCHRITTE
+## ZUSÄTZLICH GEFUNDEN UND GEFIXT
 
-1. Fixes implementieren (in Reihenfolge der Priorität)
-2. Git commit nach jedem Fix
-3. Testing
+- **DEFAULT_START_DATE Inkonsistenz**: War `2026-02-28` aber Settings bietet nur 18. oder 19. Februar → Gefixt zu `2026-02-19`
+
+---
+
+## VERBLEIBENDE ISSUES
+
+### Akzeptiert / Low Priority:
+
+1. **P6.7 - Hardcoded bottom position (88px)**
+   - Funktioniert korrekt
+   - Würde größere Refactoring-Arbeit erfordern
+   - CSS Variables wären besser, aber nicht kritisch
+
+### Potentielle zukünftige Verbesserungen:
+
+1. **Grid Toggle State Persistence** - Nice to have
+2. **Better Error Handling für Offline-Modus** - Sollte getestet werden
+3. **Aria Labels für Screen Readers** - Accessibility Verbesserung
+
+---
+
+## TEST-EMPFEHLUNGEN
+
+1. Quiz mit nur 1-2 Ayahs testen (Infinite Loop Fix)
+2. Player Overlay: Escape + Space testen
+3. Settings → Speed → Repeat Page → Prüfen ob Speed persistent
+4. Translation Toggle mehrmals schnell klicken
 

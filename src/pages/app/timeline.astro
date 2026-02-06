@@ -20,7 +20,7 @@ import { MULK_VERSES, SURAH_INFO } from '../../data/mulk-verses';
       </div>
     </header>
 
-    <main class="flex-1 px-4 -mt-12">
+    <main class="flex-1 px-4 pb-28 -mt-12">
       <div class="max-w-lg mx-auto space-y-2" id="timeline-list">
         {MULK_VERSES.map((verse) => (
           <a href={`/app/day/${verse.dayIndex}`} class="timeline-item card flex items-center gap-4 py-3 px-4 active:scale-[0.98] transition-transform" data-day={verse.dayIndex}>
