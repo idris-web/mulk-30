@@ -50,33 +50,103 @@ import { MULK_VERSES } from '../../data/mulk-verses';
             <!-- Mode Toggle - Bigger Touch Targets -->
             <div class="flex p-1.5 bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] mb-5">
               <button id="mode-single" class="mode-tab flex-1 py-3.5 rounded-xl text-sm font-semibold transition-all active">
-                Një ajet
+                Zgjedh shpejt
               </button>
               <button id="mode-range" class="mode-tab flex-1 py-3.5 rounded-xl text-sm font-semibold transition-all">
-                Disa ajete
+                Vetë zgjedh
               </button>
             </div>
             
-            <!-- Single Ayah Panel - Cleaner Grid, Only Unlocked Visible -->
+            <!-- Quick Presets — keine Zahlen-Tabelle mehr -->
             <div id="single-panel">
-              <p class="text-sm text-[var(--color-text-secondary)] text-center mb-4">Zgjidh ajetin që dëshiron ta përsëritësh</p>
+              <p class="text-sm text-[var(--color-text-secondary)] text-center mb-4">Zgjidh çfarë dëshiron të përsëritësh</p>
               
-              <!-- Scrollable Grid Container for unlocked ayahs only -->
-              <div id="ayah-grid-container" class="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] p-4">
-                <div id="ayah-grid" class="grid grid-cols-5 gap-3">
-                  <!-- Populated by JS - only unlocked ayahs -->
-                </div>
+              <div class="space-y-3">
+                <!-- Full Surah -->
+                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="30">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center">
+                      <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <div class="text-left">
+                      <p class="font-semibold text-[var(--color-text)]">Surah e plotë</p>
+                      <p class="text-xs text-[var(--color-text-secondary)]">Të 30 ajetet</p>
+                    </div>
+                  </div>
+                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+                
+                <!-- First Half -->
+                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="15">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-[#b0cac7]/20 flex items-center justify-center">
+                      <span class="text-sm font-bold text-[#005086]">1-15</span>
+                    </div>
+                    <div class="text-left">
+                      <p class="font-semibold text-[var(--color-text)]">Gjysma e parë</p>
+                      <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 1-15</p>
+                    </div>
+                  </div>
+                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+                
+                <!-- Second Half -->
+                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="16" data-end="30">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-[#b0cac7]/20 flex items-center justify-center">
+                      <span class="text-sm font-bold text-[#005086]">16-30</span>
+                    </div>
+                    <div class="text-left">
+                      <p class="font-semibold text-[var(--color-text)]">Gjysma e dytë</p>
+                      <p class="text-xs text-[var(--color-text-secondary)]">Ajetet 16-30</p>
+                    </div>
+                  </div>
+                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+                
+                <!-- First 10 -->
+                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="1" data-end="10">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-[#318fb5]/10 flex items-center justify-center">
+                      <span class="text-sm font-bold text-[#318fb5]">1-10</span>
+                    </div>
+                    <div class="text-left">
+                      <p class="font-semibold text-[var(--color-text)]">10 të parat</p>
+                      <p class="text-xs text-[var(--color-text-secondary)]">Fillimi i sures</p>
+                    </div>
+                  </div>
+                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+                
+                <!-- Last 10 -->
+                <button class="preset-btn w-full py-4 px-5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-between active:scale-[0.98] transition-all" data-start="21" data-end="30">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-[#318fb5]/10 flex items-center justify-center">
+                      <span class="text-sm font-bold text-[#318fb5]">21-30</span>
+                    </div>
+                    <div class="text-left">
+                      <p class="font-semibold text-[var(--color-text)]">10 të fundit</p>
+                      <p class="text-xs text-[var(--color-text-secondary)]">Fundi i sures</p>
+                    </div>
+                  </div>
+                  <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
               </div>
               
               <!-- Selection Summary -->
               <div id="selection-summary" class="mt-4 text-center hidden">
                 <p class="text-sm text-[var(--color-primary)] font-medium">
-                  Ajet <span id="selected-ayah-num">1</span> i zgjedhur
+                  <span id="selected-range-text">Ajetet 1-30</span> të zgjedhura
                 </p>
               </div>
+              
+              <!-- Hidden elements for JS compatibility -->
+              <div id="ayah-grid-container" class="hidden"></div>
+              <div id="ayah-grid" class="hidden"></div>
+              <span id="selected-ayah-num" class="hidden">1</span>
             </div>
             
-            <!-- Range Panel -->
+            <!-- Range Panel (Custom) -->
             <div id="range-panel" class="hidden">
               <p class="text-sm text-[var(--color-text-secondary)] text-center mb-5">Zgjidh diapazonin e ajeteve</p>
               
@@ -84,18 +154,18 @@ import { MULK_VERSES } from '../../data/mulk-verses';
                 <div class="flex items-center justify-center gap-6">
                   <div class="text-center">
                     <label class="text-xs text-[var(--color-text-secondary)] mb-2 block font-medium uppercase tracking-wide">Nga</label>
-                    <select id="range-start" class="appearance-none w-20 h-16 bg-[var(--color-surface)] border-2 border-[var(--color-border)] rounded-2xl text-center text-2xl font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none transition-colors">
+                    <select id="range-start" class="appearance-none w-20 h-14 bg-[var(--color-surface)] border-2 border-[var(--color-border)] rounded-xl text-center text-xl font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none transition-colors">
                     </select>
                   </div>
                   
                   <div class="flex flex-col items-center gap-1">
-                    <svg class="w-6 h-6 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    <span id="range-count" class="text-xs text-[var(--color-text-secondary)] font-medium">1 ajet</span>
+                    <svg class="w-5 h-5 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <span id="range-count" class="text-xs text-[var(--color-text-secondary)] font-medium">30 ajete</span>
                   </div>
                   
                   <div class="text-center">
                     <label class="text-xs text-[var(--color-text-secondary)] mb-2 block font-medium uppercase tracking-wide">Deri</label>
-                    <select id="range-end" class="appearance-none w-20 h-16 bg-[var(--color-surface)] border-2 border-[var(--color-border)] rounded-2xl text-center text-2xl font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none transition-colors">
+                    <select id="range-end" class="appearance-none w-20 h-14 bg-[var(--color-surface)] border-2 border-[var(--color-border)] rounded-xl text-center text-xl font-bold text-[var(--color-text)] cursor-pointer focus:border-[var(--color-primary)] focus:outline-none transition-colors">
                     </select>
                   </div>
                 </div>
@@ -402,47 +472,67 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   let isPlaying = false;
   let settingsOpen = false;
   
+  // Selected range for presets
+  let selectedStart = 1;
+  let selectedEnd = 30;
+  
   // Always show main content (no locking)
   emptyState.classList.add('hidden');
   mainContent.classList.remove('hidden');
-  buildAyahGrid();
+  setupPresetButtons();
   populateRangeDropdowns();
   
-  // Legacy check removed - all 30 verses always available
-  if (false) {
-    // Empty state disabled
+  // Setup Preset Buttons
+  function setupPresetButtons() {
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const start = parseInt((btn as HTMLElement).dataset.start || '1');
+        const end = parseInt((btn as HTMLElement).dataset.end || '30');
+        selectPreset(start, end, btn as HTMLElement);
+      });
+    });
   }
   
-  // Build Grid with ALL 30 ayahs (no locking)
-  function buildAyahGrid() {
-    ayahGrid.innerHTML = '';
+  function selectPreset(start: number, end: number, btn: HTMLElement) {
+    // Deselect all presets
+    document.querySelectorAll('.preset-btn').forEach(b => {
+      b.classList.remove('border-[var(--color-primary)]', 'bg-[var(--color-primary)]/5');
+    });
     
-    // Show all 30 verses
-    for (let day = 1; day <= 30; day++) {
-      const btn = document.createElement('button');
-      btn.className = 'ayah-btn';
-      if (completedDays.includes(day)) {
-        btn.classList.add('completed');
+    // Select this one
+    btn.classList.add('border-[var(--color-primary)]', 'bg-[var(--color-primary)]/5');
+    
+    selectedStart = start;
+    selectedEnd = end;
+    selectedAyah = null; // Clear single selection
+    
+    // Update summary
+    selectionSummary.classList.remove('hidden');
+    const rangeText = document.getElementById('selected-range-text');
+    if (rangeText) {
+      if (start === end) {
+        rangeText.textContent = `Ajeti ${start}`;
+      } else {
+        rangeText.textContent = `Ajetet ${start}-${end}`;
       }
-      btn.dataset.ayah = String(day);
-      btn.textContent = String(day);
-      btn.addEventListener('click', () => selectSingleAyah(day, btn));
-      ayahGrid.appendChild(btn);
     }
+    
+    // Show CTA
+    showCTA();
+    updateStartButton();
+  }
+  
+  // Legacy function kept for compatibility
+  function buildAyahGrid() {
+    // Not used anymore - presets replace the grid
   }
   
   function selectSingleAyah(day: number, btn: HTMLButtonElement) {
-    // Deselect all
-    document.querySelectorAll('.ayah-btn').forEach(b => b.classList.remove('selected'));
-    // Select this one
-    btn.classList.add('selected');
+    selectedStart = day;
+    selectedEnd = day;
     selectedAyah = day;
-    
-    // Show summary
     selectionSummary.classList.remove('hidden');
     document.getElementById('selected-ayah-num')!.textContent = String(day);
-    
-    // Show and update CTA
     showCTA();
     updateStartButton();
   }
@@ -492,12 +582,18 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   
   function updateStartButton() {
     if (mode === 'single') {
-      if (selectedAyah) {
-        startBtnText.textContent = `Dëgjo ajetin ${selectedAyah}`;
+      // Use selectedStart/selectedEnd from presets
+      const ayahs = getAyahsInRange(selectedStart, selectedEnd);
+      
+      if (ayahs.length === 0) {
+        startBtnText.textContent = 'Zgjidh çfarë të dëgjosh';
+        startBtn.disabled = true;
+      } else if (ayahs.length === 1) {
+        startBtnText.textContent = `Dëgjo ajetin ${ayahs[0]}`;
         startBtn.disabled = false;
       } else {
-        startBtnText.textContent = 'Zgjidh një ajet';
-        startBtn.disabled = true;
+        startBtnText.textContent = `Dëgjo ${ayahs.length} ajete`;
+        startBtn.disabled = false;
       }
     } else {
       const start = parseInt(rangeStart.value);
@@ -530,8 +626,12 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     document.getElementById('range-panel')!.classList.add('hidden');
     
     // Reset selection
+    selectedStart = 1;
+    selectedEnd = 30;
     selectedAyah = null;
-    document.querySelectorAll('.ayah-btn').forEach(b => b.classList.remove('selected'));
+    document.querySelectorAll('.preset-btn').forEach(b => {
+      b.classList.remove('border-[var(--color-primary)]', 'bg-[var(--color-primary)]/5');
+    });
     selectionSummary.classList.add('hidden');
     ctaContainer.classList.add('hidden');
     updateStartButton();
@@ -604,8 +704,8 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     
     let ayahs: number[] = [];
     if (mode === 'single') {
-      if (!selectedAyah) return;
-      ayahs = [selectedAyah];
+      // Use preset selection
+      ayahs = getAyahsInRange(selectedStart, selectedEnd);
     } else {
       const start = parseInt(rangeStart.value);
       const end = parseInt(rangeEnd.value);
