@@ -151,57 +151,117 @@ import { MULK_VERSES } from '../../data/mulk-verses';
       </div>
     </div>
 
-    <!-- Player Overlay - Full Screen Immersive -->
+    <!-- Player Overlay - Day-Page Style System -->
     <div id="player-overlay" class="fixed inset-0 z-50 hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7]"></div>
-      
-      <div class="relative h-full flex flex-col">
+      <div class="h-screen flex flex-col bg-[var(--color-background)] overflow-hidden">
         
-        <!-- Player Header -->
-        <header class="px-4 py-4 safe-top flex items-center justify-between">
-          <button id="player-close" class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center text-white active:scale-95 transition-all">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-          <div class="text-center">
-            <p class="text-base font-semibold text-white">Përsëritje</p>
-            <p class="text-sm text-white/70">Ajeti <span id="player-ayah-num" class="font-bold">1</span> / <span id="total-ayahs">30</span></p>
+        <!-- Header with gradient -->
+        <header class="bg-gradient-to-b from-[#005086] via-[#318fb5] to-[#b0cac7] text-white px-4 pt-3 pb-24 safe-top">
+          <div class="max-w-lg mx-auto flex items-center justify-between">
+            <button id="player-close" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center active:scale-95 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div class="text-center">
+              <h1 class="text-lg font-semibold">Përsëritje</h1>
+              <p class="text-xs text-white/70">Ajeti <span id="player-ayah-num">1</span> / <span id="total-ayahs">30</span></p>
+            </div>
+            <div class="w-11"></div>
           </div>
-          <div class="w-12"></div>
         </header>
 
-        <!-- Player Content -->
-        <div class="flex-1 flex flex-col items-center justify-center px-6 overflow-hidden">
-          <!-- Arabic Text -->
-          <div class="w-full max-w-md mb-10 bg-white/10 backdrop-blur-sm rounded-3xl p-6">
-            <p id="player-arabic" class="arabic text-[1.7rem] text-center leading-[2.2] text-white" dir="rtl"></p>
-          </div>
-
-          <!-- Progress Ring -->
-          <div class="relative w-56 h-56 mb-8">
-            <svg class="w-full h-full -rotate-90">
-              <circle cx="112" cy="112" r="100" stroke="rgba(255,255,255,0.2)" stroke-width="12" fill="none"/>
-              <circle id="progress-ring" cx="112" cy="112" r="100" stroke="white" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="628" stroke-dashoffset="628" class="transition-all duration-300"/>
-            </svg>
-            <div class="absolute inset-0 flex flex-col items-center justify-center">
-              <span id="player-time" class="text-5xl font-bold text-white tabular-nums">0:00</span>
-              <span class="text-base text-white/60 mt-1">/ <span id="player-duration">0:00</span></span>
+        <!-- Progress Indicator - pulls up into gradient -->
+        <div class="bg-white/95 backdrop-blur-sm rounded-2xl mx-4 -mt-16 px-4 py-4 shadow-lg border border-[var(--color-border)]/50">
+          <div class="max-w-lg mx-auto">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm font-medium text-[var(--color-text)]">Progresi</span>
+              <span id="progress-text" class="text-sm font-bold text-[var(--color-primary)]">1/30</span>
+            </div>
+            <div class="h-2 bg-[var(--color-border)] rounded-full overflow-hidden">
+              <div id="progress-bar" class="h-full bg-[var(--color-primary)] rounded-full transition-all duration-300" style="width: 3.3%"></div>
             </div>
           </div>
+        </div>
 
-          <!-- Controls -->
-          <div class="flex items-center gap-6">
-            <button id="player-prev" class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center text-white active:scale-95 transition-all disabled:opacity-30">
-              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
-            </button>
-            <button id="player-toggle" class="w-24 h-24 rounded-3xl bg-white flex items-center justify-center text-[#005086] active:scale-95 transition-all shadow-lg">
-              <svg id="icon-pause" class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-              <svg id="icon-play" class="w-12 h-12 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-            <button id="player-next" class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center text-white active:scale-95 transition-all disabled:opacity-30">
-              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
-            </button>
+        <!-- Main Content - Arabic Card -->
+        <main class="flex-1 flex flex-col px-4 pt-4 pb-[180px] min-h-0 overflow-hidden">
+          <div class="max-w-lg mx-auto w-full flex-1 flex flex-col min-h-0">
+            <div class="flex-1 flex flex-col bg-white rounded-2xl shadow-lg shadow-[#005086]/10 border border-[var(--color-border)]/50 overflow-hidden">
+              <!-- Arabic Text -->
+              <div class="flex-1 flex items-center justify-center p-5 overflow-y-auto min-h-0">
+                <p id="player-arabic" class="arabic text-center text-[var(--color-text)] leading-[2.2]" dir="rtl" style="word-spacing: 0.3em; font-size: 2.1rem;"></p>
+              </div>
+              
+              <!-- Transliteration -->
+              <div id="player-transliteration" class="px-4 py-2.5 border-t border-[var(--color-border)]/50 bg-[var(--color-background)]/50">
+                <p class="text-center text-sm text-[var(--color-text-secondary)] italic leading-relaxed"></p>
+              </div>
+              
+              <!-- Translation Toggle -->
+              <button id="toggle-translation" class="w-full px-4 py-3 flex items-center justify-center gap-2 text-[var(--color-primary)] hover:bg-[var(--color-background)]/50 transition-colors border-t border-[var(--color-border)]/50 shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                <span class="text-sm font-medium" id="translation-toggle-text">Shfaq përkthimin</span>
+              </button>
+            </div>
+          </div>
+        </main>
+
+        <!-- Action Bar - Fixed at bottom -->
+        <div class="fixed bottom-[88px] left-0 right-0 z-40">
+          <div class="mx-4 mb-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg shadow-[#005086]/15 border border-[var(--color-border)]/50 overflow-hidden">
+            <!-- Audio Progress -->
+            <div class="h-1 bg-[var(--color-border)]/50">
+              <div id="audio-progress" class="h-full bg-gradient-to-r from-[#005086] to-[#318fb5] transition-all duration-100" style="width: 0%"></div>
+            </div>
+            
+            <div class="max-w-lg mx-auto px-4 py-4">
+              <div class="flex items-center gap-4">
+                <!-- Play/Pause Button -->
+                <button id="player-toggle" class="w-16 h-16 rounded-xl bg-[var(--color-step-listen)] hover:opacity-90 flex items-center justify-center text-white active:scale-95 transition-all">
+                  <svg id="icon-play" class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  <svg id="icon-pause" class="w-7 h-7 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                
+                <!-- Info & Progress -->
+                <div class="flex-1">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-sm font-medium text-[var(--color-text)]">Dëgjo <span id="listen-count-display">30</span> ajete</span>
+                    <span id="time-display" class="text-sm text-[var(--color-text-secondary)]">0:00</span>
+                  </div>
+                  <div class="h-2 bg-[var(--color-border)] rounded-full overflow-hidden">
+                    <div id="listen-bar" class="h-full bg-[var(--color-step-listen)] rounded-full transition-all duration-300" style="width: 0%"></div>
+                  </div>
+                </div>
+                
+                <!-- Speed Button -->
+                <button id="speed-btn" class="w-12 h-12 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center text-sm font-medium text-[var(--color-text)]">
+                  <span id="speed-label">1x</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Bottom Nav in Player -->
+        <nav class="fixed bottom-0 left-0 right-0 bg-[var(--color-surface)] border-t border-[var(--color-border)] px-4 py-3 safe-bottom z-30">
+          <div class="max-w-lg mx-auto flex justify-around">
+            <a href="/app" class="nav-item">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+              <span class="text-[11px]">Kryefaqja</span>
+            </a>
+            <a href="/app/repeat" class="nav-item active">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+              <span class="text-[11px] font-medium">Përsëritje</span>
+            </a>
+            <a href="/app/quiz" class="nav-item">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+              <span class="text-[11px]">Testi</span>
+            </a>
+            <a href="/app/settings" class="nav-item">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span class="text-[11px]">Cilësimet</span>
+            </a>
+          </div>
+        </nav>
       </div>
     </div>
 
@@ -268,6 +328,22 @@ import { MULK_VERSES } from '../../data/mulk-verses';
   @keyframes slideDown {
     from { opacity: 0; transform: translateY(-8px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Nav item styling for player overlay */
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+  }
+  .nav-item:hover {
+    color: var(--color-text);
+  }
+  .nav-item.active {
+    color: var(--color-primary);
   }
 </style>
 
@@ -425,7 +501,7 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     }
     
     document.getElementById('total-ayahs')!.textContent = String(ayahs.length);
-    document.getElementById('player-duration')!.textContent = formatTime(totalDuration / speed);
+    document.getElementById('listen-count-display')!.textContent = String(ayahs.length);
     
     startBtn.disabled = false;
     updateStartButton();
@@ -478,14 +554,23 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     
     const currentAyah = ayahQueue[queueIndex];
     const verse = MULK_VERSES.find(v => v.dayIndex === currentAyah);
+    const totalAyahs = Math.abs(selectedEnd - selectedStart) + 1;
     
+    // Update UI
     document.getElementById('player-ayah-num')!.textContent = String(currentAyah);
     document.getElementById('player-arabic')!.textContent = verse?.arabic || '';
     
-    const prevBtn = document.getElementById('player-prev') as HTMLButtonElement;
-    const nextBtn = document.getElementById('player-next') as HTMLButtonElement;
-    prevBtn.disabled = queueIndex === 0;
-    nextBtn.disabled = queueIndex >= ayahQueue.length - 1;
+    // Update transliteration
+    const translitEl = document.querySelector('#player-transliteration p');
+    if (translitEl) translitEl.textContent = verse?.transliteration || '';
+    
+    // Update progress
+    const progressInQueue = queueIndex + 1;
+    const totalInQueue = ayahQueue.length;
+    document.getElementById('progress-text')!.textContent = `${progressInQueue}/${totalInQueue}`;
+    const progressPercent = (progressInQueue / totalInQueue) * 100;
+    (document.getElementById('progress-bar') as HTMLElement).style.width = `${progressPercent}%`;
+    (document.getElementById('listen-bar') as HTMLElement).style.width = `${progressPercent}%`;
     
     if (audio) audio.pause();
     audio = new Audio(`/audio/ayah-${currentAyah}.mp3`);
@@ -493,14 +578,15 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     
     audio.addEventListener('timeupdate', () => {
       if (!audio) return;
-      const currentElapsed = elapsedBeforeCurrent + audio.currentTime;
-      document.getElementById('player-time')!.textContent = formatTime(currentElapsed / speed);
-      
-      const progressRing = document.getElementById('progress-ring') as SVGCircleElement;
-      if (progressRing && totalDuration > 0) {
-        const circumference = 628;
-        const progress = currentElapsed / totalDuration;
-        progressRing.style.strokeDashoffset = String(circumference * (1 - progress));
+      // Update audio progress bar
+      const audioProgress = document.getElementById('audio-progress') as HTMLElement;
+      if (audioProgress && audio.duration) {
+        audioProgress.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+      }
+      // Update time display
+      const timeDisplay = document.getElementById('time-display');
+      if (timeDisplay) {
+        timeDisplay.textContent = formatTime(audio.currentTime / speed);
       }
     });
     
@@ -533,6 +619,10 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     document.getElementById('icon-play')!.classList.toggle('hidden', isPlaying);
   }
   
+  // Speed options
+  const speeds = [0.75, 1, 1.25, 1.5, 2];
+  let speedIndex = 1;
+  
   // Player Controls
   document.getElementById('player-close')?.addEventListener('click', closePlayer);
   
@@ -543,20 +633,36 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     updatePlayPauseIcon();
   });
   
-  document.getElementById('player-prev')?.addEventListener('click', () => {
-    if (queueIndex > 0) { queueIndex--; playCurrentInQueue(); }
+  // Speed button
+  document.getElementById('speed-btn')?.addEventListener('click', () => {
+    speedIndex = (speedIndex + 1) % speeds.length;
+    speed = speeds[speedIndex];
+    document.getElementById('speed-label')!.textContent = `${speed}x`;
+    if (audio) audio.playbackRate = speed;
   });
   
-  document.getElementById('player-next')?.addEventListener('click', () => {
-    if (queueIndex < ayahQueue.length - 1) { queueIndex++; playCurrentInQueue(); }
+  // Translation toggle
+  let showingTranslation = false;
+  document.getElementById('toggle-translation')?.addEventListener('click', () => {
+    showingTranslation = !showingTranslation;
+    const currentAyah = ayahQueue[queueIndex];
+    const verse = MULK_VERSES.find(v => v.dayIndex === currentAyah);
+    const arabicEl = document.getElementById('player-arabic');
+    const toggleText = document.getElementById('translation-toggle-text');
+    
+    if (showingTranslation && verse) {
+      if (arabicEl) arabicEl.textContent = verse.albanian;
+      if (toggleText) toggleText.textContent = 'Shfaq arabishten';
+    } else if (verse) {
+      if (arabicEl) arabicEl.textContent = verse.arabic;
+      if (toggleText) toggleText.textContent = 'Shfaq përkthimin';
+    }
   });
   
   // Check for daily preset
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('preset') === 'daily') {
     repeatCount = 20;
-    document.getElementById('repeat-count')!.textContent = '20';
-    updateSettingsPreview();
     startBtn.click();
   }
 </script>
