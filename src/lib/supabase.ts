@@ -1,49 +1,78 @@
-import { createClient } from '@supabase/supabase-js';
-import type { Database } from './database.types';
+// LocalStorage-based auth for demo (no backend needed)
+// Replace with Supabase when ready
 
-const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
+const STORAGE_KEY = 'mulk30_user';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Supabase environment variables not set. Using placeholder values for development.');
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  created_at: string;
 }
 
-export const supabase = createClient<Database>(
-  supabaseUrl || 'https://placeholder.supabase.co',
-  supabaseAnonKey || 'placeholder-key'
-);
+const getStoredUser = (): User | null => {
+  if (typeof window === 'undefined') return null;
+  const stored = localStorage.getItem(STORAGE_KEY);
+  return stored ? JSON.parse(stored) : null;
+};
 
-// Auth helpers
+const setStoredUser = (user: User | null) => {
+  if (typeof window === 'undefined') return;
+  if (user) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
+  } else {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+};
+
+// Auth helpers (LocalStorage version)
 export const signUp = async (email: string, password: string, name: string) => {
-  const { data, error } = await supabase.auth.signUp({
+  // Simple validation
+  if (!email || !password || password.length < 6) {
+    return { data: null, error: { message: 'Email dhe fjalëkalimi janë të detyrueshëm (min 6 karaktere)' } };
+  }
+  
+  const user: User = {
+    id: crypto.randomUUID(),
     email,
-    password,
-    options: {
-      data: { name }
-    }
-  });
-  return { data, error };
+    name,
+    created_at: new Date().toISOString()
+  };
+  
+  setStoredUser(user);
+  return { data: { user }, error: null };
 };
 
 export const signIn = async (email: string, password: string) => {
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const stored = getStoredUser();
+  
+  if (stored && stored.email === email) {
+    return { data: { user: stored }, error: null };
+  }
+  
+  // For demo: auto-create account on login
+  const user: User = {
+    id: crypto.randomUUID(),
     email,
-    password
-  });
-  return { data, error };
+    name: email.split('@')[0],
+    created_at: new Date().toISOString()
+  };
+  
+  setStoredUser(user);
+  return { data: { user }, error: null };
 };
 
 export const signOut = async () => {
-  const { error } = await supabase.auth.signOut();
-  return { error };
+  setStoredUser(null);
+  return { error: null };
 };
 
 export const getUser = async () => {
-  const { data: { user }, error } = await supabase.auth.getUser();
-  return { user, error };
+  const user = getStoredUser();
+  return { user, error: null };
 };
 
 export const getSession = async () => {
-  const { data: { session }, error } = await supabase.auth.getSession();
-  return { session, error };
+  const user = getStoredUser();
+  return { session: user ? { user } : null, error: null };
 };

@@ -67,22 +67,8 @@ import Layout from '../../layouts/Layout.astro';
           />
         </div>
         
-        <div>
-          <label for="ramadan_start" class="block text-sm font-medium text-[var(--color-text)] mb-1">
-            Data e fillimit të Ramazanit
-          </label>
-          <!-- (#20) Default value for Ramadan start date -->
-          <input 
-            type="date" 
-            id="ramadan_start" 
-            name="ramadan_start" 
-            class="input"
-            value="2026-02-28"
-          />
-          <p class="text-xs text-[var(--color-text-secondary)] mt-1">
-            Opsionale - për të llogaritur "Dita e sotme"
-          </p>
-        </div>
+        <!-- Ramazan 2026 starts fixed on Feb 19 - no user input needed -->
+        <input type="hidden" name="ramadan_start" value="2026-02-19" />
         
         <!-- Error message -->
         <div id="error-message" class="hidden text-sm text-[var(--color-error)] bg-[var(--color-primary)]/10 dark:bg-[var(--color-primary)]/20 p-3 rounded-lg">
@@ -149,9 +135,8 @@ import Layout from '../../layouts/Layout.astro';
         return;
       }
       
-      successDiv.textContent = 'Llogaria u krijua! Kontrollo emailin për të konfirmuar.';
-      successDiv.classList.remove('hidden');
-      form.reset();
+      // Redirect to app after successful signup
+      window.location.href = '/app';
     } catch (e) {
       // Network error (#10)
       errorDiv.textContent = 'Nuk ka lidhje me internetin. Provo përsëri.';
