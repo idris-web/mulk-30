@@ -77,6 +77,34 @@
   color: var(--color-text);
 }
 
+/* Body text classes */
+.text-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.text-body-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* Label classes (min 14px for accessibility) */
+.text-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.text-label-sm {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /* Base styles — iOS webapp-konform */
 html {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
@@ -358,7 +386,7 @@ button, a, .nav-item, .btn, input, select, textarea {
   gap: 0.25rem;
   padding: 0.75rem 1rem;
   color: var(--color-text-secondary);
-  transition: all 150ms ease;
+  transition: color 150ms ease, transform 150ms ease;
   position: relative;
 }
 
