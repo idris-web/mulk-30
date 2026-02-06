@@ -1,0 +1,106 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "Mulk-30 Design Tokens",
+  "version": "1.0.0",
+  "colors": {
+    "primary": {
+      "default": { "light": "#088395", "dark": "#0A9DAD" },
+      "light": { "light": "#0A9DAD", "dark": "#3DBDCD" },
+      "dark": { "light": "#09637E", "dark": "#088395" }
+    },
+    "accent": { "light": "#7AB2B2", "dark": "#7AB2B2" },
+    "step": {
+      "listen": { "light": "#10B981", "dark": "#34D399" },
+      "read": { "light": "#0EA5E9", "dark": "#38BDF8" },
+      "recite": { "light": "#8B5CF6", "dark": "#A78BFA" }
+    },
+    "background": { "light": "#EBF4F6", "dark": "#051E26" },
+    "surface": { "light": "#FFFFFF", "dark": "#0A323D" },
+    "header": { "light": "#09637E", "dark": "#051E26" },
+    "text": {
+      "primary": { "light": "#1A3C40", "dark": "#EBF4F6" },
+      "secondary": { "light": "#3D6A70", "dark": "#A0D0D0" }
+    },
+    "border": { "light": "#B8D4D8", "dark": "#1A5A6A" },
+    "semantic": {
+      "success": { "light": "#10B981", "dark": "#34D399" },
+      "error": { "light": "#EF4444", "dark": "#F87171" }
+    }
+  },
+  "radius": {
+    "sm": "0.5rem",
+    "md": "0.75rem",
+    "lg": "1rem",
+    "xl": "1.5rem",
+    "full": "9999px"
+  },
+  "typography": {
+    "headings": {
+      "page": { "size": "1.5rem", "weight": 700, "tracking": "-0.01em" },
+      "section": { "size": "1.125rem", "weight": 600 },
+      "card": { "size": "1rem", "weight": 600 }
+    },
+    "body": {
+      "default": { "size": "1rem", "lineHeight": 1.6 },
+      "sm": { "size": "0.875rem", "lineHeight": 1.5 }
+    },
+    "label": {
+      "default": { "size": "0.875rem", "weight": 500 },
+      "sm": { "size": "0.75rem", "weight": 500, "transform": "uppercase", "tracking": "0.05em" }
+    },
+    "arabic": {
+      "fontFamily": "UthmanicHafs, Amiri, Scheherazade New, Traditional Arabic, serif",
+      "lineHeight": 2.2,
+      "sizes": {
+        "default": "1rem",
+        "large": "2rem",
+        "xl": "2.5rem"
+      }
+    }
+  },
+  "spacing": {
+    "unit": "0.25rem",
+    "scale": {
+      "1": "0.25rem",
+      "2": "0.5rem",
+      "3": "0.75rem",
+      "4": "1rem",
+      "5": "1.25rem",
+      "6": "1.5rem",
+      "8": "2rem",
+      "10": "2.5rem",
+      "12": "3rem",
+      "16": "4rem",
+      "24": "6rem"
+    }
+  },
+  "shadows": {
+    "none": "none",
+    "modal": "0 4px 16px rgba(0,0,0,0.1)"
+  },
+  "transitions": {
+    "fast": { "duration": "150ms", "easing": "ease-out" },
+    "normal": { "duration": "200ms", "easing": "ease-out" },
+    "slow": { "duration": "300ms", "easing": "ease-out" },
+    "properties": ["background-color", "border-color", "color", "transform", "opacity"]
+  },
+  "touchTargets": {
+    "minimum": "44px",
+    "iconButton": "44px"
+  },
+  "zIndex": {
+    "stickyHeader": 10,
+    "floatingCta": 20,
+    "actionBar": 40,
+    "modal": 50
+  },
+  "breakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px"
+  },
+  "containers": {
+    "content": "512px"
+  }
+}
