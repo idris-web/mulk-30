@@ -528,8 +528,31 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     document.body.style.overflow = '';
     if (audio) { audio.pause(); audio = null; }
     isPlaying = false;
-    // Clear highlights
+    clearHighlights();
+  }
+  
+  function clearHighlights() {
     document.querySelectorAll('#player-arabic .arabic-word').forEach(w => w.classList.remove('past'));
+  }
+  
+  function updateHighlight(currentTime: number, duration: number) {
+    if (duration <= 0) return;
+    
+    const arabicWords = document.querySelectorAll('#player-arabic .arabic-word');
+    if (arabicWords.length === 0) return;
+    
+    // Calculate which word we're at based on audio progress
+    const progress = currentTime / duration;
+    const targetIndex = Math.floor(progress * arabicWords.length);
+    
+    // Highlight all words up to current position
+    arabicWords.forEach((word, i) => {
+      if (i <= targetIndex) {
+        word.classList.add('past');
+      } else {
+        word.classList.remove('past');
+      }
+    });
   }
   
   function playCurrentInQueue() {
@@ -545,7 +568,9 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     
     const currentAyah = ayahQueue[queueIndex];
     const verse = MULK_VERSES.find(v => v.dayIndex === currentAyah);
-    const totalAyahs = Math.abs(selectedEnd - selectedStart) + 1;
+    
+    // Clear highlights from previous ayah FIRST
+    clearHighlights();
     
     // Reset translation toggle state on new ayah
     showingTranslation = false;
@@ -574,13 +599,20 @@ import { MULK_VERSES } from '../../data/mulk-verses';
     const totalInQueue = ayahQueue.length;
     const progressPercent = (progressInQueue / totalInQueue) * 100;
     
-    // Update Step Indicator Card (top) - shows position in queue (1/30, 2/30, etc.)
+    // Calculate actual ayah count (without repetitions)
+    const totalAyahCount = Math.abs(selectedEnd - selectedStart) + 1;
+    // Which ayah in the current pass (1-based)
+    const currentAyahInPass = (queueIndex % totalAyahCount) + 1;
+    // Which repetition pass (1-based)
+    const currentPass = Math.floor(queueIndex / totalAyahCount) + 1;
+    
+    // Update Step Indicator Card (top) - shows position in current pass (1/15, 2/15, etc.)
     const currentAyahDisplay = document.getElementById('current-ayah-display');
     const totalAyahsDisplay = document.getElementById('total-ayahs-display');
     const sessionProgressBar = document.getElementById('session-progress-bar') as HTMLElement;
     
-    if (currentAyahDisplay) currentAyahDisplay.textContent = String(progressInQueue);
-    if (totalAyahsDisplay) totalAyahsDisplay.textContent = String(totalInQueue);
+    if (currentAyahDisplay) currentAyahDisplay.textContent = String(currentAyahInPass);
+    if (totalAyahsDisplay) totalAyahsDisplay.textContent = String(totalAyahCount);
     if (sessionProgressBar) sessionProgressBar.style.width = `${progressPercent}%`;
     
     // Update Action Bar (bottom)
@@ -602,24 +634,17 @@ import { MULK_VERSES } from '../../data/mulk-verses';
       if (timeDisplay) {
         timeDisplay.textContent = formatTime(audio.currentTime / speed);
       }
-      // Update word highlighting
-      const arabicWords = document.querySelectorAll('#player-arabic .arabic-word');
-      if (arabicWords.length > 0 && audio.duration > 0) {
-        const progress = audio.currentTime / audio.duration;
-        const targetIndex = Math.floor(progress * arabicWords.length);
-        arabicWords.forEach((word, i) => {
-          if (i <= targetIndex) {
-            word.classList.add('past');
-          } else {
-            word.classList.remove('past');
-          }
-        });
+      // Update word highlighting (same as day page)
+      if (audio.duration > 0) {
+        updateHighlight(audio.currentTime, audio.duration);
       }
     });
     
     audio.addEventListener('ended', () => {
       queueIndex++;
       if (queueIndex < ayahQueue.length) {
+        // Clear highlights before next ayah, with small delay for smooth transition
+        clearHighlights();
         setTimeout(() => playCurrentInQueue(), 300);
       } else {
         closePlayer();
