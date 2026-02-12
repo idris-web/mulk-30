@@ -85,3 +85,26 @@ export const getSession = async () => {
   const user = getStoredUser();
   return { session: user ? { user } : null, error: null };
 };
+
+// OAuth sign-in (demo: auto-create user and redirect)
+export const signInWithGoogle = async () => {
+  const user: User = {
+    id: crypto.randomUUID(),
+    email: 'google-user@demo.com',
+    name: 'Google User',
+    created_at: new Date().toISOString()
+  };
+  setStoredUser(user);
+  window.location.href = '/app';
+};
+
+export const signInWithApple = async () => {
+  const user: User = {
+    id: crypto.randomUUID(),
+    email: 'apple-user@demo.com',
+    name: 'Apple User',
+    created_at: new Date().toISOString()
+  };
+  setStoredUser(user);
+  window.location.href = '/app';
+};
