@@ -1,120 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { SURAH_INFO } from '../data/mulk-verses';
 ---
 
-<!-- (#13) Landing page follows system preference for dark mode — no toggle needed -->
-<Layout title="Sfida 30-Ditore">
-  <div class="min-h-screen flex flex-col">
-    <!-- Hero Section -->
-    <main class="flex-1 flex flex-col items-center justify-center px-4 py-12">
-      <div class="text-center max-w-md mx-auto">
-        <!-- Logo/Icon (#7: fixed bg-opacity → Tailwind v4 syntax) -->
-        <div class="w-24 h-24 mx-auto mb-8 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center">
-          <span class="arabic text-4xl text-[var(--color-primary)]">الملك</span>
-        </div>
-        
-        <!-- Title -->
-        <h1 class="text-3xl font-bold mb-2 text-[var(--color-text)]">
-          Mulk 30
-        </h1>
-        <p class="text-lg text-[var(--color-text-secondary)] mb-2">
-          Sfida 30-Ditore e Ramazanit
-        </p>
-        <p class="text-sm text-[var(--color-text-secondary)] mb-8">
-          Sureja {SURAH_INFO.nameAlbanian} • {SURAH_INFO.totalVerses} ajete
-        </p>
-        
-        <!-- Description -->
-        <p class="text-[var(--color-text-secondary)] mb-8 leading-relaxed">
-          Mëso një ajet çdo ditë të Ramazanit. Dëgjo, lexo dhe përparo 
-          në rrugën tënde për ta përfunduar Suren El-Mulk.
-        </p>
-        
-        <!-- CTA Buttons -->
-        <div class="space-y-3">
-          <a 
-            href="/auth/signup" 
-            class="btn btn-primary w-full text-lg py-4"
-          >
-            Fillo Sfidën
-          </a>
-          <a 
-            href="/auth/login" 
-            class="btn btn-secondary w-full"
-          >
-            Kam llogari
-          </a>
-        </div>
+<Layout title="Mulk 30">
+  <div class="min-h-screen flex flex-col items-center justify-center px-6 py-12 bg-[var(--color-background)]">
+    <div class="w-full max-w-sm text-center">
+      
+      <!-- Logo -->
+      <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center">
+        <span class="arabic text-4xl text-[var(--color-primary)]">الملك</span>
       </div>
-    </main>
-    
-    <!-- Features Section -->
-    <section class="px-4 py-12 bg-[var(--color-surface)]">
-      <div class="max-w-md mx-auto">
-        <h2 class="heading-section text-center mb-8">
-          Çfarë përfshin sfida?
-        </h2>
-        
-        <div class="space-y-4">
-          <!-- (#7: all bg-opacity-10 → /10 syntax, #14: card not card-interactive for non-clickable) -->
-          <div class="card flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="heading-card">Një ajet në ditë</h3>
-              <p class="text-sm text-[var(--color-text-secondary)]">30 ajete për 30 ditë - ritmi perfekt për Ramazan</p>
-            </div>
-          </div>
-          
-          <div class="card flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
-              <!-- Headphones icon for Audio -->
-              <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 18v-6a9 9 0 0118 0v6"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3v5zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3v5z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="heading-card">Audio me lexues të njohur</h3>
-              <p class="text-sm text-[var(--color-text-secondary)]">Dëgjo dhe mëso shqiptimin e saktë</p>
-            </div>
-          </div>
-          
-          <div class="card flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
-              <!-- Languages/translate icon for word-by-word -->
-              <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="heading-card">Fjalë për fjalë</h3>
-              <p class="text-sm text-[var(--color-text-secondary)]">Kuptoje çdo fjalë arabisht me përkthimin shqip</p>
-            </div>
-          </div>
-          
-          <div class="card flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="heading-card">Ndiq progresin</h3>
-              <p class="text-sm text-[var(--color-text-secondary)]">Shëno ditët e përfunduara dhe mbaj streakun</p>
-            </div>
-          </div>
-        </div>
+      
+      <!-- Title -->
+      <h1 class="text-3xl font-bold text-[var(--color-text)] mb-3">Mulk 30</h1>
+      <p class="text-lg text-[var(--color-text-secondary)] mb-12">Mëso Suren Mulk për 30 ditë</p>
+      
+      <!-- CTA Buttons -->
+      <div class="space-y-3">
+        <a href="/app" class="btn btn-primary w-full text-lg py-4">
+          Fillo Sfidën
+        </a>
+        <a href="/auth/login" class="btn btn-secondary w-full py-4">
+          Kam llogari
+        </a>
       </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="px-4 py-6 text-center text-sm text-[var(--color-text-secondary)]">
-      <p>© 2026 Lensa Labs</p>
-    </footer>
+      
+      <!-- Footer -->
+      <p class="mt-12 text-xs text-[var(--color-text-secondary)]">
+        Nga Përkujtuesi Ditor
+      </p>
+      
+    </div>
   </div>
 </Layout>
